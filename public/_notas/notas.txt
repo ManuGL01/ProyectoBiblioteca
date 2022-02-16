@@ -9,6 +9,9 @@ Atributos -> comentario/descripción, autor del comentario, libro, fecha
 Libros:
 Atributos -> Título, autor,
 
+Cursos
+Atributos -> nombrelargo, abreviatura, año
+
 Relaciones:
 
 Relacion usuario-libro: evaluar (n-m), comentar (1-n), leer, 
