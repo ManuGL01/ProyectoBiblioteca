@@ -1,0 +1,19 @@
+Entidades:
+
+Usuarios:
+Atributos -> DNI, nombre, curso, correo, roles/tipo (alumno y profesor del centro)
+
+Comentarios:
+Atributos -> comentario/descripción, autor del comentario, libro, fecha
+
+Libros:
+Atributos -> Título, autor,
+
+Relaciones:
+
+Relacion usuario-libro: evaluar (n-m), comentar (1-n), leer, 
+
+Relacion comentario-libro: libroComentado(n-1)
+
+Administrador:
+-Gestión de usuarios -> rol, curso, usuarios
