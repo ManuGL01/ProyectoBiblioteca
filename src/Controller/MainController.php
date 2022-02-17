@@ -24,14 +24,14 @@ class MainController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        if($this->isGranted('ROLE_ADMIN'))
+        // if($this->isGranted('ROLE_ADMIN'))
         return $this->redirectToRoute('admin', [], Response::HTTP_SEE_OTHER);
-        else {
-            return $this->render('main/index.html.twig', [
-                'user' => $this->getUser(),
-                'last_username' => $lastUsername, 
-                'error' => $error
-            ]);
-        }
+        // else {
+        //     return $this->render('main/index.html.twig', [
+        //         'user' => $this->getUser(),
+        //         'last_username' => $lastUsername, 
+        //         'error' => $error
+        //     ]);
+        // }
     }
 }

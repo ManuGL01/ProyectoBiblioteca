@@ -10,7 +10,7 @@ Libros:
 Atributos -> Título, autor,
 
 Cursos
-Atributos -> nombrelargo, abreviatura, año
+Atributos -> nombrelargo, abreviatura, edicion
 
 Relaciones:
 

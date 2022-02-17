@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -27,6 +29,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string')]
     private $password;
+
+    #[ORM\Column(type: 'string', length: 9)]
+    private $DNI;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $email;
+
+    #[ORM\ManyToOne(targetEntity: Curso::class, inversedBy: 'alumnos')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $curso;
+
+    #[ORM\ManyToMany(targetEntity: Libro::class, inversedBy: 'leidopor')]
+    private $librosLeidos;
+
+    #[ORM\OneToMany(mappedBy: 'autor', targetEntity: Comentario::class)]
+    private $comentarios;
+
+    public function __construct()
+    {
+        $this->librosLeidos = new ArrayCollection();
+        $this->comentarios = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -96,5 +120,95 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getDNI(): ?string
+    {
+        return $this->DNI;
+    }
+
+    public function setDNI(string $DNI): self
+    {
+        $this->DNI = $DNI;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getCurso(): ?Curso
+    {
+        return $this->curso;
+    }
+
+    public function setCurso(?Curso $curso): self
+    {
+        $this->curso = $curso;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Libro[]
+     */
+    public function getLibrosLeidos(): Collection
+    {
+        return $this->librosLeidos;
+    }
+
+    public function addLibrosLeido(Libro $librosLeido): self
+    {
+        if (!$this->librosLeidos->contains($librosLeido)) {
+            $this->librosLeidos[] = $librosLeido;
+        }
+
+        return $this;
+    }
+
+    public function removeLibrosLeido(Libro $librosLeido): self
+    {
+        $this->librosLeidos->removeElement($librosLeido);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comentario[]
+     */
+    public function getComentarios(): Collection
+    {
+        return $this->comentarios;
+    }
+
+    public function addComentario(Comentario $comentario): self
+    {
+        if (!$this->comentarios->contains($comentario)) {
+            $this->comentarios[] = $comentario;
+            $comentario->setAutor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComentario(Comentario $comentario): self
+    {
+        if ($this->comentarios->removeElement($comentario)) {
+            // set the owning side to null (unless already changed)
+            if ($comentario->getAutor() === $this) {
+                $comentario->setAutor(null);
+            }
+        }
+
+        return $this;
     }
 }
