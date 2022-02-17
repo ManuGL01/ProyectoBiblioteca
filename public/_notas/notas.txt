@@ -1,0 +1,37 @@
+Entidades:
+
+Usuarios:
+Atributos -> DNI, nombre, curso, correo, roles/tipo (alumno y profesor del centro)
+
+Comentarios:
+Atributos -> comentario/descripción, autor del comentario, libro, fecha
+
+Libros:
+Atributos -> Título, autor,
+
+Cursos
+Atributos -> nombrelargo, abreviatura, año
+
+Relaciones:
+
+Relacion usuario-libro: evaluar (n-m), comentar (1-n), leer, 
+
+Relacion comentario-libro: libroComentado(n-1)
+
+Administrador:
+-Gestión de usuarios -> rol, curso, usuarios
+
+
+Diseño
+colores principales: verde blanco
+
+vistas: control de comentarios,
+ subir libros dos form (individual y varios), 
+editar libros,
+ login, 
+indexlibros, 
+admin principal , cambio de contraseña (por decidir)
+register usuarios (admin) , 
+modificar cursos, show libros, 
+listado usuarios (select de cursos,|| editar cursos y borrar), dos vistas diferentes
+nuevo curso
