@@ -35,7 +35,7 @@ class LibroType extends AbstractType
                     'mimeTypesMessage' => 'Por favor, sube un archivo epub o libro electrónico',
                 ])
             ],
-            'class' => 'libroForm',
+                
         ])
     ;
         
