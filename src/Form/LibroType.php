@@ -14,7 +14,7 @@ class LibroType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('Libro', FileType::class, [
+        ->add('book', FileType::class, [
             'label' => 'Libro electrónico',
 
             // unmapped means that this field is not associated to any entity property
@@ -47,6 +47,7 @@ class LibroType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Libro::class,
+            'allow_extra_fields' => true,   
         ]);
     }
 }

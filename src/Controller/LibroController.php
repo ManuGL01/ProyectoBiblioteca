@@ -10,6 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/libro')]
 class LibroController extends AbstractController
@@ -23,11 +26,13 @@ class LibroController extends AbstractController
     }
 
     #[Route('/new', name: 'libro_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $libro = new Libro();
         $form = $this->createForm(LibroType::class, $libro);
         $form->handleRequest($request);
+
+        $bookFile = $form->get('book')->getData();
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -38,12 +43,13 @@ class LibroController extends AbstractController
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$bookFile->guessExtension();
+                $datosLibro = explode("-", $newFilename);
                 
 
                 // Move the file to the directory where brochures are stored
                 try {
                     $bookFile->move(
-                        $this->getParameter('books_directory').primeraletra,
+                        $this->getParameter('books_directory').strtoupper(substr($datosLibro[0], 0, 1)),
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -52,8 +58,11 @@ class LibroController extends AbstractController
 
                 // updates the 'imageFilename' property to store the PDF file name
                 // instead of its contents
-
+                $libro->setUrl($newFilename);
             }
+            $libro->setTitulo($datosLibro[0]);
+            $libro->setAutor($datosLibro[1]);
+
             $entityManager->persist($libro);
             $entityManager->flush();
 
