@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     books_directory: '%kernel.project_dir%/public/books/'
+    bookscsv_directory: '%kernel.project_dir%/public/bookscsv/'
+
 services:
     # default configuration for services in *this* file
     _defaults:

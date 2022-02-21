@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Libro;
 use App\Form\LibroType;
+use App\Form\LibrosType;
 use App\Repository\LibroRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,8 +33,13 @@ class LibroController extends AbstractController
         $form = $this->createForm(LibroType::class, $libro);
         $form->handleRequest($request);
 
-        $bookFile = $form->get('book')->getData();
+        $multipleForm =$this->createForm(LibrosType::class, $libro);
+        $multipleForm->handleRequest($request);
 
+        $bookFile = $form->get('book')->getData();
+        $multipleBookFile = $multipleForm->get('books')->getData();
+
+        // UN SOLO LIBRO FORM
         if ($form->isSubmitted() && $form->isValid()) {
 
             // this condition is needed because the 'brochure' field is not required
@@ -69,9 +75,50 @@ class LibroController extends AbstractController
             return $this->redirectToRoute('libro_new', [], Response::HTTP_SEE_OTHER);
         }
 
+        // VARIOS LIBROS FORM
+        if ($multipleForm->isSubmitted() && $multipleForm->isValid()) {
+
+            // this condition is needed because the 'brochure' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($multipleBookFile) {
+                $originalFilename = pathinfo($multipleBookFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$multipleBookFile->guessExtension();
+ 
+                // Move the file to the directory where brochures are stored
+                try {
+                    $multipleBookFile->move(
+                        $this->getParameter('bookscsv_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'imageFilename' property to store the PDF file name
+                // instead of its contents
+            }
+            if (($open = fopen("bookscsv/" . $newFilename , "r"))!==false) {
+                while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {  
+                    $libro = new Libro();
+                    $libro->setTitulo($data[0]);
+                    $libro->setAutor($data[1]);
+                    $libro->setUrl($data[0]);  
+                    $entityManager->persist($libro);
+                    $entityManager->flush();
+                }
+            }
+            fclose($open);
+
+
+            // return $this->redirectToRoute('libro_new', [], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->renderForm('admin/new.html.twig', [
             'libro' => $libro,
             'form' => $form,
+            'multipleForm' => $multipleForm,
         ]);
     }
 
