@@ -30,10 +30,34 @@ class LibroController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // this condition is needed because the 'brochure' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($bookFile) {
+                $originalFilename = pathinfo($bookFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$bookFile->guessExtension();
+                
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $bookFile->move(
+                        $this->getParameter('books_directory').primeraletra,
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'imageFilename' property to store the PDF file name
+                // instead of its contents
+
+            }
             $entityManager->persist($libro);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('libro_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/new.html.twig', [
