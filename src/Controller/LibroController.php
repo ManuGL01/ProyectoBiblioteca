@@ -43,8 +43,8 @@ class LibroController extends AbstractController
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$bookFile->guessExtension();
-                $datosLibro = explode("-", $newFilename);
-                
+                $datosLibro = explode("-", $originalFilename);
+
 
                 // Move the file to the directory where brochures are stored
                 try {
