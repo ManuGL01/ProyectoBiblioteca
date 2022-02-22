@@ -7,5 +7,9 @@
 
     {{ include('libro/_form.html.twig') }}
 
-    <a href="{{ path('libro_index') }}">back to list</a>
+    <h1>Subir varios libros</h1>
+
+    {{ include('libro/multiple_form.html.twig') }}
+
+    <a href="{{ path('admin') }}">Volver a admin</a>
 {% endblock %}
