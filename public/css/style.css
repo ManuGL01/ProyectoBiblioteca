@@ -1,5 +1,12 @@
 body {
-  background-color: #f0f0f0;
+  background-color: #fafafa;
+}
+
+header {
+  display: flex;
+}
+header .bg-light {
+  background-color: #690707 !important;
 }
 
 /*# sourceMappingURL=style.css.map */

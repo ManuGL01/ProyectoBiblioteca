@@ -30,8 +30,9 @@ vistas: control de comentarios,
 editar libros,
  login, 
 indexlibros, 
-admin principal , cambio de contraseña (por decidir)
-register usuarios (admin) , 
+admin principal , cambio de contraseña
+register usuarios (admin) 
 modificar cursos, show libros, 
 listado usuarios (select de cursos,|| editar cursos y borrar), dos vistas diferentes
 nuevo curso
+Menu de usuario: ajustes, logout, 
