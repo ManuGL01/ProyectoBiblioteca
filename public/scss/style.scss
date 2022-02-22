@@ -1,4 +1,6 @@
 @import './components/base';
 body{
-    background-color:$color-secondary;
+    background-color:$bg-color;
 }
+
+@import './components/header';
