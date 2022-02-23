@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Repository\ComentarioRepository;
 use App\Repository\LibroRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,7 +26,7 @@ class APIController extends AbstractController
     }
 
     #[Route('/login', name: 'api_login')]
-    public function login(#[CurrentUser] ?User $user): Response
+    public function login(): Response
     {
         return $this->json([
             'user' => $this->getUser() ? $this->getUser()->getId() : null]
