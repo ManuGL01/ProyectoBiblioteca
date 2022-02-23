@@ -1,6 +1,21 @@
 @import './components/base';
 body{
     background-color:$bg-color;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    
 }
 
+<<<<<<< HEAD
 @import './components/header';
+@import './components/footer';
+=======
+
+@import './components/header';
+>>>>>>> juande
