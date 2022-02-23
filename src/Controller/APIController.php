@@ -17,15 +17,13 @@ class APIController extends AbstractController
     #[Route('/libros', name: 'api_libros')]
     public function index(LibroRepository $libroRepository):Response
     {
-        /* $libros = $libroRepository
-            ->findBy(
-                ['hidden' => 0]
-            ); */
+        $libros = $libroRepository
+            ->findAll();
 
-        //return $this->json($libros, Response::HTTP_OK, [], ['groups' => 'post1']);
-        return $this->json([
+        return $this->json($libros, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
+        /* return $this->json([
             'message' => 'OK',
-        ]);
+        ]); */
     }
 
     #[Route('/login', name: 'api_login')]
