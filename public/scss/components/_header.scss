@@ -4,4 +4,26 @@ header{
     & .bg-light {
         background-color: $color-primary!important;
     }
+    & .navbar-light{
+        & .navbar-toggler-icon {
+            background-image: url();
+        }
+        & .navbar-nav .nav-link{
+            color: $color-white;
+        }
+    }
+    & #logo{
+        width:5rem;
+        border-radius:20%;
+    }
+    & .navbar-nav{
+        display:flex;
+        justify-content:flex-end;
+        width:10rem;
+        margin:0 0 0 auto;
+
+        & .nav-link{
+            text-align:end;
+        }
+    }
 }
