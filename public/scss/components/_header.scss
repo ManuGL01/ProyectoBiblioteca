@@ -1,4 +1,7 @@
 header{
     display:flex;
     
+    & .bg-light {
+        background-color: $color-primary!important;
+    }
 }
