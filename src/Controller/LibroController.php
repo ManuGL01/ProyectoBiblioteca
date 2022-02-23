@@ -49,10 +49,11 @@ class LibroController extends AbstractController
                 foreach ($multipleBook as $multipleBookFile) {
                 $libro = new Libro();
                 $originalFilename = pathinfo($multipleBookFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // $originalFilename->replaceMatches('/[^._,]++/', ' ');
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$multipleBookFile->guessExtension();
-                $datosLibro = explode("-", $originalFilename);
+                // $datosLibro = explode("-", $originalFilename);
 
                 // Move the file to the directory where brochures are stored
                 
@@ -60,9 +61,12 @@ class LibroController extends AbstractController
                         $this->getParameter('books_directory').strtoupper(substr($datosLibro[0], 0, 1)),
                         $newFilename
                     );
-                    $libro->setTitulo($datosLibro[0]);
-                    $libro->setAutor($datosLibro[1]);
-                    $libro->setUrl($newFilename);
+                    $epub = new Epubli\Epub\Epub($this->getParameter('books_directory').strtoupper(substr($datosLibro[0], 0, 1)),
+                    $newFilename);
+                    
+                    // $libro->setTitulo($datosLibro[0]);
+                    // $libro->setAutor($datosLibro[1]);
+                    // $libro->setUrl($newFilename);
         
                     $entityManager->persist($libro);
                     $entityManager->flush();
