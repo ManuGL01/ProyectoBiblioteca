@@ -20,14 +20,12 @@ class APIController extends AbstractController
             ->findAll();
 
         return $this->json($libros, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
-        /* return $this->json([
-            'message' => 'OK',
-        ]); */
     }
 
     #[Route('/login', name: 'api_login')]
     public function login(): Response
     {
+        // a jalal le dice que getId() no existe?
         return $this->json([
             'user' => $this->getUser() ? $this->getUser()->getId() : null]
         );
