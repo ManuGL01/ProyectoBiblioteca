@@ -33,92 +33,102 @@ class LibroController extends AbstractController
         $form = $this->createForm(LibroType::class, $libro);
         $form->handleRequest($request);
 
-        $multipleForm =$this->createForm(LibrosType::class, $libro);
-        $multipleForm->handleRequest($request);
+        // $multipleForm =$this->createForm(LibrosType::class, $libro);
+        // $multipleForm->handleRequest($request);
 
-        $bookFile = $form->get('book')->getData();
-        $multipleBookFile = $multipleForm->get('books')->getData();
+        // $bookFile = $form->get('book')->getData();
+        $multipleBook = $form->get('book')->getData();
 
         // UN SOLO LIBRO FORM
         if ($form->isSubmitted() && $form->isValid()) {
 
             // this condition is needed because the 'brochure' field is not required
             // so the PDF file must be processed only when a file is uploaded
-            if ($bookFile) {
-                $originalFilename = pathinfo($bookFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$bookFile->guessExtension();
-                $datosLibro = explode("-", $originalFilename);
-
-
-                // Move the file to the directory where brochures are stored
+            if ($multipleBook) {
                 try {
-                    $bookFile->move(
-                        $this->getParameter('books_directory').strtoupper(substr($datosLibro[0], 0, 1)),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
-
-                // updates the 'imageFilename' property to store the PDF file name
-                // instead of its contents
-                $libro->setUrl($newFilename);
-            }
-            $libro->setTitulo($datosLibro[0]);
-            $libro->setAutor($datosLibro[1]);
-
-            $entityManager->persist($libro);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('libro_new', [], Response::HTTP_SEE_OTHER);
-        }
-
-        // VARIOS LIBROS FORM
-        if ($multipleForm->isSubmitted() && $multipleForm->isValid()) {
-
-            // this condition is needed because the 'brochure' field is not required
-            // so the PDF file must be processed only when a file is uploaded
-            if ($multipleBookFile) {
+                foreach ($multipleBook as $multipleBookFile) {
+                $libro = new Libro();
                 $originalFilename = pathinfo($multipleBookFile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$multipleBookFile->guessExtension();
- 
+                $datosLibro = explode("-", $originalFilename);
+
                 // Move the file to the directory where brochures are stored
-                try {
+                
                     $multipleBookFile->move(
-                        $this->getParameter('bookscsv_directory'),
+                        $this->getParameter('books_directory').strtoupper(substr($datosLibro[0], 0, 1)),
                         $newFilename
                     );
+                    $libro->setTitulo($datosLibro[0]);
+                    $libro->setAutor($datosLibro[1]);
+                    $libro->setUrl($newFilename);
+        
+                    $entityManager->persist($libro);
+                    $entityManager->flush();
+                }
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
 
                 // updates the 'imageFilename' property to store the PDF file name
                 // instead of its contents
+                
             }
-            if (($open = fopen("bookscsv/" . $newFilename , "r"))!==false) {
-                while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {  
-                    $libro = new Libro();
-                    $libro->setTitulo($data[0]);
-                    $libro->setAutor($data[1]);
-                    $libro->setUrl($data[0]);  
-                    $entityManager->persist($libro);
-                    $entityManager->flush();
-                }
-            }
-            fclose($open);
 
 
-            // return $this->redirectToRoute('libro_new', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('libro_new', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/new.html.twig', [
+        // VARIOS LIBROS FORM INTENTO DE CSV
+        // if ($multipleForm->isSubmitted() && $multipleForm->isValid()) {
+
+        //     // this condition is needed because the 'brochure' field is not required
+        //     // so the PDF file must be processed only when a file is uploaded
+        //     if ($multipleBook) {
+        //         try {
+        //             foreach ($multipleBook as $multipleBookFile) {
+        //         $originalFilename = pathinfo($multipleBookFile->getClientOriginalName(), PATHINFO_FILENAME);
+        //         // this is needed to safely include the file name as part of the URL
+        //         $safeFilename = $slugger->slug($originalFilename);
+        //         $newFilename = $safeFilename.'-'.uniqid().'.'.$multipleBookFile->guessExtension();
+        //         $datosLibro = explode("-", $originalFilename);
+ 
+        //         // Move the file to the directory where brochures are stored
+                
+        //             $multipleBookFile->move(
+        //                 $this->getParameter('bookscsv_directory').strtoupper(substr($datosLibro[0], 0, 1)),
+        //                 $newFilename
+        //             );
+        //         }
+        //     }
+        //          catch (FileException $e) {
+        //             // ... handle exception if something happens during file upload
+        //         }
+
+        //         // updates the 'imageFilename' property to store the PDF file name
+        //         // instead of its contents
+        //     }
+        //     // if (($open = fopen("bookscsv/" . $newFilename , "r"))!==false) {
+        //     //     while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {  
+        //     //         $libro = new Libro();
+        //     //         $libro->setTitulo($data[0]);
+        //     //         $libro->setAutor($data[1]);
+        //     //         $libro->setUrl($data[0]);  
+        //     //         $entityManager->persist($libro);
+        //     //         $entityManager->flush();
+        //     //     }
+        //     // }
+        //     // fclose($open);
+
+
+        //     // return $this->redirectToRoute('libro_new', [], Response::HTTP_SEE_OTHER);
+        // }
+
+        return $this->renderForm('admin/newBook.html.twig', [
             'libro' => $libro,
             'form' => $form,
-            'multipleForm' => $multipleForm,
+            // 'multipleForm' => $multipleForm,
         ]);
     }
 
