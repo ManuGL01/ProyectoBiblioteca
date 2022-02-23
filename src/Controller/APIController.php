@@ -28,8 +28,9 @@ class APIController extends AbstractController
     #[Route('/login', name: 'api_login')]
     public function login(): Response
     {
-        return $this->json([
+        // comentado porque peta y aún no sé por qué
+        /* return $this->json([
             'user' => $this->getUser() ? $this->getUser()->getId() : null]
-        );
+        ); */
     }
 }
