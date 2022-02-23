@@ -6,7 +6,26 @@ header {
   display: flex;
 }
 header .bg-light {
-  background-color: #690707 !important;
+  background-color: #a10a0a !important;
+}
+header .navbar-light .navbar-toggler-icon {
+  background-image: url();
+}
+header .navbar-light .navbar-nav .nav-link {
+  color: #FFF;
+}
+header #logo {
+  width: 5rem;
+  border-radius: 20%;
+}
+header .navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+  width: 10rem;
+  margin: 0 0 0 auto;
+}
+header .navbar-nav .nav-link {
+  text-align: end;
 }
 
 /*# sourceMappingURL=style.css.map */
