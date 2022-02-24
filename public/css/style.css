@@ -17,8 +17,10 @@ header {
 header .bg-light {
   background-color: #a10a0a !important;
 }
-header .navbar-light .navbar-toggler-icon {
-  background-image: url();
+header .navbar-light {
+  /* & .navbar-toggler-icon {
+      background-image: url();
+  } */
 }
 header .navbar-light .navbar-nav .nav-link {
   color: #FFF;
