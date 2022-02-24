@@ -5,12 +5,6 @@ body {
   min-height: 100vh;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-}
-
 header {
   display: flex;
 }
@@ -70,6 +64,22 @@ footer #fonoimg {
 }
 footer a {
   color: #FFF;
+}
+
+.adminIndex {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  padding: 1rem 3rem 2rem;
+}
+.adminIndex .nav .nav-item {
+  border-right: 2px solid #a10a0a;
+}
+.adminIndex .nav .nav-item .nav-link {
+  padding: 0rem 1rem;
+}
+.adminIndex .mainContent {
+  margin: 2rem 0 0;
 }
 
 /*# sourceMappingURL=style.css.map */
