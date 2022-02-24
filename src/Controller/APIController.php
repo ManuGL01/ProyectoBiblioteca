@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comentario;
 use App\Repository\LibroRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,30 +23,30 @@ class APIController extends AbstractController
         return $this->json($libros, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
     }
 
-    #[Route('/addcomment', name: 'api_add_comment')]
-    public function addComment(PostRepository $postRepository, EntityManagerInterface $entityManager, Request $request):Response
+    #[Route('/anadirComentario', name: 'api__comment')]
+    public function addComment(LibroRepository $libroRepository, EntityManagerInterface $entityManager, Request $request):Response
     {
         $data = json_decode($request->getContent(), true);
-        $postId = $data['postId'];
-        $content = $data['content'];
+        $libroId = $data['libroId']; //viene del json
+        $contenidoComentario = $data['comentario']; //viene del json
         
-        $comment = new Comment();
-        $post = $postRepository
+        $comentario = new Comentario();
+        $libro = $libroRepository
             ->findOneBy(
-                ['id' => $postId]
+                ['id' => $libroId]
             );
 
-        $comment->setPost($post);
-        $comment->setAuthor($this->getUser());
-        $comment->setHidden(false);
-        $comment->setContent($content);
+        $comentario->setLibro($libro);
+        $comentario->setAutor($this->getUser());
+        $comentario->setFechaPublicacion(new \DateTime());
+        $comentario->setComentario($contenidoComentario);
 
-        $entityManager->persist($comment);
+        $entityManager->persist($comentario);
         $entityManager->flush();
         
         return $this->json([
             'message' => 'OK',
-            'postId' => $postId,
+            'libroId' => $libroId,
         ]);
     }
 
