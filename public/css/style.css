@@ -57,6 +57,9 @@ footer li {
 footer img {
   width: 2rem;
 }
+footer #fonoimg {
+  width: 1.5rem;
+}
 footer a {
   color: #FFF;
 }
