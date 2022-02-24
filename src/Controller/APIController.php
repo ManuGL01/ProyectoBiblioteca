@@ -26,27 +26,31 @@ class APIController extends AbstractController
     #[Route('/anadirComentario', name: 'api__comment')]
     public function addComment(LibroRepository $libroRepository, EntityManagerInterface $entityManager, Request $request):Response
     {
-        $data = json_decode($request->getContent(), true);
-        $libroId = $data['libroId']; //viene del json
-        $contenidoComentario = $data['comentario']; //viene del json
-        
-        $comentario = new Comentario();
-        $libro = $libroRepository
-            ->findOneBy(
-                ['id' => $libroId]
-            );
-
-        $comentario->setLibro($libro);
-        $comentario->setAutor($this->getUser());
-        $comentario->setFechaPublicacion(new \DateTime());
-        $comentario->setComentario($contenidoComentario);
-
-        $entityManager->persist($comentario);
-        $entityManager->flush();
+        try {
+            $data = json_decode($request->getContent(), true);
+            $libroId = $data['libroId']; //viene del json
+            $contenidoComentario = $data['comentario']; //viene del json
+            
+            $comentario = new Comentario();
+            $libro = $libroRepository
+                ->findOneBy(
+                    ['id' => $libroId]
+                );
+    
+            $comentario->setLibro($libro);
+            $comentario->setAutor($this->getUser());
+            $comentario->setFechaPublicacion(new \DateTime());
+            $comentario->setComentario($contenidoComentario);
+    
+            $entityManager->persist($comentario);
+            $entityManager->flush();
+            $message = 'OK';
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+        }
         
         return $this->json([
-            'message' => 'OK',
-            'libroId' => $libroId,
+            'message' => $message,
         ]);
     }
 
