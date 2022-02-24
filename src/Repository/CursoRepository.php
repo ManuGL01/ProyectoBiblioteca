@@ -47,4 +47,13 @@ class CursoRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findOneByName($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.nombre LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

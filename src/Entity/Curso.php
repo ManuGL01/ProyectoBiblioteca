@@ -24,7 +24,7 @@ class Curso
     #[ORM\Column(type: 'string', length: 255)]
     private $edicion;
 
-    #[ORM\OneToMany(mappedBy: 'curso', targetEntity: User::class)]
+    #[ORM\OneToMany(mappedBy: 'curso', targetEntity: User::class, cascade: ['persist'])]
     private $alumnos;
 
     public function __construct()
