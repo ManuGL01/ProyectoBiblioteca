@@ -1,29 +1,42 @@
 header{
     display:flex;
-    
+    & .navbar{
+        padding: 0.75rem 2rem;
+    }
+
     & .bg-light {
         background-color: $color-primary!important;
     }
-    & .navbar-light{
-        /* & .navbar-toggler-icon {
-            background-image: url();
-        } */
-        & .navbar-nav .nav-link{
-            color: $color-white;
-        }
-    }
-    & #logo{
-        width:5rem;
-        border-radius:20%;
-    }
-    & .navbar-nav{
-        display:flex;
-        justify-content:flex-end;
-        width:10rem;
-        margin:0 0 0 auto;
 
-        & .nav-link{
-            text-align:end;
+    & .navbar-light{
+        & .navbar-toggler{
+            border-color: rgba(0, 0, 0, 0);
         }
+
+        & .navbar-toggler-icon {
+            background-image: url(../img/menu.svg);
+        }
+
+        & .navbar-nav{
+            padding:0 1rem;
+            display:flex;
+            justify-content:flex-end;
+            width:10rem;
+            margin:0 0 0 auto;
+
+            & .nav-link{
+                color: $color-white-a;
+                text-align:end;
+
+                &:hover, &:focus{
+                    color: $color-white;
+                }
+            }
+        }
+    }
+
+    & #logo{
+        width:4rem;
+        border-radius:10%;
     }
 }
