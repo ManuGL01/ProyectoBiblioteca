@@ -14,27 +14,35 @@ body {
 header {
   display: flex;
 }
+header .navbar {
+  padding: 0.75rem 2rem;
+}
 header .bg-light {
   background-color: #a10a0a !important;
 }
+header .navbar-light .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0);
+}
 header .navbar-light .navbar-toggler-icon {
-  background-image: url();
+  background-image: url(../img/menu.svg);
 }
-header .navbar-light .navbar-nav .nav-link {
-  color: #FFF;
-}
-header #logo {
-  width: 5rem;
-  border-radius: 20%;
-}
-header .navbar-nav {
+header .navbar-light .navbar-nav {
+  padding: 0 1rem;
   display: flex;
   justify-content: flex-end;
   width: 10rem;
   margin: 0 0 0 auto;
 }
-header .navbar-nav .nav-link {
+header .navbar-light .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.7);
   text-align: end;
+}
+header .navbar-light .navbar-nav .nav-link:hover, header .navbar-light .navbar-nav .nav-link:focus {
+  color: #FFF;
+}
+header #logo {
+  width: 4rem;
+  border-radius: 10%;
 }
 
 footer {

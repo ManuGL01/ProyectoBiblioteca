@@ -104,15 +104,8 @@
             "allow-contrib": false,
             "require": "6.0.*"
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/epubli/epub.git"
-        }
-    ],
-    "require": {
-        "epubli/epub": "dev-master"
     }
+
+
     
 }
