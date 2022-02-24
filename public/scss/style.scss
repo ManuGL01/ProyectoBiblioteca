@@ -11,6 +11,9 @@ body{
     flex: 1 0 auto;
     
 }
+a:hover {
+    color: #fff;
+}
 
 @import './components/header';
 @import './components/footer';

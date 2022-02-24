@@ -4,18 +4,40 @@ footer{
     color: $color-white;
     padding: 20px 0;
     background-color: $color-primary!important;
+    
 
-    & ul {
-        
+    & section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    & .copyright {
+        padding: 10px;
+    }
+    & #footer1 {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        & .footer1 {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 90%;
+        }
+    }
+
+    & #footer2 {
         list-style: none;
         padding: 0;
         margin: 0 -10px;
+        & .footer2 {
+            margin: 0 10px;
+            font-size: 100%;
+            border-bottom: 1px solid;
+            border-color: white;
+            line-height: 36px;
+        }
     }
-    & li {
-        display: inline-block;
-        margin: 0 10px;
-        font-size: 90%;
-    }
+
     & img {
         width: 2rem;
     }
@@ -24,5 +46,11 @@ footer{
     }
     & a {
        color: $color-white;
+
+    }
+
+    & .contacto {
+        text-align: center;
+        width: 45%;
     }
 }
