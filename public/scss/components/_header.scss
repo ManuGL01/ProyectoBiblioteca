@@ -35,6 +35,11 @@ header{
         }
     }
 
+    & h1{
+        font-family:'title';
+        font-size:$font-h1;
+    }
+
     & #logo{
         width:4rem;
         border-radius:10%;

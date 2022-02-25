@@ -1,8 +1,21 @@
+//FUENTES
+@font-face {
+    font-family: "title";
+    src: url("/font/Tangerine-Bold.ttf");
+}
+@font-face {
+    font-family: "body";
+    src: url("/font/Montserrat-Regular.ttf");
+}
+
 //VARIABLES
 $color-primary:#a10a0a;
 $bg-color:#fafafa;
 $color-white:#FFF;
 $color-white-a:rgba(255, 255, 255, 0.7);
+
+$font-normal: 0.9rem;
+$font-h1:3.25rem;
 
 //MIXINS
 @mixin response($var){

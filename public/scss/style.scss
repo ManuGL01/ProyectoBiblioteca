@@ -4,11 +4,12 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family:"body";
+    font-size:$font-normal;
 }
-a:hover{
-    color:$color-white;
-}
+
 
 @import './components/header';
 @import './components/footer';
 @import './components/adminIndex';
+@import './components/loginform';
