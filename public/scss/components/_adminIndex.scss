@@ -1,5 +1,6 @@
 .adminIndex{
     @include mainSection;
+    flex-direction: column;
     padding:1rem 3rem 2rem;
 
     & .nav{
