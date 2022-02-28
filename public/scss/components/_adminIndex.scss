@@ -1,7 +1,7 @@
 .adminIndex{
     @include mainSection;
-    flex-direction: column;
-    padding:1rem 3rem 2rem;
+    flex-direction: row;
+    padding:1rem 4rem 2rem;
 
     & .nav{
 
@@ -16,8 +16,19 @@
 
     & .mainContent{
         margin:2rem 0 0;
-    }
-    & form {
-        width: 15%;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        
+
+        & form {
+           width: 20%;
+           
+           //top:150px;
+        }
+        & .libros{
+            width: 75%;
+            
+        }
     }
 }

@@ -113,8 +113,8 @@ footer .contacto {
 .adminIndex {
   display: flex;
   flex: 1 0 auto;
-  flex-direction: column;
-  padding: 1rem 3rem 2rem;
+  flex-direction: row;
+  padding: 1rem 4rem 2rem;
 }
 .adminIndex .nav .nav-item {
   border-right: 2px solid #a10a0a;
@@ -124,13 +124,22 @@ footer .contacto {
 }
 .adminIndex .mainContent {
   margin: 2rem 0 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
-.adminIndex form {
-  width: 15%;
+.adminIndex .mainContent form {
+  width: 20%;
+}
+.adminIndex .mainContent .libros {
+  width: 75%;
 }
 
 form {
   text-align: center;
+}
+form .form-control > input {
+  margin: 30px;
 }
 form .form-control:focus, form .form-control:active {
   background-color: #fff;

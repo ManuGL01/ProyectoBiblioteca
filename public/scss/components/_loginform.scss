@@ -1,6 +1,10 @@
 form{
     text-align: center;
-   
+    & .form-control{
+       & > input{
+           margin: 30px;
+       } 
+    }
     & .form-control:focus , .form-control:active {
         background-color: #fff;
         border-color: $color-secondary!important;
@@ -56,5 +60,3 @@ form{
         left: 0;
     }
 }
-    
-
