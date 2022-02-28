@@ -1,9 +1,15 @@
 .adminIndex{
     @include mainSection;
+<<<<<<< HEAD
     padding:1rem 4rem 2rem;
     flex-direction: row;
     
     
+=======
+    flex-direction: column;
+    padding:1rem 3rem 2rem;
+
+>>>>>>> 1201b3352b700ba90a4b7f0566fbed70bbf17371
     & .nav{
 
         & .nav-item{
