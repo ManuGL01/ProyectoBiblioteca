@@ -135,6 +135,10 @@ footer .contacto {
   width: 75%;
 }
 
+#hola {
+  color: #a10a0a;
+}
+
 form {
   text-align: center;
 }
