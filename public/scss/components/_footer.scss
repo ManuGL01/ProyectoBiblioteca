@@ -46,7 +46,15 @@ footer{
     }
     & a {
        color: $color-white;
+<<<<<<< HEAD
 
+=======
+       
+        &:hover{
+            color:$color-white;
+            text-decoration:none;
+        }
+>>>>>>> 1201b3352b700ba90a4b7f0566fbed70bbf17371
     }
 
     & .contacto {

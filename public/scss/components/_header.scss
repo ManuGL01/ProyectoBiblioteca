@@ -1,20 +1,19 @@
 header{
     display:flex;
+
     & .navbar{
-        padding: 0.75rem 2rem;
-    }
+        background-image: url(../img/header.jpg);
+        background-size: cover;
+        background-position:center;
+        padding: 1.25rem 2rem;
 
-    & .bg-light {
-        background-color: $color-primary!important;
-    }
-
-    & .navbar-light{
         & .navbar-toggler{
             border-color: rgba(0, 0, 0, 0);
-        }
 
-        & .navbar-toggler-icon {
-            background-image: url(../img/menu.svg);
+            & .navbar-toggler-icon {
+                background-image: url(../img/menu.svg);
+                
+            }
         }
 
         & .navbar-nav{
@@ -25,18 +24,28 @@ header{
             margin:0 0 0 auto;
 
             & .nav-link{
-                color: $color-white-a;
+                color: $color-white;
                 text-align:end;
+                font-weight:bold;
 
                 &:hover, &:focus{
-                    color: $color-white;
+                    color: $color-white-a;
                 }
             }
         }
     }
 
+<<<<<<< HEAD
+=======
+    & h1{
+        font-family:'title';
+        font-size:$font-h1;
+        color:$color-white;
+    }
+
+>>>>>>> 1201b3352b700ba90a4b7f0566fbed70bbf17371
     & #logo{
-        width:4rem;
-        border-radius:10%;
+        width:5.75rem;
+        border-radius:10px;
     }
 }

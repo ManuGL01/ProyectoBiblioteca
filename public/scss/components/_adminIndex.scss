@@ -1,11 +1,16 @@
 .adminIndex{
     @include mainSection;
+<<<<<<< HEAD
+    padding:1rem 4rem 2rem;
+    flex-direction: row;
+    
+    
+=======
+    flex-direction: column;
     padding:1rem 3rem 2rem;
 
+>>>>>>> 1201b3352b700ba90a4b7f0566fbed70bbf17371
     & .nav{
-        & h1{
-            
-        }
 
         & .nav-item{
             border-right:2px solid $color-primary;
@@ -18,5 +23,21 @@
 
     & .mainContent{
         margin:2rem 0 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        
+
+        & form {
+           width: 20%;
+           
+           top:150px;
+        }
+        & .libros{
+            width: 75%;
+            
+        }
     }
+
+    
 }

@@ -2,34 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Libro;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-//INTENTO DE CSV, NO SE USA AHORA MISMO
-
-
-class LibrosType extends AbstractType 
+class UsersType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('books', FileType::class, [
-            'label' => 'Libro electrónico',
+        ->add('users', FileType::class, [
+            'label' => 'CSV Usuarios',
 
             // unmapped means that this field is not associated to any entity property
             'mapped' => false,
@@ -44,23 +34,33 @@ class LibrosType extends AbstractType
                 new File([
                     'maxSize' => '10024k',
                     'mimeTypes' => [
-                        'application/epub+zip',
+                        'text/plain', 
+                        'application/vnd.ms-excel',
+                        'application/vnd.msexcel',
+                        'text/csv',
+                        'application/csv', 
+                        'text/comma-separated-values',          
+                        'application/octet-stream', 
+                        'text/tab-separated-values',
+                        'text/tsv',
+                        'application/x-csv'
                     ],
-                    'mimeTypesMessage' => 'Por favor, sube un archivo epub o libro electrónico',
+                    'mimeTypesMessage' => 'Por favor, sube un archivo csv con usuarios',
                 ])
             ],
                 
         ])
     ;
-         
+        
+        
     ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Libro::class,
-            'allow_extra_fields' => true,   
+            'data_class' => User::class,
+            'allow_extra_fields' => true,  
         ]);
     }
 }

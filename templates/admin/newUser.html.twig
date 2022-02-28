@@ -3,9 +3,13 @@
 {% block title %}Crear usuarios{% endblock %}
 
 {% block body %}
-    <h1>Dar de alta usuarios</h1>
+    <h1>Dar de alta un usuario</h1>
 
     {{ include('user/_form.html.twig') }}
+
+    <h1>Dar de alta usuarios con archivo CSV</h1>
+
+    {{ include('user/users_form.html.twig') }}
 
     <a href="{{ path('admin') }}">Volver a admin</a>
 {% endblock %}
