@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Libro;
 use App\Entity\Comentario;
 use App\Repository\LibroRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,6 +22,12 @@ class APIController extends AbstractController
             ->findAll();
 
         return $this->json($libros, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
+    }
+
+    #[Route('/libros/{id}', name: 'api_libro_individual', methods: ['GET'])]
+    public function libro(Libro $libro):Response
+    {
+        return $this->json($libro, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
     }
 
     #[Route('/anadirComentario', name: 'api__comment')]
