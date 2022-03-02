@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BOOKS LIST
+{% endblock %}
+
+{% block body %}
+	<h1>Lista de libros</h1>
+	<a href="/">Main</a>
+	<a href="{{ path('libro_new') }}">Create new</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>titulo</th>
+				<th>autor</th>
+				<th>url</th>
+				<th>Mostrar</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for book in listBooks %}
+				<tr>
+					<td>{{ book.id }}</td>
+					<td>{{ book.titulo }}</td>
+					<td>{{ book.autor }}</td>
+					<td>{{ book.url }}</td>
+					<td>
+						<a href="{{ path('libro_show', {'id': book.id}) }}">show</a>
+					</td>
+					<td>
+						<a href="{{ path('libro_edit', {'id': book.id}) }}">edit</a>
+					</td>
+					<td>
+						<a href="{{ path('libro_delete', {'id': book.id}) }}">Eliminar</a>
+					</td>
+
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Lista vacía</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+{% endblock %}

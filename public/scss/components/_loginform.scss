@@ -6,7 +6,7 @@ form{
        } 
     }
     & .form-control:focus , .form-control:active {
-        background-color: #fff;
+        background-color: $color-white;
         border-color: $color-secondary!important;
         outline: 0;
         box-shadow: 0 0 0 0.2rem $color-secondary !important;

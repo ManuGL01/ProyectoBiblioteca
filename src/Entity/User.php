@@ -49,10 +49,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'autor', targetEntity: Comentario::class)]
     private $comentarios;
 
+    #[ORM\OneToMany(mappedBy: 'autor', targetEntity: Valoracion::class)]
+    private $valoraciones;
+
     public function __construct()
     {
         $this->librosLeidos = new ArrayCollection();
         $this->comentarios = new ArrayCollection();
+        $this->valoraciones = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -209,6 +213,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($comentario->getAutor() === $this) {
                 $comentario->setAutor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Valoracion[]
+     */
+    public function getValoraciones(): Collection
+    {
+        return $this->valoraciones;
+    }
+
+    public function addValoracione(Valoracion $valoracione): self
+    {
+        if (!$this->valoraciones->contains($valoracione)) {
+            $this->valoraciones[] = $valoracione;
+            $valoracione->setAutor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeValoracione(Valoracion $valoracione): self
+    {
+        if ($this->valoraciones->removeElement($valoracione)) {
+            // set the owning side to null (unless already changed)
+            if ($valoracione->getAutor() === $this) {
+                $valoracione->setAutor(null);
             }
         }
 

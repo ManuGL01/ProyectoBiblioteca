@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Libro;
 use App\Entity\Comentario;
+use App\Entity\Valoracion;
 use App\Repository\LibroRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,8 +25,14 @@ class APIController extends AbstractController
         return $this->json($libros, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
     }
 
-    #[Route('/anadirComentario', name: 'api__comment')]
-    public function addComment(LibroRepository $libroRepository, EntityManagerInterface $entityManager, Request $request):Response
+    #[Route('/libros/{id}', name: 'api_libro_individual', methods: ['GET'])]
+    public function libro(Libro $libro):Response
+    {
+        return $this->json($libro, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
+    }
+
+    #[Route('/anadirComentario', name: 'api_comentario')]
+    public function addComentario(LibroRepository $libroRepository, EntityManagerInterface $entityManager, Request $request):Response
     {
         try {
             $data = json_decode($request->getContent(), true);
@@ -43,6 +51,37 @@ class APIController extends AbstractController
             $comentario->setComentario($contenidoComentario);
     
             $entityManager->persist($comentario);
+            $entityManager->flush();
+            $message = 'OK';
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+        }
+        
+        return $this->json([
+            'message' => $message,
+        ]);
+    }
+
+    #[Route('/anadirValoracion', name: 'api_valoracion')]
+    public function addValoracion(LibroRepository $libroRepository, EntityManagerInterface $entityManager, Request $request):Response
+    {
+        try {
+            $data = json_decode($request->getContent(), true);
+            $libroId = $data['libroId']; //viene del json
+            $puntuacion = $data['puntuacion']; //viene del json
+            
+            $valoracion = new Valoracion();
+            $libro = $libroRepository
+                ->findOneBy(
+                    ['id' => $libroId]
+                );
+    
+            $valoracion->setLibro($libro);
+            $valoracion->setAutor($this->getUser());
+            $valoracion->setFechaPublicacion(new \DateTime());
+            $valoracion->setPuntuacion($puntuacion);
+    
+            $entityManager->persist($valoracion);
             $entityManager->flush();
             $message = 'OK';
         } catch (\Exception $e) {
