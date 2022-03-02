@@ -37,10 +37,14 @@ class Libro
     #[ORM\OneToMany(mappedBy: 'libro', targetEntity: Comentario::class)]
     private $comentarios;
 
+    #[ORM\OneToMany(mappedBy: 'libro', targetEntity: Valoracion::class)]
+    private $valoraciones;
+
     public function __construct()
     {
         $this->leidopor = new ArrayCollection();
         $this->comentarios = new ArrayCollection();
+        $this->valoraciones = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -135,6 +139,36 @@ class Libro
             // set the owning side to null (unless already changed)
             if ($comentario->getLibro() === $this) {
                 $comentario->setLibro(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Valoracion[]
+     */
+    public function getValoraciones(): Collection
+    {
+        return $this->valoraciones;
+    }
+
+    public function addValoracione(Valoracion $valoracione): self
+    {
+        if (!$this->valoraciones->contains($valoracione)) {
+            $this->valoraciones[] = $valoracione;
+            $valoracione->setLibro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeValoracione(Valoracion $valoracione): self
+    {
+        if ($this->valoraciones->removeElement($valoracione)) {
+            // set the owning side to null (unless already changed)
+            if ($valoracione->getLibro() === $this) {
+                $valoracione->setLibro(null);
             }
         }
 
