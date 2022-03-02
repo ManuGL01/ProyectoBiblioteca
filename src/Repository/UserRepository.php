@@ -64,4 +64,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+    public function findOneByDni($value): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.DNI = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }
