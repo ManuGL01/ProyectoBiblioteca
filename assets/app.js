@@ -11,14 +11,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Router } from 'react-router-dom';
-import Layout from './components/Layout';
+import MainUser from './components/MainUser';
     
 ReactDOM.render(
     <>
     {/* <Router><Home /></Router>
         <Prueba/> */}
-        <Layout/>
+        <MainUser/>
     </>
-    , document.getElementById('adminIndex')
+    , document.getElementById('mainIndex')
 );
 

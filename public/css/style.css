@@ -146,7 +146,7 @@ form .form-control > input {
   margin: 30px;
 }
 form .form-control:focus, form .form-control:active {
-  background-color: #fff;
+  background-color: #FFF;
   border-color: #b8a49a !important;
   outline: 0;
   box-shadow: 0 0 0 0.2rem #b8a49a !important;
