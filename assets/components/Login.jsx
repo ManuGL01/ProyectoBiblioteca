@@ -1,8 +1,10 @@
 import React from 'react'
+import Main from './Main';
+
 
 const Login = () => {
   return (
-    <section class="adminIndex">
+    <section class="mainIndex">
 
         {/* <ul class="nav">
                 <li class="nav-item">
@@ -51,13 +53,7 @@ const Login = () => {
                     Entrar
                 </button>
             </form>
-
-            <section class="libros">
-                <h1>ajdhalsdjalkdjalkajlak</h1>
-                <p>lorem</p>
-                <p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p><p>lorem</p>
-
-            </section>
+            <Main/>
         </section>
     </section>
   )

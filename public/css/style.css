@@ -110,28 +110,28 @@ footer .contacto {
   width: 45%;
 }
 
-.adminIndex {
+.mainIndex {
   display: flex;
   flex: 1 0 auto;
   flex-direction: row;
   padding: 1rem 4rem 2rem;
 }
-.adminIndex .nav .nav-item {
+.mainIndex .nav .nav-item {
   border-right: 2px solid #a10a0a;
 }
-.adminIndex .nav .nav-item .nav-link {
+.mainIndex .nav .nav-item .nav-link {
   padding: 0rem 1rem;
 }
-.adminIndex .mainContent {
+.mainIndex .mainContent {
   margin: 2rem 0 0;
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-.adminIndex .mainContent form {
+.mainIndex .mainContent form {
   width: 20%;
 }
-.adminIndex .mainContent .libros {
+.mainIndex .mainContent .libros {
   width: 75%;
 }
 
