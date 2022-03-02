@@ -3,14 +3,15 @@ import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
 
-const Layout = () => {
+
+const MainUser = () => {
   return (
     <>
     <Header/>
     <Login/>
-    <Footer />
+    <Footer/>
     </>
   )
 }
 
-export default Layout
+export default MainUser

@@ -7,17 +7,17 @@ const Main = () => {
     },[])
     const getInfo = async () => {
         try{
-        const url = `/api/libros`;
+        const url = `http://localhost:8000/api/libros`;
         let respuesta = await fetch(url);
         let data = await respuesta.json();
-        setLibros(data.map(libro => libros.push(libro)));
+        setLibros(data);
         } catch{
             console.log(error);
         }
     };
   return (
     <>
-    <section>
+    <section class = "libros">
         {libros.map((libro) =>(
             <div>
                 <h4>Titulo - {libro.titulo}</h4>
