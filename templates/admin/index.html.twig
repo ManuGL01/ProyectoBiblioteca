@@ -3,19 +3,22 @@
 {% block title %}Panel de admin{% endblock %}
 
 {% block body %}
-<div id="adminIndex"></div>
-{#{{ include('header.html.twig')}}#}
+
+{# {{ include('header.html.twig')}}#}
 
 <!-- <section class="adminIndex"> -->
 
-    {# <ul class="nav">
+    <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" href="/libro/new">Crear libro</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/user/new">Dar de alta usuarios</a>
         </li>
-    </ul> #}
+        <li class="nav-item">
+          <a class="nav-link" href="/user">Ver lista de usuarios</a>
+        </li>
+    </ul> 
 
     <!-- <section class="mainContent"> -->
         <!-- <form method="post"> -->
@@ -72,6 +75,6 @@
     </section>
 </section> -->
 
-{#{{ include('footer.html.twig')}}#}
+{# {{ include('footer.html.twig')}} #}
 
 {% endblock %}

@@ -22,7 +22,7 @@ class UserController extends AbstractController
     #[Route('/', name: 'user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('admin/userList.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
@@ -50,8 +50,6 @@ class UserController extends AbstractController
                 );
             $user->setEmail($form->get('email')->getData());
             $user->setCurso($form->get('curso')->getData());
-            var_dump($user);
-            die();
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -86,7 +84,7 @@ class UserController extends AbstractController
             }
             if (($open = fopen("userscsv/" . $newFilename , "r"))!==false) {
                 while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
-                    $datosCurso = explode("-", $data[4]);
+                    $datosCurso = explode("-", $data[5]);
                     $user = new User();
                     $user->setUsername($data[0]);
                     $user->setDni($data[1]);
@@ -97,6 +95,7 @@ class UserController extends AbstractController
                         )
                     );
                     $user->setEmail($data[3]);
+                    $user->setRoles([ $data[4] ]);
                     if ($curso= $cursoRepository->findOneByName($datosCurso[0])) {
                         $user->setCurso($curso);
                     }
