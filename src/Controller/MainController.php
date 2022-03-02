@@ -26,7 +26,7 @@ class MainController extends AbstractController
         // if($this->isGranted('ROLE_ADMIN'))
         // return $this->redirectToRoute('admin', [], Response::HTTP_SEE_OTHER);
         // else {
-            return $this->render('admin/index.html.twig', [
+            return $this->render('main/index.html.twig', [
                 'user' => $this->getUser(),
                 'last_username' => $lastUsername, 
                 'error' => $error
