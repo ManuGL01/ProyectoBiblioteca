@@ -198,4 +198,16 @@ form .btn:hover:before {
   left: 0;
 }
 
+#headerAdmin {
+  display: flex;
+}
+#headerAdmin .navbar {
+  background-color: #a10a0a;
+  padding: 1.25rem 2rem;
+}
+
+#adminIndex {
+  flex: 1 0 auto;
+}
+
 /*# sourceMappingURL=style.css.map */

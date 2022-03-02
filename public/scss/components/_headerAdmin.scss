@@ -1,0 +1,8 @@
+#headerAdmin{
+    display:flex;
+        
+    & .navbar{
+        background-color: $color-primary;
+        padding: 1.25rem 2rem;
+    }
+}
