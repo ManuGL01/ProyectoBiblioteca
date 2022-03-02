@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\User;
+use App\Entity\Curso;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -10,44 +12,41 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('user', FileType::class, [
-            'label' => 'Usuarios',
-
-            // unmapped means that this field is not associated to any entity property
+        ->add('username')
+        ->add('DNI')
+        ->add('Password', PasswordType::class, [
+            // instead of being set onto the object directly,
+            // this is read and encoded in the controller
             'mapped' => false,
-
-            // make it optional so you don't have to re-upload the PDF file
-            // every time you edit the Product details
-            'required' => true,
-
-            // unmapped fields can't define their validation using annotations
-            // in the associated entity, so you can use the PHP constraint classes
+            'attr' => ['autocomplete' => 'new-password'],
             'constraints' => [
-                new File([
-                    'maxSize' => '10024k',
-                    'mimeTypes' => [
-                        'text/plain', 
-                        'application/vnd.ms-excel',
-                        'application/vnd.msexcel',
-                        'text/csv',
-                        'application/csv', 
-                        'text/comma-separated-values',          
-                        'application/octet-stream', 
-                        'text/tab-separated-values',
-                        'text/tsv',
-                        'application/x-csv'
-                    ],
-                    'mimeTypesMessage' => 'Por favor, sube un archivo csv con usuarios',
-                ])
+                new NotBlank([
+                    'message' => 'Please enter a password',
+                ]),
+                new Length([
+                    'min' => 6,
+                    'minMessage' => 'Tu contraseña debe ser de al menos {{ limit }} caracteres',
+                    // max length allowed by Symfony for security reasons
+                    'max' => 4096,
+                ]),
             ],
-                
         ])
+        ->add('email', EmailType::class)
+        ->add('curso', EntityType::class, array(
+            'class' => 'App\Entity\Curso',
+            'choice_label' => 'nombre'
+        ));
     ;
         
         
@@ -62,3 +61,22 @@ class UserType extends AbstractType
         ]);
     }
 }
+
+
+// ->add('plainPassword', PasswordType::class, [
+//     // instead of being set onto the object directly,
+//     // this is read and encoded in the controller
+//     'mapped' => false,
+//     'attr' => ['autocomplete' => 'new-password'],
+//     'constraints' => [
+//         new NotBlank([
+//             'message' => 'Please enter a password',
+//         ]),
+//         new Length([
+//             'min' => 6,
+//             'minMessage' => 'Your password should be at least {{ limit }} characters',
+//             // max length allowed by Symfony for security reasons
+//             'max' => 4096,
+//         ]),
+//     ],
+// ])

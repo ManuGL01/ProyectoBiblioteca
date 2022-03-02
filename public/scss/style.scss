@@ -4,13 +4,12 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family:"body";
+    font-size:$font-normal;
 }
-.main{
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
-    
-}
+
 
 @import './components/header';
 @import './components/footer';
+@import './components/adminIndex';
+@import './components/loginform';

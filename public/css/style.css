@@ -1,63 +1,201 @@
+@font-face {
+  font-family: "title";
+  src: url("/font/Tangerine-Bold.ttf");
+}
+@font-face {
+  font-family: "body";
+  src: url("/font/Montserrat-Regular.ttf");
+}
 body {
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
+  font-family: "body";
+  font-size: 0.9rem;
 }
 
 header {
   display: flex;
 }
-header .bg-light {
-  background-color: #a10a0a !important;
+header .navbar {
+  background-image: url(../img/header.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 1.25rem 2rem;
 }
-header .navbar-light .navbar-toggler-icon {
-  background-image: url();
+header .navbar .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0);
 }
-header .navbar-light .navbar-nav .nav-link {
-  color: #FFF;
+header .navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url(../img/menu.svg);
 }
-header #logo {
-  width: 5rem;
-  border-radius: 20%;
-}
-header .navbar-nav {
+header .navbar .navbar-nav {
+  padding: 0 1rem;
   display: flex;
   justify-content: flex-end;
   width: 10rem;
   margin: 0 0 0 auto;
 }
-header .navbar-nav .nav-link {
+header .navbar .navbar-nav .nav-link {
+  color: #FFF;
   text-align: end;
+  font-weight: bold;
+}
+header .navbar .navbar-nav .nav-link:hover, header .navbar .navbar-nav .nav-link:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+header h1 {
+  font-family: "title";
+  font-size: 3.25rem;
+  color: #FFF;
+}
+header #logo {
+  width: 5.75rem;
+  border-radius: 10px;
 }
 
 footer {
   display: flex;
   flex: 0 0 auto;
-  color: #fff;
-  text-align: center;
+  color: #FFF;
   padding: 20px 0;
   background-color: #a10a0a !important;
 }
-footer ul {
-  float: right;
+footer section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+footer .copyright {
+  padding: 10px;
+}
+footer #footer1 {
   list-style: none;
   padding: 0;
-  margin: 0 -10px;
+  margin: 0;
 }
-footer li {
+footer #footer1 .footer1 {
   display: inline-block;
   margin: 0 10px;
   font-size: 90%;
 }
+footer #footer2 {
+  list-style: none;
+  padding: 0;
+  margin: 0 -10px;
+}
+footer #footer2 .footer2 {
+  margin: 0 10px;
+  font-size: 100%;
+  border-bottom: 1px solid;
+  border-color: white;
+  line-height: 36px;
+}
 footer img {
   width: 2rem;
+}
+footer #fonoimg {
+  width: 1.5rem;
+}
+footer a {
+  color: #FFF;
+}
+footer a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+footer .contacto {
+  text-align: center;
+  width: 45%;
+}
+
+.adminIndex {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+  padding: 1rem 4rem 2rem;
+}
+.adminIndex .nav .nav-item {
+  border-right: 2px solid #a10a0a;
+}
+.adminIndex .nav .nav-item .nav-link {
+  padding: 0rem 1rem;
+}
+.adminIndex .mainContent {
+  margin: 2rem 0 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.adminIndex .mainContent form {
+  width: 20%;
+}
+.adminIndex .mainContent .libros {
+  width: 75%;
+}
+
+#hola {
+  color: #a10a0a;
+}
+
+form {
+  text-align: center;
+}
+form .form-control > input {
+  margin: 30px;
+}
+form .form-control:focus, form .form-control:active {
+  background-color: #fff;
+  border-color: #b8a49a !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+}
+form label {
+  font-size: large;
+}
+form .btn {
+  margin-top: 10px;
+  background-color: white !important;
+  border: 1px solid #b8a49a !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: #8a746a;
+}
+form .btn:focus {
+  color: #8a746a;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+}
+form .btn:before, form .btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background-color: #b8a49a !important;
+  /* color de fondo hover */
+  transition: all 0.2s ease-out;
+}
+form .btn :after {
+  left: 100%;
+}
+form .btn :hover {
+  color: white;
+}
+form .btn :before {
+  left: 0;
+  color: white;
+}
+form .btn:hover:after {
+  left: 50%;
+}
+form .btn:hover:before {
+  left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

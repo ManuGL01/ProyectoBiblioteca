@@ -3,13 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Curso;
 use App\Form\UserType;
+use App\Form\UsersType;
 use App\Repository\UserRepository;
+use App\Repository\CursoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -23,23 +28,103 @@ class UserController extends AbstractController
     }
 
     #[Route('/new', name: 'user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordHasherInterface $userPasswordHasher, CursoRepository $cursoRepository): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-        $username = $request->get('username');
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $usersForm = $this->createForm(UsersType::class, $user);
+
+        $usersCsv = $usersForm->get('users')->getData();
+        if ($form->isSubmitted() && $form->isValid()) {   
+
+            $user->setUsername($form->get('username')->getData());
+            $user->setDni($form->get('DNI')->getData());
+            // encode the plain password
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                        $user,
+                        $form->get('Password')->getData()
+                    )
+                );
+            $user->setEmail($form->get('email')->getData());
+            $user->setCurso($form->get('curso')->getData());
+            var_dump($user);
+            die();
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_newd', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('user_new', [], Response::HTTP_SEE_OTHER);
+        }
+
+            if ($usersForm->isSubmitted() && $usersForm->isValid()) {
+
+            // this condition is needed because the 'brochure' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($usersCsv) {
+                try {
+                $originalFilename = pathinfo($usersCsv->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$usersCsv->guessExtension();
+ 
+                // Move the file to the directory where brochures are stored
+                
+                    $usersCsv->move(
+                        $this->getParameter('userscsv_directory'),
+                        $newFilename
+                    );
+                
+            }
+                 catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'imageFilename' property to store the PDF file name
+                // instead of its contents
+            }
+            if (($open = fopen("userscsv/" . $newFilename , "r"))!==false) {
+                while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
+                    $datosCurso = explode("-", $data[4]);
+                    $user = new User();
+                    $user->setUsername($data[0]);
+                    $user->setDni($data[1]);
+                    $user->setPassword(
+                        $userPasswordHasher->hashPassword(
+                            $user,
+                            $data[2],
+                        )
+                    );
+                    $user->setEmail($data[3]);
+                    if ($curso= $cursoRepository->findOneByName($datosCurso[0])) {
+                        $user->setCurso($curso);
+                    }
+                    else {
+                        
+                        $curso = new Curso();
+                        $curso->setNombre($datosCurso[0]);
+                        $curso->setAbreviatura(strtoupper($datosCurso[1]));
+                        $curso->setEdicion($datosCurso[2]);
+                        $curso->addAlumno($user);
+
+                        $entityManager->persist($curso);
+                        $entityManager->flush();
+                    }
+                    $entityManager->persist($user);
+                    $entityManager->flush();
+                }
+            }
+            fclose($open);
+
+
+            return $this->redirectToRoute('user_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/newUser.html.twig', [
             'user' => $user,
             'form' => $form,
+            'usersForm' => $usersForm,
         ]);
     }
 

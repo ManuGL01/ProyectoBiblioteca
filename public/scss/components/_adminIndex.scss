@@ -1,0 +1,39 @@
+.adminIndex{
+    @include mainSection;
+    flex-direction: row;
+    padding:1rem 4rem 2rem;
+
+    & .nav{
+
+        & .nav-item{
+            border-right:2px solid $color-primary;
+
+            & .nav-link{
+                padding: 0rem 1rem;
+            }
+        }
+    }
+
+    & .mainContent{
+        margin:2rem 0 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        
+
+        & form {
+           width: 20%;
+           
+           //top:150px;
+        }
+        & .libros{
+            width: 75%;
+            
+        }
+    }
+
+}
+
+#hola{
+    color:$color-primary;
+}

@@ -1,7 +1,23 @@
+//FUENTES
+@font-face {
+    font-family: "title";
+    src: url("/font/Tangerine-Bold.ttf");
+}
+@font-face {
+    font-family: "body";
+    src: url("/font/Montserrat-Regular.ttf");
+}
+
 //VARIABLES
 $color-primary:#a10a0a;
+$color-secondary:#b8a49a;
+$color-secondaryv2: #8a746a;
 $bg-color:#fafafa;
 $color-white:#FFF;
+$color-white-a:rgba(255, 255, 255, 0.8);
+
+$font-normal: 0.9rem;
+$font-h1:3.25rem;
 
 //MIXINS
 @mixin response($var){
@@ -18,4 +34,9 @@ $color-white:#FFF;
             @content;
         }
     }
+}
+
+@mixin mainSection{
+    display: flex;
+    flex: 1 0 auto;
 }

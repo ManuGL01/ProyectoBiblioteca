@@ -1,29 +1,48 @@
 header{
     display:flex;
-    
-    & .bg-light {
-        background-color: $color-primary!important;
-    }
-    & .navbar-light{
-        & .navbar-toggler-icon {
-            background-image: url();
-        }
-        & .navbar-nav .nav-link{
-            color: $color-white;
-        }
-    }
-    & #logo{
-        width:5rem;
-        border-radius:20%;
-    }
-    & .navbar-nav{
-        display:flex;
-        justify-content:flex-end;
-        width:10rem;
-        margin:0 0 0 auto;
 
-        & .nav-link{
-            text-align:end;
+    & .navbar{
+        background-image: url(../img/header.jpg);
+        background-size: cover;
+        background-position:center;
+        padding: 1.25rem 2rem;
+
+        & .navbar-toggler{
+            border-color: rgba(0, 0, 0, 0);
+
+            & .navbar-toggler-icon {
+                background-image: url(../img/menu.svg);
+                
+            }
         }
+
+        & .navbar-nav{
+            padding:0 1rem;
+            display:flex;
+            justify-content:flex-end;
+            width:10rem;
+            margin:0 0 0 auto;
+
+            & .nav-link{
+                color: $color-white;
+                text-align:end;
+                font-weight:bold;
+
+                &:hover, &:focus{
+                    color: $color-white-a;
+                }
+            }
+        }
+    }
+
+    & h1{
+        font-family:'title';
+        font-size:$font-h1;
+        color:$color-white;
+    }
+
+    & #logo{
+        width:5.75rem;
+        border-radius:10px;
     }
 }
