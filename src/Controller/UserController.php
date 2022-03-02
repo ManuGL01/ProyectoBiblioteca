@@ -79,4 +79,15 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/usersList/users", name="user_lists", methods={"GET"})
+     */
+    public function bookLists(UserRepository $userRepository): Response
+    {
+        return $this->render('admin/usersList.html.twig', [
+            'listUsers' => $userRepository->findAll(),
+        ]);
+    }
+
 }

@@ -172,4 +172,17 @@ class LibroController extends AbstractController
 
         return $this->redirectToRoute('libro_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/bookList/books", name="libro_lists", methods={"GET"})
+     */
+    public function bookLists(LibroRepository $libroRepository): Response
+    {
+        return $this->render('admin/booksList.html.twig', [
+            'listBooks' => $libroRepository->findAll(),
+        ]);
+    }
+
+
+
 }
