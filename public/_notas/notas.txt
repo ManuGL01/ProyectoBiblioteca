@@ -12,6 +12,9 @@ Atributos -> Título, autor,
 Cursos
 Atributos -> nombrelargo, abreviatura, edicion
 
+Valoracion (pendiente)
+Atributos -> puntuacion, autor(relacion), libro(relacion), fecha
+
 Relaciones:
 
 Relacion usuario-libro: evaluar (n-m), comentar (1-n), leer, 
