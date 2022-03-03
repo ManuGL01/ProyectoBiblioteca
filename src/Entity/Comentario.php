@@ -10,17 +10,17 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ComentarioRepository::class)]
 class Comentario
 {
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibroIndividual'])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibroIndividual'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $comentario;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibroIndividual'])]
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'comentarios')]
     #[ORM\JoinColumn(nullable: false)]
     private $autor;
@@ -29,7 +29,7 @@ class Comentario
     #[ORM\JoinColumn(nullable: false)]
     private $libro;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibroIndividual'])]
     #[ORM\Column(type: 'datetime')]
     private $fechaPublicacion;
 

@@ -12,31 +12,32 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: LibroRepository::class)]
 class Libro
 {
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibros', 'infoLibroIndividual'])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibros', 'infoLibroIndividual'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $titulo;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibros', 'infoLibroIndividual'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $autor;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibroIndividual'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $url;
 
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'librosLeidos')]
     private $leidopor;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibroIndividual'])]
     #[ORM\OneToMany(mappedBy: 'libro', targetEntity: Comentario::class)]
     private $comentarios;
 
+    #[Groups(['infoLibros', 'infoLibroIndividual'])]
     #[ORM\OneToMany(mappedBy: 'libro', targetEntity: Valoracion::class)]
     private $valoraciones;
 
