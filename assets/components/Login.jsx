@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import Main from './Main';
 
-const loginUrl = `http://localhost:8000/api/login`;
+const loginUrl = `http://127.0.0.1:8000/api/login`;
 
 const Login = () => {
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
   const fetchPost = async (url, objectToUpload) => {
+    console.log(JSON.stringify(objectToUpload));
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -29,11 +30,15 @@ const Login = () => {
       alert("Rellene todos los campos");
       return;
     }
-    const data = {
+    /* const data = {
       username: inputUsername,
       password: inputPassword
+    } */
+    const data = {
+      username: "asd",
+      password: "asdasd"
     }
-    console.log(data);
+    //console.log(data);
     fetchPost(loginUrl, data);
   }
 

@@ -7,14 +7,12 @@ const Main = () => {
     }, [])
     const getInfo = async () => {
         try {
-            const url = `http://localhost:8000/api/libros`;
-            let respuesta = await fetch(url, {
-                method: 'GET',
-                mode: 'Access-Control-Allow-Origin',
-            });
+            const url = `http://127.0.0.1:8000/api/libros`;
+            let respuesta = await fetch(url);
             let data = await respuesta.json();
+            console.log(data);
             setLibros(data);
-        } catch {
+        } catch (error) {
             console.log(error);
         }
     };
