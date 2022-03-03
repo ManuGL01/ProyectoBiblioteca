@@ -30,13 +30,9 @@ const Login = () => {
       alert("Rellene todos los campos");
       return;
     }
-    /* const data = {
+    const data = {
       username: inputUsername,
       password: inputPassword
-    } */
-    const data = {
-      username: "asd",
-      password: "asdasd"
     }
     //console.log(data);
     fetchPost(loginUrl, data);
