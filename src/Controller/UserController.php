@@ -28,7 +28,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/new', name: 'user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordHasherInterface $userPasswordHasher, CursoRepository $cursoRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordHasherInterface $userPasswordHasher, CursoRepository $cursoRepository, UserRepository $userRepository): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -84,34 +84,72 @@ class UserController extends AbstractController
             }
             if (($open = fopen("userscsv/" . $newFilename , "r"))!==false) {
                 while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
-                    $datosCurso = explode("-", $data[5]);
-                    $user = new User();
-                    $user->setUsername($data[0]);
-                    $user->setDni($data[1]);
-                    $user->setPassword(
-                        $userPasswordHasher->hashPassword(
-                            $user,
-                            $data[2],
-                        )
-                    );
-                    $user->setEmail($data[3]);
-                    $user->setRoles([ $data[4] ]);
-                    if ($curso= $cursoRepository->findOneByName($datosCurso[0])) {
-                        $user->setCurso($curso);
-                    }
-                    else {
+                    //Si el usuario existe por DNI
+                    if ($user= $userRepository->findOneByDni($data[0])) {
+                        $user->setDni($data[0]);
+                        $user->setUsername($data[1]); 
+                        $user->setPassword(
+                            $userPasswordHasher->hashPassword(
+                                $user,
+                                $data[2],
+                            )
+                        );
+                        $datosCurso = explode("-", $data[3]);
+    
+                        if ($curso= $cursoRepository->findOneByName($datosCurso[0])) {
+                            $user->setCurso($curso);
+                        }
+                        else {
+                    
+                            $curso = new Curso();
+                            $curso->setNombre($datosCurso[0]);
+                            $curso->setAbreviatura(strtoupper($datosCurso[1]));
+                            $curso->setEdicion($datosCurso[2]);
+                            $curso->addAlumno($user);
+    
+                            $entityManager->persist($curso);
+                            $entityManager->flush();
+                        }
                         
-                        $curso = new Curso();
-                        $curso->setNombre($datosCurso[0]);
-                        $curso->setAbreviatura(strtoupper($datosCurso[1]));
-                        $curso->setEdicion($datosCurso[2]);
-                        $curso->addAlumno($user);
-
-                        $entityManager->persist($curso);
+                        $user->setEmail($data[4]);
+                        $user->setRoles([ $data[5] ]);
+                        $entityManager->persist($user);
                         $entityManager->flush();
                     }
-                    $entityManager->persist($user);
-                    $entityManager->flush();
+                    
+                    //Si el usuario no existe por DNI
+                    else {
+                        $user = new User();
+                        $user->setDni($data[0]);
+                        $user->setUsername($data[1]); 
+                        $user->setPassword(
+                            $userPasswordHasher->hashPassword(
+                                $user,
+                                $data[2],
+                            )
+                        );
+                        $datosCurso = explode("-", $data[3]);
+
+                        if ($curso= $cursoRepository->findOneByName($datosCurso[0])) {
+                                $user->setCurso($curso);
+                        }
+                        else {
+                        
+                            $curso = new Curso();
+                            $curso->setNombre($datosCurso[0]);
+                            $curso->setAbreviatura(strtoupper($datosCurso[1]));
+                            $curso->setEdicion($datosCurso[2]);
+                            $curso->addAlumno($user);
+
+                            $entityManager->persist($curso);
+                            $entityManager->flush();
+                        }
+
+                        $user->setEmail($data[4]);
+                        $user->setRoles([ $data[5] ]);
+                        $entityManager->persist($user);
+                        $entityManager->flush();
+                    }
                 }
             }
             fclose($open);
