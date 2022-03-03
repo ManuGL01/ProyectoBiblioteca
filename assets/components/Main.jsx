@@ -11,7 +11,7 @@ const Main = () => {
         let respuesta = await fetch(url);
         let data = await respuesta.json();
         setLibros(data);
-        } catch{
+        } catch (error){
             console.log(error);
         }
     };
