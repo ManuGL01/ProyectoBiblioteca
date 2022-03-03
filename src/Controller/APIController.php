@@ -28,7 +28,7 @@ class APIController extends AbstractController
     #[Route('/libros/{id}', name: 'api_libro_individual', methods: ['GET'])]
     public function libro(Libro $libro):Response
     {
-        return $this->json($libro, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
+        return $this->json($libro, Response::HTTP_OK, [], ['groups' => 'infoLibroIndividual']);
     }
 
     #[Route('/anadirComentario', name: 'api_comentario')]

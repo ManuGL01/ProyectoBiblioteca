@@ -23,7 +23,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups(['infoLibros'])]
+    #[Groups(['infoLibroIndividual'])]
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $username;
 

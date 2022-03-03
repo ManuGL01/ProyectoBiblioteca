@@ -2,17 +2,21 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Serializer\Annotation\Groups;
+
 use App\Repository\ValoracionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ValoracionRepository::class)]
 class Valoracion
 {
+    #[Groups(['infoLibros', 'infoLibroIndividual'])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Groups(['infoLibros', 'infoLibroIndividual'])]
     #[ORM\Column(type: 'float')]
     private $puntuacion;
 
