@@ -3,6 +3,7 @@
 {% block title %}Crear usuarios{% endblock %}
 
 {% block body %}
+<section class="userRegister">
     <h1>Dar de alta un usuario</h1>
 
     {{ include('user/_form.html.twig') }}
@@ -12,4 +13,5 @@
     {{ include('user/users_form.html.twig') }}
 
     <a href="{{ path('admin') }}">Volver a admin</a>
+</section>
 {% endblock %}

@@ -210,4 +210,11 @@ form .btn:hover:before {
   flex: 1 0 auto;
 }
 
+.userRegister {
+  margin: auto;
+}
+.userRegister h1 {
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
