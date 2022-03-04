@@ -4,14 +4,16 @@
 
 {% block body %}
 <section class="userRegister">
-    <h1>Dar de alta un usuario</h1>
 
-    {{ include('user/_form.html.twig') }}
-
-    <h1>Dar de alta usuarios con archivo CSV</h1>
-
-    {{ include('user/users_form.html.twig') }}
-
-    <a href="{{ path('admin') }}">Volver a admin</a>
+    <section class="oneUser">
+        <h1>Dar de alta un usuario</h1>
+        {{ include('user/_form.html.twig') }}
+    </section>
+    <section class="moreUsers">
+        <h1>Dar de alta usuarios con archivo CSV</h1>
+        {{ include('user/users_form.html.twig') }}
+    </section>
+    <a href="{{ path('admin') }}">Volver ↩</a>
 </section>
+
 {% endblock %}

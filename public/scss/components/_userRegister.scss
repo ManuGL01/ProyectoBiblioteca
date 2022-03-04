@@ -1,7 +1,110 @@
+body{
+    background: rgb(36,0,27);
+    background: linear-gradient(330deg, rgba(36,0,27,1) 0%, rgb(121, 9, 52) 20%, $color-secondary 64%, rgb(212, 77, 183) 91%);
+}
+// Es un ejemplo pocho y tenemos que ponerlo solo en esta vista  la parte de fondo y por supuesto donde pongamos este estilo característico de esta vista debemos poner el estilo del enlace de regreso;
+
 .userRegister{
-    margin: auto;
+    margin: 10% auto;
+    background-color: $bg-color;
+    box-shadow: 0 0 10px $color-black;
+    text-align: center;
     
     & h1{
-        text-align: center;
+        padding: 2rem;
+    }
+    & form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+        & #user{ 
+          display: flex;
+          flex-direction: column;
+    
+            & div{
+                display: contents;
+                // Mirar porque coño se seleccionan todos si supuestamnente son solo los de tipo text
+                // & input[type=text]:active ,:focus{
+                //     outline: 0;
+                //     box-shadow: 0 0 0 0.2rem $color-secondary !important;
+                //     border: none;
+                // }
+                & label{
+                    font-weight:bold;
+                }
+            }
+        }
+       
+    }
+    & form #users div {
+
+    
+        & label {
+            display:block;
+            font-weight:bold;
+            border: 1px solid $color-secondaryv2;
+            border-radius: 2rem;
+            box-shadow: 0 0 5px $color-black;
+            &:hover{
+                box-shadow: 0 0 5px  inset $color-black;
+                
+                
+                // Debemos mandar un alert diciendo que se ha cargado y personalizarlo
+            }
+        }
+        & input{
+            display: none;   
+        }
+    }
+    
+    & a{
+       color: $color-secondaryv2;
+       text-decoration: none;
+     &:hover{
+         font-size: .8em;
+     }  
+    }
+    
+
+}
+@media (max-width: 800px){
+    .userRegister{
+        margin: auto;
+        display: flex; 
+        flex-wrap: nowrap;
+        & .oneUser{
+            background: rgb(36,0,27);
+            background: linear-gradient(330deg, rgba(36,0,27,1) 0%, rgb(121, 9, 52) 20%, $color-secondary 64%, rgb(212, 77, 183) 91%);    
+            display : flex;
+            flex-direction: column;
+
+            &form{
+                padding: 2rem;
+            }
+        }
+        & .moreUsers{    
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding-left: 2rem;
+            min-height: 100vh;
+            & form{
+                margin: 30% 0;
+            }
+        }
+    }    
+}
+
+@media (max-width: 420px){
+    .userRegister{
+        display: flex;
+        flex-direction: column;
+        &.moreUsers{
+            &form{
+                margin: 10% 0;
+            }
+        }
     }
 }

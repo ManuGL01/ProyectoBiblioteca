@@ -210,11 +210,92 @@ form .btn:hover:before {
   flex: 1 0 auto;
 }
 
+body {
+  background: #24001b;
+  background: linear-gradient(330deg, #24001b 0%, #790934 20%, #b8a49a 64%, #d44db7 91%);
+}
+
 .userRegister {
-  margin: auto;
+  margin: 10% auto;
+  background-color: #fafafa;
+  box-shadow: 0 0 10px #000000;
+  text-align: center;
 }
 .userRegister h1 {
-  text-align: center;
+  padding: 2rem;
+}
+.userRegister form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.userRegister form #user {
+  display: flex;
+  flex-direction: column;
+}
+.userRegister form #user div {
+  display: contents;
+}
+.userRegister form #user div label {
+  font-weight: bold;
+}
+.userRegister form #users div label {
+  display: block;
+  font-weight: bold;
+  border: 1px solid #8a746a;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px #000000;
+}
+.userRegister form #users div label:hover {
+  box-shadow: 0 0 5px inset #000000;
+}
+.userRegister form #users div input {
+  display: none;
+}
+.userRegister a {
+  color: #8a746a;
+  text-decoration: none;
+}
+.userRegister a:hover {
+  font-size: 0.8em;
+}
+
+@media (max-width: 800px) {
+  .userRegister {
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .userRegister .oneUser {
+    background: #24001b;
+    background: linear-gradient(330deg, #24001b 0%, #790934 20%, #b8a49a 64%, #d44db7 91%);
+    display: flex;
+    flex-direction: column;
+  }
+  .userRegister .oneUserform {
+    padding: 2rem;
+  }
+  .userRegister .moreUsers {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 2rem;
+    min-height: 100vh;
+  }
+  .userRegister .moreUsers form {
+    margin: 30% 0;
+  }
+}
+@media (max-width: 420px) {
+  .userRegister {
+    display: flex;
+    flex-direction: column;
+  }
+  .userRegister.moreUsersform {
+    margin: 10% 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
