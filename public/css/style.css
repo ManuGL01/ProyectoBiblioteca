@@ -6,6 +6,12 @@
   font-family: "body";
   src: url("/font/Montserrat-Regular.ttf");
 }
+@media (max-width: 768px) {
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+}
+
 body {
   background-color: #fafafa;
   display: flex;
@@ -17,6 +23,17 @@ body {
 
 h1 {
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 576px) {
+  h4 {
+    font-size: 1rem;
+  }
 }
 
 header {
@@ -165,9 +182,9 @@ footer .contacto {
   flex: 1 0 auto;
   padding: 2rem 4rem;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   #adminIndex {
-    padding: 2rem;
+    padding: 1.5rem 2rem;
   }
 }
 
@@ -176,9 +193,9 @@ footer .contacto {
   flex: 1 0 auto;
   padding: 2rem 4rem;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .mainIndex {
-    padding: 2rem;
+    padding: 1.5rem 2rem;
   }
 }
 .mainIndex .nav .nav-item {
@@ -192,11 +209,33 @@ footer .contacto {
   width: 100%;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .mainIndex .mainContent {
+    display: block;
+  }
+}
 .mainIndex .mainContent form {
   width: 20%;
 }
+@media (max-width: 768px) {
+  .mainIndex .mainContent form {
+    width: 70%;
+    margin: 0 auto 3rem;
+  }
+}
+@media (max-width: 576px) {
+  .mainIndex .mainContent form {
+    width: 90%;
+  }
+}
 .mainIndex .mainContent .libros {
   width: 75%;
+}
+@media (max-width: 768px) {
+  .mainIndex .mainContent .libros {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
 #hola {

@@ -49,7 +49,7 @@ const Login = () => {
   return (
         <form method="post" onSubmit={handleSubmit}>
                 
-                <h1 class="h3 mb-3 font-weight-normal">Log In</h1>
+                <h1 class="h3 mb-4 font-weight-normal">Log In</h1>
                 <div class="form-group">
                     <label for="inputUsername">Nombre </label>
                     <input type="text" value={inputUsername} onChange={handleChange} name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus />

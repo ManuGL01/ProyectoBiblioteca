@@ -17,12 +17,29 @@
         width: 100%;
         justify-content: space-between;
 
+        @include response(md){
+            display:block;
+        }
+
         & form {
            width: 20%;
+
+            @include response(md){
+                width:70%;
+                margin:0 auto 3rem;
+            }
+
+            @include response(sm){
+                width:90%;
+            }
         }
         & .libros{
             width: 75%;
             
+            @include response(md){
+               width:90%;
+               margin:0 auto;
+           }
         }
     }
 

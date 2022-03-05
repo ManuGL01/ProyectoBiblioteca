@@ -10,7 +10,15 @@ body{
 h1{
     margin:0;
 }
+h4{
 
+    @include response(md){
+        font-size:$font-h4-md;
+    }
+    @include response(sm){
+        font-size: $font-h4-sm;
+    }
+}
 
 @import './components/header';
 @import './components/footer';
