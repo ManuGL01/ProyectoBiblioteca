@@ -11,13 +11,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Router } from 'react-router-dom';
-import MainUser from './components/MainUser';
+import LayoutAllBooks from './components/LayoutAllBooks';
     
 ReactDOM.render(
     <>
     {/* <Router><Home /></Router>
         <Prueba/> */}
-        <MainUser/>
+        <LayoutAllBooks/>
     </>
     , document.getElementById('mainIndex')
 );

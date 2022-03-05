@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Main from './Main';
 
 const loginUrl = `http://127.0.0.1:8000/api/login`;
 
@@ -48,28 +47,23 @@ const Login = () => {
   }
 
   return (
-    <section class="mainIndex">
-
-      <section class="mainContent">
         <form method="post" onSubmit={handleSubmit}>
-
-          <h1 class="h3 mb-3 font-weight-normal">Log In</h1>
-          <div class="form-group">
-            <label for="inputUsername">Nombre </label>
-            <input type="text" value={inputUsername} onChange={handleChange} name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus />
-          </div>
-          <div class="form-group">
-            <label for="inputPassword">Contraseña</label>
-            <input type="password" value={inputPassword} onChange={handleChange} name="password" id="inputPassword" class="form-control" autocomplete="current-password" required />
-          </div>
-
-          <button class="btn btn-lg btn-primary" type="submit">
-            Entrar
-          </button>
-        </form>
-        <Main />
-      </section>
-    </section>
+                
+                <h1 class="h3 mb-3 font-weight-normal">Log In</h1>
+                <div class="form-group">
+                    <label for="inputUsername">Nombre </label>
+                    <input type="text" value={inputUsername} onChange={handleChange} name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus />
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Contraseña</label>
+                    <input type="password" value={inputPassword} onChange={handleChange} name="password" id="inputPassword" class="form-control" autocomplete="current-password" required />
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+            
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Entrar
+                </button>
+            </form>
   )
 }
 
