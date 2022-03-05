@@ -1,6 +1,6 @@
 import React , {useState,useEffect} from 'react';
 
-const Main = () => {
+const Libros = () => {
     const [libros, setLibros] = useState([]);
     useEffect(() => {
         getInfo();
@@ -19,7 +19,7 @@ const Main = () => {
     <>
     <section class = "libros">
         {libros.map((libro) =>(
-            <div>
+            <div key={libro.id}>
                 <h4>Titulo - {libro.titulo}</h4>
                 <p>Autor - {libro.autor}</p>
             </div>
@@ -29,4 +29,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Libros

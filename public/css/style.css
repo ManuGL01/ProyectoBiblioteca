@@ -15,6 +15,10 @@ body {
   font-size: 0.9rem;
 }
 
+h1 {
+  margin: 0;
+}
+
 header {
   display: flex;
 }
@@ -113,7 +117,6 @@ footer .contacto {
 .mainIndex {
   display: flex;
   flex: 1 0 auto;
-  flex-direction: row;
   padding: 1rem 4rem 2rem;
 }
 .mainIndex .nav .nav-item {
@@ -202,8 +205,19 @@ form .btn:hover:before {
   display: flex;
 }
 #headerAdmin .navbar {
+  background-image: none;
+  background-size: none;
+  background-position: none;
   background-color: #a10a0a;
-  padding: 1.25rem 2rem;
+  padding: 0.75rem 2rem;
+}
+#headerAdmin #logo {
+  width: 4rem;
+}
+#headerAdmin h1 {
+  font-family: "title";
+  font-size: 2.75rem;
+  color: #FFF;
 }
 
 #adminIndex {
