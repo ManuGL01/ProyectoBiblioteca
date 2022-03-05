@@ -1,6 +1,5 @@
 .mainIndex{
     @include mainSection;
-    padding:1rem 4rem 2rem;
 
     & .nav{
 
@@ -14,11 +13,9 @@
     }
 
     & .mainContent{
-        margin:2rem 0 0;
         display: flex;
         width: 100%;
         justify-content: space-between;
-        
 
         & form {
            width: 20%;

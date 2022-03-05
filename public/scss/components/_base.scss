@@ -1,7 +1,7 @@
 //FUENTES
 @font-face {
     font-family: "title";
-    src: url("/font/Tangerine-Bold.ttf");
+    src: url("/font/Caveat-Bold.ttf");
 }
 @font-face {
     font-family: "body";
@@ -13,13 +13,18 @@ $color-primary:#a10a0a;
 $color-secondary:#b8a49a;
 $color-secondaryv2: #8a746a;
 $bg-color:#fafafa;
-$color-black: #000000;
+$color-black: #000;
 $color-white:#FFF;
 $color-white-a:rgba(255, 255, 255, 0.8);
 $gradient: linear-gradient(330deg, rgba(36,0,27,1) 0%, rgb(121, 9, 52) 20%, $color-secondary 64%, rgb(212, 77, 183) 91%);
 
 $font-normal: 0.9rem;
-$font-h1:3.25rem;
+
+$font-h1:3rem;
+$font-h1-sm:1.5rem;
+$font-h1-md:1.75rem;
+$font-h1-lg:2.5rem;
+
 $font-h1-admin:2.75rem;
 
 //MIXINS
@@ -41,5 +46,10 @@ $font-h1-admin:2.75rem;
 
 @mixin mainSection{
     display: flex;
-    flex: 1 0 auto;
+    flex: 1 0 auto;   
+    padding:2rem 4rem;
+
+    @include response(sm){
+        padding:2rem;
+    }
 }
