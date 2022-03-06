@@ -130,13 +130,28 @@ footer {
   display: flex;
   flex: 0 0 auto;
   color: #FFF;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   background-color: #a10a0a !important;
+}
+@media (max-width: 576px) {
+  footer {
+    font-size: 0.8rem;
+  }
 }
 footer section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+@media (max-width: 768px) {
+  footer section {
+    justify-content: space-around;
+  }
+}
+@media (max-width: 576px) {
+  footer section {
+    display: block;
+  }
 }
 footer .copyright {
   padding: 10px;
@@ -154,13 +169,12 @@ footer #footer1 .footer1 {
 footer #footer2 {
   list-style: none;
   padding: 0;
-  margin: 0 -10px;
+  margin: 0;
 }
 footer #footer2 .footer2 {
-  margin: 0 10px;
-  font-size: 100%;
+  margin: 0 1.5rem;
   border-bottom: 1px solid;
-  border-color: white;
+  border-color: #FFF;
   line-height: 36px;
 }
 footer img {
@@ -178,41 +192,62 @@ footer a:hover {
 }
 footer .contacto {
   text-align: center;
-  width: 45%;
+  width: 48%;
+}
+@media (max-width: 768px) {
+  footer .contacto {
+    width: 55%;
+  }
+}
+@media (max-width: 576px) {
+  footer .contacto {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  footer .contacto:nth-child(2) {
+    width: 40%;
+  }
+}
+@media (max-width: 576px) {
+  footer .contacto:nth-child(2) {
+    width: 50%;
+    margin: 0.25rem auto 0;
+  }
 }
 
 #adminIndex {
   display: flex;
   flex: 1 0 auto;
-  padding: 2.5rem 4rem;
+  padding: 3rem 3.75rem 4rem;
 }
 @media (max-width: 992px) {
   #adminIndex {
-    padding: 1.25rem 2rem 2rem;
+    padding: 2rem 2.25rem 2.5rem;
   }
 }
 @media (max-width: 768px) {
   #adminIndex {
-    padding: 1.25rem 1rem 2rem;
+    padding: 1.5rem 1rem 2.5rem;
   }
 }
 
 .mainIndex {
   display: flex;
   flex: 1 0 auto;
-  padding: 2.5rem 4rem;
+  padding: 3rem 3.75rem 4rem;
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 @media (max-width: 992px) {
   .mainIndex {
-    padding: 1.25rem 2rem 2rem;
+    padding: 2rem 2.25rem 2.5rem;
   }
 }
 @media (max-width: 768px) {
   .mainIndex {
-    padding: 1.25rem 1rem 2rem;
+    padding: 1.5rem 1rem 2.5rem;
   }
 }
 @media (max-width: 768px) {
@@ -225,7 +260,7 @@ footer .contacto {
 }
 @media (max-width: 992px) {
   .mainIndex form {
-    width: 20%;
+    width: 22%;
   }
 }
 @media (max-width: 768px) {
@@ -252,7 +287,7 @@ footer .contacto {
 }
 @media (max-width: 992px) {
   .mainIndex .libros {
-    width: 75%;
+    width: 74%;
   }
 }
 @media (max-width: 768px) {
@@ -287,6 +322,11 @@ footer .contacto {
 form {
   text-align: center;
 }
+@media (max-width: 576px) {
+  form h3 {
+    font-size: 1.5rem;
+  }
+}
 form .form-control > input {
   margin: 30px;
 }
@@ -298,6 +338,11 @@ form .form-control:focus, form .form-control:active {
 }
 form label {
   font-size: large;
+}
+@media (max-width: 576px) {
+  form label {
+    font-size: inherit;
+  }
 }
 form .btn {
   margin-top: 10px;
@@ -314,7 +359,7 @@ form .btn:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem #b8a49a !important;
 }
-form .btn:before, form .btn::after {
+form .btn::before, form .btn::after {
   content: "";
   z-index: -1;
   position: absolute;
@@ -326,20 +371,13 @@ form .btn:before, form .btn::after {
   /* color de fondo hover */
   transition: all 0.2s ease-out;
 }
-form .btn :after {
-  left: 100%;
-}
-form .btn :hover {
+form .btn:hover {
   color: white;
 }
-form .btn :before {
-  left: 0;
-  color: white;
-}
-form .btn:hover:after {
+form .btn:hover::after {
   left: 50%;
 }
-form .btn:hover:before {
+form .btn:hover::before {
   left: 0;
 }
 

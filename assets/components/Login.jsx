@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <form method="post" onSubmit={handleSubmit}>
-        <h1 className="h3 mb-3 mb-md-4 font-weight-normal">Log In</h1>
+        <h3 className="mb-3 mb-md-4 font-weight-normal">Log In</h3>
         
         <div className="form-group">
           <label htmlFor="inputUsername">Nombre </label>

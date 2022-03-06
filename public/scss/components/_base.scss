@@ -27,6 +27,8 @@ $font-h1-md:1.75rem;
 $font-h1-lg:2.5rem;
 $font-h1-admin:2.75rem;
 
+$font-h3-sm: 1.5rem;
+
 $font-h4-sm:1rem;
 $font-h4-md:1.25rem;
 
@@ -50,13 +52,13 @@ $font-h4-md:1.25rem;
 @mixin mainSection{
     display: flex;
     flex: 1 0 auto;   
-    padding:2.5rem 4rem;
+    padding:3rem 3.75rem 4rem;
 
     @include response(lg){
-        padding:1.25rem 2rem 2rem;
+        padding:2rem 2.25rem 2.5rem;
     }
 
     @include response(md){
-        padding:1.25rem 1rem 2rem;
+        padding:1.5rem 1rem 2.5rem;
     }
 }

@@ -1,5 +1,13 @@
 form{
     text-align: center;
+
+    & h3{
+
+        @include response(sm){
+            font-size:$font-h3-sm;
+        }
+    }
+
     & .form-control{
        & > input{
            margin: 30px;
@@ -14,7 +22,10 @@ form{
 
     & label{
         font-size: large;
-        // color: $color-primary!important;
+
+        @include response(sm){       
+            font-size: inherit;
+        }
     }
 
     & .btn{
@@ -26,37 +37,33 @@ form{
         overflow: hidden;
         display: inline-block;   
         color: $color-secondaryv2;
+
+        &:focus{
+            color: $color-secondaryv2;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem $color-secondary !important;
+        }
+
+        &::before , &::after{
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: -50%;
+            background-color: $color-secondary!important; /* color de fondo hover */
+            transition: all 0.2s ease-out;
+        }
     }
-    & .btn:focus {
-        color: $color-secondaryv2;
-        outline: 0;
-        box-shadow: 0 0 0 0.2rem $color-secondary !important;
-    }
-    & .btn:before , .btn::after{
-        content: "";
-        z-index: -1;
-        position: absolute;
-        width: 50%;
-        height: 100%;
-        top: 0;
-        left: -50%;
-        background-color: $color-secondary!important; /* color de fondo hover */
-        transition: all 0.2s ease-out;
-    }
-    & .btn :after{
-        left: 100%;
-    }
-    & .btn :hover{
+    
+    & .btn:hover{
         color: white;
     }
-    & .btn :before{
-        left: 0;
-        color: white;
-    }
-    & .btn:hover:after{
+    & .btn:hover::after{
         left: 50%;
     }
-    & .btn:hover:before{
+    & .btn:hover::before{
         left: 0;
     }
 }
