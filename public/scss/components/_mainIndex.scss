@@ -1,50 +1,70 @@
 .mainIndex{
     @include mainSection;
 
-    & .nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 
-        & .nav-item{
-            border-right:2px solid $color-primary;
-
-            & .nav-link{
-                padding: 0rem 1rem;
-            }
-        }
+    @include response(md){
+        display:block;
     }
 
-    & .mainContent{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
+    & form {
+        width: 18%;
+
+        @include response(lg){
+            width:20%;
+        }
 
         @include response(md){
-            display:block;
+            width:60%;
+            margin:0 auto 2rem;
         }
 
-        & form {
-           width: 20%;
-
-            @include response(md){
-                width:70%;
-                margin:0 auto 3rem;
-            }
-
-            @include response(sm){
-                width:90%;
-            }
-        }
-        & .libros{
-            width: 75%;
-            
-            @include response(md){
-               width:90%;
-               margin:0 auto;
-           }
+        @include response(sm){
+            width:90%;
         }
     }
 
-}
+    & .libros{
+        width: 77%;
+        display:grid;
+        grid-template-columns:repeat(3, 1fr);
+        grid-gap:1.25rem 1rem;
 
-#hola{
-    color:$color-primary;
+        @media (min-width:1500px){
+            grid-template-columns:repeat(4, 1fr);
+        }
+
+        @include response(lg){
+            width:75%;
+        }
+
+        @include response(md){
+            width:90%;
+            margin:0 auto;
+            grid-template-columns:repeat(2, 1fr);
+            grid-gap:1rem 0.75rem;
+        }
+
+        @include response(sm){
+            grid-template-columns:1fr;
+            grid-gap:0.75rem;
+        }
+
+        & .libro{
+            padding:1rem;
+            border-radius: 5px;
+            border: 2px solid $color-secondary;
+                
+            @include response(lg){
+                padding: 0.5rem 0.75rem;
+            }
+
+            &:hover{
+                transform:scale(1.1);
+                transition:.1s ease-out;
+            }
+        }
+    }
 }

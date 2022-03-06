@@ -47,23 +47,25 @@ const Login = () => {
   }
 
   return (
-        <form method="post" onSubmit={handleSubmit}>
-                
-                <h1 class="h3 mb-4 font-weight-normal">Log In</h1>
-                <div class="form-group">
-                    <label for="inputUsername">Nombre </label>
-                    <input type="text" value={inputUsername} onChange={handleChange} name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus />
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword">Contraseña</label>
-                    <input type="password" value={inputPassword} onChange={handleChange} name="password" id="inputPassword" class="form-control" autocomplete="current-password" required />
-                </div>
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+    <form method="post" onSubmit={handleSubmit}>
+        <h1 className="h3 mb-3 mb-md-4 font-weight-normal">Log In</h1>
+        
+        <div className="form-group">
+          <label htmlFor="inputUsername">Nombre </label>
+          <input type="text" value={inputUsername} onChange={handleChange} name="username" id="inputUsername" className="form-control" autoComplete="username" required autoFocus />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="inputPassword">Contraseña</label>
+          <input type="password" value={inputPassword} onChange={handleChange} name="password" id="inputPassword" className="form-control" autoComplete="current-password" required />
+        </div>
             
-                <button class="btn btn-lg btn-primary" type="submit">
-                    Entrar
-                </button>
-            </form>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+            
+        <button className="btn btn-lg btn-primary" type="submit">
+          Entrar
+        </button>
+    </form>
   )
 }
 

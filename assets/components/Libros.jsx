@@ -18,11 +18,11 @@ const Libros = () => {
     };
   return (
     <>
-    <section class = "libros">
+    <section className = "libros">
         {libros.map((libro) =>(
-            <div key={libro.id}>
-                <h4>Titulo - {libro.titulo}</h4>
-                <p>Autor - {libro.autor}</p>
+            <div className = "libro" key={libro.id}>
+                <h4>{libro.titulo}</h4>
+                <p>{libro.autor}</p>
             </div>
         ))}
     </section>

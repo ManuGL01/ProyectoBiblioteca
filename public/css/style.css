@@ -6,12 +6,6 @@
   font-family: "body";
   src: url("/font/Montserrat-Regular.ttf");
 }
-@media (max-width: 768px) {
-  .form-group {
-    margin-bottom: 0.5rem;
-  }
-}
-
 body {
   background-color: #fafafa;
   display: flex;
@@ -19,6 +13,10 @@ body {
   min-height: 100vh;
   font-family: "body";
   font-size: 0.9rem;
+}
+
+p {
+  margin: 0;
 }
 
 h1 {
@@ -36,6 +34,12 @@ h1 {
   }
 }
 
+@media (max-width: 768px) {
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+}
+
 header {
   display: flex;
 }
@@ -43,7 +47,7 @@ header .navbar {
   background-image: url(../img/header.jpg);
   background-size: cover;
   background-position: center;
-  padding: 1.75rem 2rem;
+  padding: 1.5rem 2rem;
 }
 @media (max-width: 768px) {
   header .navbar {
@@ -103,8 +107,8 @@ header h1 {
   }
 }
 header #logo {
-  width: 5.75rem;
-  border-radius: 10px;
+  width: 6rem;
+  border-radius: 5px;
 }
 @media (max-width: 992px) {
   header #logo {
@@ -126,7 +130,7 @@ footer {
   display: flex;
   flex: 0 0 auto;
   color: #FFF;
-  padding: 20px 0;
+  padding: 1.5rem 0;
   background-color: #a10a0a !important;
 }
 footer section {
@@ -180,66 +184,104 @@ footer .contacto {
 #adminIndex {
   display: flex;
   flex: 1 0 auto;
-  padding: 2rem 4rem;
+  padding: 2.5rem 4rem;
+}
+@media (max-width: 992px) {
+  #adminIndex {
+    padding: 1.25rem 2rem 2rem;
+  }
 }
 @media (max-width: 768px) {
   #adminIndex {
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 1rem 2rem;
   }
 }
 
 .mainIndex {
   display: flex;
   flex: 1 0 auto;
-  padding: 2rem 4rem;
-}
-@media (max-width: 768px) {
-  .mainIndex {
-    padding: 1.5rem 2rem;
-  }
-}
-.mainIndex .nav .nav-item {
-  border-right: 2px solid #a10a0a;
-}
-.mainIndex .nav .nav-item .nav-link {
-  padding: 0rem 1rem;
-}
-.mainIndex .mainContent {
+  padding: 2.5rem 4rem;
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
+@media (max-width: 992px) {
+  .mainIndex {
+    padding: 1.25rem 2rem 2rem;
+  }
+}
 @media (max-width: 768px) {
-  .mainIndex .mainContent {
+  .mainIndex {
+    padding: 1.25rem 1rem 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .mainIndex {
     display: block;
   }
 }
-.mainIndex .mainContent form {
-  width: 20%;
+.mainIndex form {
+  width: 18%;
+}
+@media (max-width: 992px) {
+  .mainIndex form {
+    width: 20%;
+  }
 }
 @media (max-width: 768px) {
-  .mainIndex .mainContent form {
-    width: 70%;
-    margin: 0 auto 3rem;
+  .mainIndex form {
+    width: 60%;
+    margin: 0 auto 2rem;
   }
 }
 @media (max-width: 576px) {
-  .mainIndex .mainContent form {
+  .mainIndex form {
     width: 90%;
   }
 }
-.mainIndex .mainContent .libros {
-  width: 75%;
+.mainIndex .libros {
+  width: 77%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.25rem 1rem;
+}
+@media (min-width: 1500px) {
+  .mainIndex .libros {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 992px) {
+  .mainIndex .libros {
+    width: 75%;
+  }
 }
 @media (max-width: 768px) {
-  .mainIndex .mainContent .libros {
+  .mainIndex .libros {
     width: 90%;
     margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem 0.75rem;
   }
 }
-
-#hola {
-  color: #a10a0a;
+@media (max-width: 576px) {
+  .mainIndex .libros {
+    grid-template-columns: 1fr;
+    grid-gap: 0.75rem;
+  }
+}
+.mainIndex .libros .libro {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid #b8a49a;
+}
+@media (max-width: 992px) {
+  .mainIndex .libros .libro {
+    padding: 0.5rem 0.75rem;
+  }
+}
+.mainIndex .libros .libro:hover {
+  transform: scale(1.1);
+  transition: 0.1s ease-out;
 }
 
 form {
