@@ -130,7 +130,7 @@ footer {
   display: flex;
   flex: 0 0 auto;
   color: #FFF;
-  padding: 2rem 0;
+  padding: 1.75rem 0;
   background-color: #a10a0a !important;
 }
 @media (max-width: 576px) {
@@ -230,6 +230,63 @@ footer .contacto {
   #adminIndex {
     padding: 1.5rem 1rem 2.5rem;
   }
+}
+#adminIndex nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#adminIndex nav .enlacesAdmin {
+  width: 70%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+#adminIndex nav .enlacesAdmin a {
+  display: flex;
+  border: 2px solid #b8a49a;
+  width: 11rem;
+  height: 13rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: #8a746a;
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+#adminIndex nav .enlacesAdmin a::after {
+  content: "";
+  background-color: #b8a49a;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 100%;
+  bottom: -100%;
+  transition: all 0.2s ease-out;
+}
+#adminIndex nav .enlacesAdmin a:hover {
+  transform: translateY(-20px);
+  transition: transform 0.25s ease;
+  color: #FFF;
+}
+#adminIndex nav .enlacesAdmin a:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.2s ease-out;
+}
+#adminIndex nav .enlacesAdmin a li {
+  list-style: none;
+  text-align: center;
 }
 
 .mainIndex {
@@ -396,7 +453,7 @@ form .btn:hover::before {
 }
 #headerAdmin h1 {
   font-family: "title", cursive;
-  font-size: 2.75rem;
+  font-size: 1.8rem;
   color: #FFF;
 }
 

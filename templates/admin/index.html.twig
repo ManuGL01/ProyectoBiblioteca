@@ -5,12 +5,17 @@
 {% block body %}
 
 {{ include('./admin/header.html.twig')}}
-<section id ="adminIndex">
-    <a href="/libro/new">Crear libro</a>
-    <a href="/user/new">Dar de alta usuarios</a>
-    <a href="/libro/bookList/books">Lista de libros</a>
-    <a href="/user/usersList/users">Lista de usuarios</a>
 
+<section id ="adminIndex">
+    <nav>
+        <ul class="enlacesAdmin">
+            <a href="/libro/new"><li>Crear libro</li></a>
+            <a href="/user/new"><li>Dar de alta usuarios</li></a>
+            <a href="/libro/bookList/books"><li>Lista de libros</li></a>
+            <a href="/user/usersList/users"><li>Lista de usuarios</li></a>
+        </ul>
+    </nav>
 </section>
+
 {{ include('./admin/footer.html.twig')}}
 {% endblock %}

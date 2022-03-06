@@ -2,7 +2,7 @@ footer{
     display:flex;
     flex: 0 0 auto;
     color: $color-white;
-    padding: 2rem 0;
+    padding: 1.75rem 0;
     background-color: $color-primary!important;
     
     @include response(sm){

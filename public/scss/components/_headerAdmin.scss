@@ -8,9 +8,11 @@
         background-color: $color-primary;
         padding: 0.5rem 2rem;
     }
+
     & #logo{
         width:4.5rem;
     }
+    
     & h1{
         font-family:'title', cursive;
         font-size:$font-h1-admin;
