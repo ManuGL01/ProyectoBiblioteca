@@ -23,10 +23,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups(['infoLibroIndividual'])]
+    #[Groups(['infoLibroIndividual', 'infoUser'])]
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $username;
 
+    #[Groups(['infoUser'])]
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
@@ -36,6 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 9)]
     private $DNI;
 
+    #[Groups(['infoUser'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $email;
 

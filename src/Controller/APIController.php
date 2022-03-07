@@ -96,9 +96,16 @@ class APIController extends AbstractController
     #[Route('/login', name: 'api_login')]
     public function login(): Response
     {
+        if ($this->getUser()) {
+            return $this->json($this->getUser(), Response::HTTP_OK, [], ['groups' => 'infoUser']);
+        } else {
+            return $this->json([
+                'message' => 'Error de autenticación']
+            );
+        }
         // a jalal le dice que getId() no existe? oosas del tabnine o de php o algo?
-        return $this->json([
+        /* return $this->json([
             'user' => $this->getUser() ? $this->getUser()->getId() : null]
-        );
+        ); */
     }
 }
