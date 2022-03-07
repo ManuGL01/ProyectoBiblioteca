@@ -1,0 +1,7 @@
+.newLibro {
+  flex: 1 0 auto;
+  padding: 1rem 4rem 2rem;
+}
+.newLibro h2 {
+  text-align: center;
+}
