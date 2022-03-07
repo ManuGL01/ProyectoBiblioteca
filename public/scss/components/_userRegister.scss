@@ -4,7 +4,7 @@ body{
 }
 // Es un ejemplo pocho y tenemos que ponerlo solo en esta vista  la parte de fondo y por supuesto donde pongamos este estilo característico de esta vista debemos poner el estilo del enlace de regreso;
 
-.userRegister{
+#userRegister{
     margin: 10% auto;
     background-color: $bg-color;
     box-shadow: 0 0 15px $color-black;
@@ -33,7 +33,7 @@ body{
                 display: contents;
                
                 // Mirar porque coño se seleccionan todos si supuestamnente son solo los de tipo text
-                // & input[type=text]:active ,:focus{
+                // & input[type="text"]:active ,:focus{
                 //     outline: 0;
                 //     box-shadow: 0 0 0 0.2rem $color-secondary !important;
                 //     border: none;
@@ -80,7 +80,7 @@ body{
 
 }
 @media (max-width: 800px){
-    .userRegister{
+    #userRegister{
         margin: 0;
         display: flex; 
         flex-wrap: nowrap;
@@ -112,15 +112,15 @@ body{
 }
 
 @media (max-width: 420px){
-    .userRegister{
-        display: flex;
-        flex-direction: column;
-    & .oneUser{
-        border-right: none;
-        border-bottom: 1px solid $color-black;
+    #userRegister{
+            display: flex;
+            flex-direction: column;
+        & .oneUser{
+            border-right: none;
+            border-bottom: 1px solid $color-black;
+        }
+        & form{
+            margin: 10% 0;
+        }
     }
-    &form{
-        margin: 10% 0;
-    }
-}
 }

@@ -3,6 +3,9 @@
 {% block title %}Nuevo libro{% endblock %}
 
 {% block body %}
+{{ include('./admin/header.html.twig')}}
+
+<section id ="nuevoLibro">
     <h1>Crear nuevo libro</h1>
 
     {{ include('libro/_form.html.twig') }}
@@ -11,5 +14,8 @@
 
     {{ include('libro/multiple_form.html.twig') }} #}
 
-    <a href="{{ path('admin') }}">Volver a admin</a>
+    <a href="{{ path('admin') }}">Volver ↩</a>
+</section>
+
+{{ include('./admin/footer.html.twig')}}
 {% endblock %}

@@ -17,5 +17,9 @@
         font-family:'title', cursive;
         font-size:$font-h1-admin;
         color:$color-white;
+
+        @include response(md){
+            font-size:$font-h1-admin-md;
+        }
     }
 }

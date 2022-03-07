@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BOOKS LIST
-{% endblock %}
+{% block title %}Lista de libros{% endblock %}
 
 {% block body %}
+{{ include('./admin/header.html.twig')}}
+
+<section id ="listaLibros">
 	<h1>Lista de libros</h1>
 	<a href="/">Main</a>
 	<a href="{{ path('libro_new') }}">Create new</a>
@@ -45,6 +47,8 @@
 			{% endfor %}
 		</tbody>
 	</table>
+	<a href="{{ path('admin') }}">Volver ↩</a>
+</section>
 
-
+{{ include('./admin/footer.html.twig')}}
 {% endblock %}
