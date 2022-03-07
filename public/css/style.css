@@ -587,7 +587,7 @@ form .btn:hover::before {
 }
 @media (max-width: 768px) {
   #userRegister {
-    padding: 1.5rem 1rem 2.5rem;
+    padding: 1.5rem 2rem 2.5rem;
   }
 }
 @media (max-width: 768px) {
@@ -603,6 +603,7 @@ form .btn:hover::before {
     margin: 10% 0;
   }
 }
+
 #listaLibros, #userList {
   display: flex;
   flex: 1 0 auto;
@@ -617,7 +618,7 @@ form .btn:hover::before {
 }
 @media (max-width: 768px) {
   #listaLibros, #userList {
-    padding: 1.5rem 1rem 2.5rem;
+    padding: 1.5rem 2rem 2.5rem;
   }
 }
 #listaLibros button, #userList button {
