@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('api')]
+/* #[Route('api')] */
 class APIController extends AbstractController
 {
     #[Route('/libros', name: 'api_libros')]
@@ -93,19 +93,11 @@ class APIController extends AbstractController
         ]);
     }
 
-    #[Route('/login', name: 'api_login')]
+    #[Route('api/login', name: 'api_login')]
     public function login(): Response
     {
         if ($this->getUser()) {
             return $this->json($this->getUser(), Response::HTTP_OK, [], ['groups' => 'infoUser']);
-        } else {
-            return $this->json([
-                'message' => 'Error de autenticación']
-            );
-        }
-        // a jalal le dice que getId() no existe? oosas del tabnine o de php o algo?
-        /* return $this->json([
-            'user' => $this->getUser() ? $this->getUser()->getId() : null]
-        ); */
+        } 
     }
 }
