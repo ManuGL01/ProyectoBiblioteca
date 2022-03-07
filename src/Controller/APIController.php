@@ -93,7 +93,7 @@ class APIController extends AbstractController
         ]);
     }
 
-    #[Route('/login', name: 'api_login')]
+    #[Route('api/login', name: 'api_login')]
     public function login(): Response
     {
         if ($this->getUser()) {
