@@ -491,25 +491,71 @@ form .btn:hover::before {
 }
 
 #userRegister {
-  margin: 10% auto;
-  background-color: #fafafa;
-  box-shadow: 0 0 15px #000;
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
   text-align: center;
 }
 #userRegister h1 {
-  padding: 2rem;
+  font-size: 2em;
+  margin: 2rem;
+}
+#userRegister .oneUser {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  border-right: 2px solid #000;
+}
+#userRegister .moreUsers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#userRegister .moreUsers input {
+  margin: 1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: #8a746a;
+}
+#userRegister .moreUsers input:focus {
+  color: #8a746a;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+}
+#userRegister .moreUsers input::before, #userRegister .moreUsers input::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background-color: #b8a49a !important;
+  /* color de fondo hover */
+  transition: all 0.2s ease-out;
+}
+#userRegister .moreUsers .btn:hover {
+  color: white;
+}
+#userRegister .moreUsers .btn:hover::after {
+  left: 50%;
+}
+#userRegister .moreUsers .btn:hover::before {
+  left: 0;
 }
 #userRegister form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
 }
 #userRegister form #user {
   display: flex;
   flex-direction: column;
   width: 70%;
+  max-width: 1000px;
   border: 1px solid #000;
   padding: 2rem;
   box-shadow: 0 0 5px #000;
@@ -521,58 +567,30 @@ form .btn:hover::before {
   font-weight: bold;
 }
 #userRegister form button {
-  margin-top: 2rem;
-}
-#userRegister form #users div label {
-  display: block;
-  font-weight: bold;
-  border: 1px solid #8a746a;
-  border-radius: 2rem;
-  box-shadow: 0 0 5px #000;
-}
-#userRegister form #users div label:hover {
-  box-shadow: 0 0 5px inset #000;
-}
-#userRegister form #users div input {
-  display: none;
+  margin: 2rem;
 }
 #userRegister a {
   color: #8a746a;
   text-decoration: none;
-}
-#userRegister a:hover {
-  font-size: 0.8em;
+  align-self: flex-end;
 }
 
-@media (max-width: 800px) {
+#userRegister {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 3rem 3.75rem 4rem;
+}
+@media (max-width: 992px) {
   #userRegister {
-    margin: 0;
-    display: flex;
-    flex-wrap: nowrap;
-    min-width: 420px;
-  }
-  #userRegister h1 {
-    font-size: 2em;
-  }
-  #userRegister .oneUser {
-    background: #24001b;
-    background: linear-gradient(330deg, #24001b 0%, #790934 20%, #b8a49a 64%, #d44db7 91%);
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fill-available;
-    border-right: 1px solid #000;
-  }
-  #userRegister .moreUsers {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding-left: 2rem;
-  }
-  #userRegister form {
-    margin: 30% 0;
+    padding: 2rem 2.25rem 2.5rem;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 768px) {
+  #userRegister {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
   #userRegister {
     display: flex;
     flex-direction: column;
@@ -584,6 +602,79 @@ form .btn:hover::before {
   #userRegister form {
     margin: 10% 0;
   }
+}
+#listaLibros, #userList {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 3rem 3.75rem 4rem;
+  flex-direction: column;
+  overflow: scroll;
+}
+@media (max-width: 992px) {
+  #listaLibros, #userList {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #listaLibros, #userList {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}
+#listaLibros button, #userList button {
+  width: 5rem;
+  margin-top: 10px;
+  background-color: white !important;
+  border: 1px solid #b8a49a !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: #8a746a;
+}
+#listaLibros button a, #userList button a {
+  color: black;
+  padding: 5px;
+}
+#listaLibros button a:hover, #userList button a:hover {
+  color: #FFF;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+}
+#listaLibros button:focus, #userList button:focus {
+  color: #8a746a;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+}
+#listaLibros button::before, #listaLibros button::after, #userList button::before, #userList button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background-color: #b8a49a !important;
+  /* color de fondo hover */
+  transition: all 0.2s ease-out;
+}
+#listaLibros button:hover, #userList button:hover {
+  color: white;
+}
+#listaLibros button:hover::after, #userList button:hover::after {
+  left: 50%;
+}
+#listaLibros button:hover::before, #userList button:hover::before {
+  left: 0;
+}
+#listaLibros table tr td a, #userList table tr td a {
+  color: black;
+}
+#listaLibros table tr td a:hover, #userList table tr td a:hover {
+  text-decoration: none;
+  color: #a10a0a;
+}
+#listaLibros table tr:nth-child(even), #userList table tr:nth-child(even) {
+  background: #b8a49a;
 }
 
 /*# sourceMappingURL=style.css.map */
