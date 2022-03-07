@@ -1,0 +1,8 @@
+.newLibro{
+    @include mainSection;
+    padding: 1rem 4rem 2rem;
+
+    & form{
+        background-color: ba;
+    }
+}

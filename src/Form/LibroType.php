@@ -16,6 +16,7 @@ class LibroType extends AbstractType
     {
         $builder
         ->add('book', FileType::class, [
+            'attr' =>[ 'class' => 'file'],
             'label' => 'Libro electrónico',
 
             // unmapped means that this field is not associated to any entity property

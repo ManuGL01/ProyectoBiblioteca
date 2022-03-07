@@ -1,21 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nuevo libro{% endblock %}
+{% block title %}Nuevo libro
+{% endblock %}
 
 {% block body %}
-{{ include('./admin/header.html.twig')}}
-
-<section id ="nuevoLibro">
-    <h1>Crear nuevo libro</h1>
-
-    {{ include('libro/_form.html.twig') }}
-
-    {# <h1>Subir varios libros</h1>
-
-    {{ include('libro/multiple_form.html.twig') }} #}
-
-    <a href="{{ path('admin') }}">Volver ↩</a>
-</section>
-
-{{ include('./admin/footer.html.twig')}}
+	{{ include('./admin/header.html.twig')}}
+	{# {{% include "template" %}} #}
+	<div class="contenedor">
+		<div class="libro">
+			<section class="title">
+				<h2>Crear nuevo libro</h2>
+			</section>
+			<section class="newLibro">
+				{{ include('libro/_form.html.twig') }}
+				<a href="{{ path('admin') }}">Volver a admin</a>
+			</section>
+			
+			{# <h1>Subir varios libros</h1>																											
+										 {{ include('libro/multiple_form.html.twig') }} #}
+		</div>
+	</div>
+	{{ include('./admin/footer.html.twig')}}
 {% endblock %}
