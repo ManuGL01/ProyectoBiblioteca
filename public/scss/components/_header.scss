@@ -63,7 +63,7 @@ header{
 
         @include response(sm){
             font-size: $font-h1-sm; 
-            width:80%;
+            width:70%;
             text-shadow:3px 3px 2px $color-black;
         }
         

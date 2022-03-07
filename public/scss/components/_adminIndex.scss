@@ -15,6 +15,17 @@
             grid-template-columns:repeat(4, 1fr);
             grid-gap:1rem;
     
+            @include response(lg){
+                width:100%;
+            }
+            @include response(md){
+                grid-template-columns: repeat(2, 1fr);
+                width:50%;
+            }
+            @include response(sm){
+                width:90%;
+            }
+
             & a{
                 display:flex;
                 border:2px solid $color-secondary;
@@ -29,7 +40,17 @@
                 position:relative;
                 z-index:1;
                 overflow:hidden;
-    
+
+                @include response(lg){
+                    width:9rem;
+                    height:11rem;
+                }
+
+                @include response(md){
+                    width:8rem;
+                    height:10rem;
+                }
+
                 &::after{
                     content:"";
                     background-color:$color-secondary;
