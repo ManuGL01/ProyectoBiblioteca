@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 use App\Repository\LibroRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,6 +11,21 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LibroRepository::class)]
+#[ApiResource(    
+    attributes: ["pagination_items_per_page" => 20],
+    collectionOperations: [
+        'get' => [
+            'method' => 'get',
+            'normalization_context' => ['groups' => ['infoLibros']],
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'method' => 'get',
+            'normalization_context' => ['groups' => ['infoLibroIndividual']],
+        ],
+    ],
+)]
 class Libro
 {
     #[Groups(['infoLibros', 'infoLibroIndividual'])]

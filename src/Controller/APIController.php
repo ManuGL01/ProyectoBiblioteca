@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('api')]
+/* #[Route('api')] */
 class APIController extends AbstractController
 {
     #[Route('/libros', name: 'api_libros')]
