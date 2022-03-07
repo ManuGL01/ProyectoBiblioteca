@@ -28,7 +28,7 @@ use Doctrine\ORM\Mapping as ORM;
 )]
 class Libro
 {
-    #[Groups(['infoLibros', 'infoLibroIndividual'])]
+    #[Groups(['infoLibros', 'infoLibroIndividual', 'anadirValoracion'])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
