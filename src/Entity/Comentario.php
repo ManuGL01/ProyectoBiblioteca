@@ -3,11 +3,26 @@
 namespace App\Entity;
 
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 use App\Repository\ComentarioRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ComentarioRepository::class)]
+#[ApiResource(
+    collectionOperations: [        
+        'post' => [
+            'path' => 'comentarios',
+            'denormalization_context' => ['groups' => ['anadirComentario']],
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'method' => 'get',
+            'path' => 'comentarios',
+        ],
+    ],
+)]
 class Comentario
 {
     #[Groups(['infoLibroIndividual'])]
@@ -16,20 +31,20 @@ class Comentario
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups(['infoLibroIndividual'])]
+    #[Groups(['infoLibroIndividual', 'anadirComentario'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $comentario;
 
-    #[Groups(['infoLibroIndividual'])]
+    #[Groups(['infoLibroIndividual', 'anadirComentario'])]
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'comentarios')]
     #[ORM\JoinColumn(nullable: false)]
     private $autor;
 
+    #[Groups(['anadirComentario'])]
     #[ORM\ManyToOne(targetEntity: Libro::class, inversedBy: 'comentarios')]
     #[ORM\JoinColumn(nullable: false)]
     private $libro;
 
-    #[Groups(['infoLibroIndividual'])]
     #[ORM\Column(type: 'datetime')]
     private $fechaPublicacion;
 
@@ -84,5 +99,10 @@ class Comentario
         $this->fechaPublicacion = $fechaPublicacion;
 
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->fechaPublicacion = new \DateTime();
     }
 }

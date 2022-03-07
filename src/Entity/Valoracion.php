@@ -10,13 +10,18 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ValoracionRepository::class)]
 #[ApiResource(
-    collectionOperations: [
+    collectionOperations: [        
         'post' => [
             'path' => 'valoraciones',
             'denormalization_context' => ['groups' => ['anadirValoracion']],
         ],
     ],
-    itemOperations: [],
+    itemOperations: [
+        'get' => [
+            'method' => 'get',
+            'path' => 'valoraciones',
+        ],
+    ],
 )]
 class Valoracion
 {

@@ -1,0 +1,11 @@
+{
+  "puntuacion": 1.2,
+  "autor": "/api/users/3",
+  "libro": "/api/libros/5"
+}
+
+{
+  "comentario": "comentario test",
+  "autor": "/api/users/3",
+  "libro": "/api/libros/5"
+}
