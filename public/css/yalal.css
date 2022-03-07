@@ -1,7 +1,36 @@
-.newLibro {
-  flex: 1 0 auto;
+.contenedor {
   padding: 1rem 4rem 2rem;
 }
+
+.libro {
+  flex: 1 0 auto;
+  padding: 1rem 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sombra{
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+
+.title {
+  width: 500px;
+  text-align: center;
+}
+
+.newLibro {
+  width: 500px;
+  height: 200px;
+  background-color: rgb(233, 231, 231);
+  padding: 2rem;
+}
+
 .newLibro h2 {
   text-align: center;
 }
