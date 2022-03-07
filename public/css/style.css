@@ -13,6 +13,7 @@ body {
   min-height: 100vh;
   font-family: "body";
   font-size: 0.9rem;
+  min-width: 375px;
 }
 
 p {
@@ -484,7 +485,8 @@ form .btn:hover::before {
   flex-wrap: wrap;
 }
 #userRegister .moreUsers input {
-  margin: 1rem;
+  width: 99%;
+  margin-left: 2rem;
   position: relative;
   z-index: 1;
   overflow: hidden;
