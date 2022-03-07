@@ -557,5 +557,78 @@ form .btn:hover::before {
     margin: 10% 0;
   }
 }
+#listaLibros, #userList {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 3rem 3.75rem 4rem;
+  flex-direction: column;
+  overflow: scroll;
+}
+@media (max-width: 992px) {
+  #listaLibros, #userList {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #listaLibros, #userList {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}
+#listaLibros button, #userList button {
+  width: 5rem;
+  margin-top: 10px;
+  background-color: white !important;
+  border: 1px solid #b8a49a !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: #8a746a;
+}
+#listaLibros button a, #userList button a {
+  color: black;
+  padding: 5px;
+}
+#listaLibros button a:hover, #userList button a:hover {
+  color: #FFF;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+}
+#listaLibros button:focus, #userList button:focus {
+  color: #8a746a;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+}
+#listaLibros button::before, #listaLibros button::after, #userList button::before, #userList button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background-color: #b8a49a !important;
+  /* color de fondo hover */
+  transition: all 0.2s ease-out;
+}
+#listaLibros button:hover, #userList button:hover {
+  color: white;
+}
+#listaLibros button:hover::after, #userList button:hover::after {
+  left: 50%;
+}
+#listaLibros button:hover::before, #userList button:hover::before {
+  left: 0;
+}
+#listaLibros table tr td a, #userList table tr td a {
+  color: black;
+}
+#listaLibros table tr td a:hover, #userList table tr td a:hover {
+  text-decoration: none;
+  color: #a10a0a;
+}
+#listaLibros table tr:nth-child(even), #userList table tr:nth-child(even) {
+  background: #b8a49a;
+}
 
 /*# sourceMappingURL=style.css.map */

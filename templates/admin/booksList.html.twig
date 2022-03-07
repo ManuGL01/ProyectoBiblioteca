@@ -7,8 +7,9 @@
 
 <section id ="listaLibros">
 	<h1>Lista de libros</h1>
-	<a href="/">Main</a>
+	<button>
 	<a href="{{ path('libro_new') }}">Create new</a>
+	</button>
 	<table class="table">
 		<thead>
 			<tr>
@@ -47,7 +48,9 @@
 			{% endfor %}
 		</tbody>
 	</table>
+	<button>
 	<a href="{{ path('admin') }}">Volver ↩</a>
+	</button>
 </section>
 
 {{ include('./admin/footer.html.twig')}}
