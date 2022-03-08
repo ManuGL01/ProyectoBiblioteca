@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Libros = () => {
     const [libros, setLibros] = useState([]);
-    useEffect(() => {
-        getInfo();
-    }, [])
+
     const getInfo = async () => {
         try {
             const url = `http://127.0.0.1:8000/api/libros`;
@@ -20,6 +18,10 @@ const Libros = () => {
             console.log(error);
         }
     };
+    
+    useEffect(() => {
+        getInfo();
+    }, [])
     return (
         <>
             <section className="libros">
