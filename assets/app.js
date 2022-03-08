@@ -10,23 +10,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import LayoutAllBooks from './components/LayoutAllBooks';
-import UserMain from './components/UserMain';
-import LibroIndv from './components/LibroIndv';
+import Rutas from './components/Rutas';
+
 
 ReactDOM.render(
-    <>
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<LayoutAllBooks/>}>
-                <Route index element={<UserMain/>}/>
-                <Route path=":id" element={<LibroIndv/>}/>
-            </Route>
-        </Routes>
-    </BrowserRouter>
-
-    </>
+    <Rutas />
     , document.getElementById('mainIndex')
 );
 

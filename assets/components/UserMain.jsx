@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import Libros from './Libros';
 import Login from './Login';
 
-const UserMain = () => {
-
-  const [userGlobal, setUserGlobal] = useState(null);
+const UserMain = ({userGlobal,setUserGlobal}) => {
   
   return (
     <section className="mainIndex">

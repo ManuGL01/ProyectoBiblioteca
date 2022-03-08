@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 
 
-const LayoutAllBooks = () => {
+const LayoutAllBooks = ({userGlobal}) => {
+
   return (
     <>
-      <Header/>
-      <Outlet/>
-      <Footer/>
+      <Header userGlobal={userGlobal} />
+      <Outlet />
+      <Footer />
     </>
   )
 }

@@ -2,7 +2,9 @@ import React from 'react'
 
 const LibroIndv = () => {
   return (
-    <div>LibroInd</div>
+    <div>
+      HELLO THERE
+    </div>
   )
 }
 

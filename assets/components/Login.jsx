@@ -17,7 +17,7 @@ const Login = ({setUserGlobal}) => {
         body: JSON.stringify(objectToUpload)
       });
       const data = await response.json();
-      //console.log(data);
+      console.log(data);
       setUserGlobal(data);
 
     } catch (error) {
