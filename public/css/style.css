@@ -48,16 +48,16 @@ header .navbar {
   background-image: url(../img/header.jpg);
   background-size: cover;
   background-position: center;
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 2rem;
 }
 @media (max-width: 768px) {
   header .navbar {
-    padding: 1.75rem 1.5rem;
+    padding: 1.5rem 2rem;
   }
 }
 @media (max-width: 576px) {
   header .navbar {
-    padding: 1.75rem 1rem;
+    padding: 1.5rem 1rem;
   }
 }
 header .navbar .navbar-toggler {
@@ -90,7 +90,7 @@ header h1 {
 }
 @media (max-width: 992px) {
   header h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     letter-spacing: 6px;
   }
 }
@@ -220,7 +220,7 @@ footer .contacto {
 #adminIndex {
   display: flex;
   flex: 1 0 auto;
-  padding: 3rem 3.75rem 4rem;
+  padding: 2.5rem 3.75rem 4rem;
 }
 @media (max-width: 992px) {
   #adminIndex {
@@ -321,7 +321,7 @@ footer .contacto {
 .mainIndex {
   display: flex;
   flex: 1 0 auto;
-  padding: 3rem 3.75rem 4rem;
+  padding: 2.5rem 3.75rem 4rem;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -360,47 +360,84 @@ footer .contacto {
     width: 90%;
   }
 }
-.mainIndex .libros {
+.mainIndex .librosYbuscador {
   width: 77%;
+}
+@media (max-width: 992px) {
+  .mainIndex .librosYbuscador {
+    width: 74%;
+  }
+}
+@media (max-width: 768px) {
+  .mainIndex .librosYbuscador {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.mainIndex .librosYbuscador .formBuscador {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  margin: 0 0 2.5rem;
+}
+@media (max-width: 992px) {
+  .mainIndex .librosYbuscador .formBuscador {
+    width: 100%;
+  }
+}
+.mainIndex .librosYbuscador .formBuscador #inputBuscador {
+  width: 20rem;
+}
+@media (max-width: 992px) {
+  .mainIndex .librosYbuscador .formBuscador #inputBuscador {
+    width: 15rem;
+  }
+}
+@media (max-width: 576px) {
+  .mainIndex .librosYbuscador .formBuscador #inputBuscador {
+    width: 11rem;
+  }
+}
+.mainIndex .librosYbuscador .formBuscador #btnBuscar {
+  padding: 0.3rem;
+}
+.mainIndex .librosYbuscador .libros {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.25rem 1rem;
 }
 @media (min-width: 1500px) {
-  .mainIndex .libros {
+  .mainIndex .librosYbuscador .libros {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (max-width: 992px) {
-  .mainIndex .libros {
-    width: 74%;
-  }
-}
 @media (max-width: 768px) {
-  .mainIndex .libros {
-    width: 90%;
-    margin: 0 auto;
+  .mainIndex .librosYbuscador .libros {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem 0.75rem;
   }
 }
 @media (max-width: 576px) {
-  .mainIndex .libros {
+  .mainIndex .librosYbuscador .libros {
     grid-template-columns: 1fr;
     grid-gap: 0.75rem;
   }
 }
-.mainIndex .libros .libro {
+.mainIndex .librosYbuscador .libros .libro {
   padding: 1rem;
   border-radius: 5px;
   border: 2px solid #b8a49a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 992px) {
-  .mainIndex .libros .libro {
+  .mainIndex .librosYbuscador .libros .libro {
     padding: 0.5rem 0.75rem;
   }
 }
-.mainIndex .libros .libro:hover {
+.mainIndex .librosYbuscador .libros .libro:hover {
   transform: scale(1.1);
   transition: 0.1s ease-out;
 }
@@ -492,14 +529,30 @@ form .btn:hover::before {
 }
 
 #userRegister {
-  margin: 0;
   display: flex;
+  flex: 1 0 auto;
+  padding: 2.5rem 3.75rem 4rem;
+  margin: 0;
   flex-wrap: nowrap;
   text-align: center;
 }
-#userRegister h1 {
-  font-size: 2em;
-  margin: 2rem;
+@media (max-width: 992px) {
+  #userRegister {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #userRegister {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+}
+#userRegister h2 {
+  margin: 1rem 1rem 2.5rem;
+}
+@media (max-width: 768px) {
+  #userRegister h2 {
+    margin: 1rem 0 0;
+  }
 }
 #userRegister .oneUser {
   display: flex;
@@ -512,14 +565,28 @@ form .btn:hover::before {
   flex-direction: column;
   flex-wrap: wrap;
 }
+@media (max-width: 768px) {
+  #userRegister .moreUsers {
+    margin-left: -1.25rem;
+  }
+}
 #userRegister .moreUsers input {
-  width: 99%;
-  margin-left: 2rem;
+  margin-left: 3rem;
   position: relative;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
   color: #8a746a;
+}
+@media (max-width: 992px) {
+  #userRegister .moreUsers input {
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  #userRegister .moreUsers input {
+    margin-left: 0;
+  }
 }
 #userRegister .moreUsers input:focus {
   color: #8a746a;
@@ -569,28 +636,17 @@ form .btn:hover::before {
   font-weight: bold;
 }
 #userRegister form button {
-  margin: 2rem;
+  margin: 2.5rem 0;
+}
+@media (max-width: 768px) {
+  #userRegister form button {
+    margin: 2.5rem 0 2.25rem;
+  }
 }
 #userRegister a {
   color: #8a746a;
   text-decoration: none;
   align-self: flex-end;
-}
-
-#userRegister {
-  display: flex;
-  flex: 1 0 auto;
-  padding: 3rem 3.75rem 4rem;
-}
-@media (max-width: 992px) {
-  #userRegister {
-    padding: 2rem 2.25rem 2.5rem;
-  }
-}
-@media (max-width: 768px) {
-  #userRegister {
-    padding: 1.5rem 2rem 2.5rem;
-  }
 }
 @media (max-width: 768px) {
   #userRegister {
@@ -602,14 +658,14 @@ form .btn:hover::before {
     border-bottom: 1px solid #000;
   }
   #userRegister form {
-    margin: 10% 0;
+    margin: 2rem 0 1rem;
   }
 }
 
 #listaLibros, #userList {
   display: flex;
   flex: 1 0 auto;
-  padding: 3rem 3.75rem 4rem;
+  padding: 2.5rem 3.75rem 4rem;
   flex-direction: column;
   overflow: scroll;
 }
@@ -678,6 +734,58 @@ form .btn:hover::before {
 }
 #listaLibros table tr:nth-child(even), #userList table tr:nth-child(even) {
   background: #b8a49a;
+}
+
+#nuevoLibro {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 2.5rem 3.75rem 4rem;
+  align-items: center;
+  flex-direction: column;
+}
+@media (max-width: 992px) {
+  #nuevoLibro {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #nuevoLibro {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+}
+#nuevoLibro h2 {
+  margin: 1rem 1rem 2.5rem;
+}
+@media (max-width: 768px) {
+  #nuevoLibro h2 {
+    margin: 1rem 0 2.5rem;
+  }
+}
+#nuevoLibro .formLibro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 2rem;
+  box-shadow: 0 0 5px #000;
+}
+@media (max-width: 576px) {
+  #nuevoLibro .formLibro {
+    padding: 2rem 0;
+  }
+}
+#nuevoLibro .formLibro label {
+  width: 100%;
+  margin: 0 0 1rem;
+}
+#nuevoLibro .formLibro button {
+  margin: 2.5rem 0 0;
+}
+#nuevoLibro .formLibro a {
+  color: #8a746a;
+  text-decoration: none;
+  align-self: flex-end;
 }
 
 /*# sourceMappingURL=style.css.map */
