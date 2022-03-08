@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 
 const loginUrl = `http://127.0.0.1:8000/api/login`;
 
-const Login = () => {
+const Login = ({setUserGlobal}) => {
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
   const fetchPost = async (url, objectToUpload) => {
-    console.log(JSON.stringify(objectToUpload));
+    //console.log(JSON.stringify(objectToUpload));
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -17,7 +17,9 @@ const Login = () => {
         body: JSON.stringify(objectToUpload)
       });
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
+      setUserGlobal(data);
+
     } catch (error) {
       console.log(error);
     }

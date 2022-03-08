@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Buscador from './Buscador';
 
 const Libros = () => {
     const [libros, setLibros] = useState([]);
@@ -27,10 +28,7 @@ const Libros = () => {
 
             <section className="librosYbuscador">
 
-                <form className="formBuscador">
-                    <input type="search" name="inputBuscador" className="form-control" id="inputBuscador" />
-                    <button type="submit" name="btnBuscar" className="btn btn-primary mt-0 ml-2" id="btnBuscar">Buscar</button>
-                </form>
+            <Buscador /> 
 
                 <section className="libros">
                     {libros.map((libro) => (

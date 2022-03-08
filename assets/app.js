@@ -10,14 +10,22 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Router } from 'react-router-dom';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import LayoutAllBooks from './components/LayoutAllBooks';
-    
+import UserMain from './components/UserMain';
+import LibroIndv from './components/LibroIndv';
+
 ReactDOM.render(
     <>
-    {/* <Router><Home /></Router>
-        <Prueba/> */}
-        <LayoutAllBooks/>
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<LayoutAllBooks/>}>
+                <Route index element={<UserMain/>}/>
+                <Route path=":id" element={<LibroIndv/>}/>
+            </Route>
+        </Routes>
+    </BrowserRouter>
+
     </>
     , document.getElementById('mainIndex')
 );

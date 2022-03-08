@@ -97,7 +97,10 @@ class APIController extends AbstractController
     public function login(): Response
     {
         if ($this->getUser()) {
-            return $this->json($this->getUser(), Response::HTTP_OK, [], ['groups' => 'infoUser']);
+            if($this->getUser()->isGranted("ROLE_ADMIN"))
+                return $this->redirectToRoute("admin");
+            else
+                return $this->json($this->getUser(), Response::HTTP_OK, [], ['groups' => 'infoUser']);
         } 
     }
 }

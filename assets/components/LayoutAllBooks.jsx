@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from './Header';
 import Footer from './Footer';
-import UserMain from './UserMain';
+import { Outlet } from 'react-router-dom';
 
 
 const LayoutAllBooks = () => {
   return (
     <>
       <Header/>
-      <UserMain/>
+      <Outlet/>
       <Footer/>
     </>
   )
