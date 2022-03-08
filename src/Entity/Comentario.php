@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
         'post' => [
             'path' => 'comentarios',
             'denormalization_context' => ['groups' => ['anadirComentario']],
+            'security' => 'is_granted("ROLE_USER")'
         ],
     ],
     itemOperations: [

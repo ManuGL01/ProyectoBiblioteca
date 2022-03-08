@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
         'post' => [
             'path' => 'valoraciones',
             'denormalization_context' => ['groups' => ['anadirValoracion']],
+            'security' => 'is_granted("ROLE_USER")'
         ],
     ],
     itemOperations: [
