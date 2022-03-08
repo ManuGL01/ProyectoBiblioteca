@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
     itemOperations: [
         'get' => [
             'method' => 'get',
-            'path' => 'comentarios',
+            'path' => 'comentarios/{id}',
         ],
     ],
 )]
@@ -47,6 +47,9 @@ class Comentario
 
     #[ORM\Column(type: 'datetime')]
     private $fechaPublicacion;
+
+    #[ORM\Column(type: 'boolean')]
+    private $aprobado;
 
     public function getId(): ?int
     {
@@ -101,8 +104,21 @@ class Comentario
         return $this;
     }
 
+    public function getAprobado(): ?bool
+    {
+        return $this->aprobado;
+    }
+    
+    public function setAprobado(bool $aprobado): self
+    {
+        $this->aprobado = $aprobado;
+        
+        return $this;
+    }
+    
     public function __construct()
     {
         $this->fechaPublicacion = new \DateTime();
+        $this->aprobado = false;
     }
 }

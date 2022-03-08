@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 use App\Repository\LibroRepository;
@@ -49,7 +50,6 @@ class Libro
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'librosLeidos')]
     private $leidopor;
 
-    #[Groups(['infoLibroIndividual'])]
     #[ORM\OneToMany(mappedBy: 'libro', targetEntity: Comentario::class)]
     private $comentarios;
 
@@ -138,6 +138,21 @@ class Libro
     public function getComentarios(): Collection
     {
         return $this->comentarios;
+    }
+
+    /**
+     * @return Collection|Comentario[]
+     */
+    #[Groups(['infoLibroIndividual'])]
+    #[SerializedName('comentarios')]
+    public function getComentariosAprobados(): Collection
+    {        
+        return $this->comentarios->filter(
+            function (Comentario $comentario)
+            {
+             return $comentario->getAprobado();   
+            }
+        );
     }
 
     public function addComentario(Comentario $comentario): self

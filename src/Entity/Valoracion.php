@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
     itemOperations: [
         'get' => [
             'method' => 'get',
-            'path' => 'valoraciones',
+            'path' => 'valoraciones/{id}',
         ],
     ],
 )]
