@@ -8,7 +8,7 @@ use App\Entity\Valoracion;
 use App\Repository\LibroRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
-
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -100,4 +100,29 @@ class APIController extends AbstractController
             return $this->json($this->getUser(), Response::HTTP_OK, [], ['groups' => 'infoUser']);
         } 
     }
+
+    #[Route('api/descargar', name: 'libro_download')]
+    public function download(LibroRepository $libroRepository, UserRepository $userRepository, EntityManagerInterface $entityManager): Response
+    {
+        try {
+            $data = json_decode($request->getContent(), true);
+            $url = $data['url']; //viene del json
+            $idUser = $data['idUser']; //viene del json
+            $idLibro = $data['idLibro']; //viene del json
+
+            $user = $userRepository->findOneById($idUser); //objeto user
+            $libro = $libroRepository->findOneById($idLibro); //objeto libro
+
+            $user->addLibrosLeido($libro);
+
+            $file = $url;
+            $response = new BinaryFileResponse($file);
+
+            return $response;
+
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+        }
+    }
+    
 }

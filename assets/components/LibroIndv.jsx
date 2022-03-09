@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const LibroIndv = () => {
+const descargaUrl = `http://127.0.0.1:8000/api/descargar`;
+
+const LibroIndv = ({ userGlobal }) => {
 
   const navigate = useNavigate();
   const params = useParams();
@@ -38,7 +40,6 @@ const LibroIndv = () => {
       });
       const data = await response.json();
       console.log(data);
-      setUserGlobal(data);
 
     } catch (error) {
       console.log(error);
@@ -47,13 +48,11 @@ const LibroIndv = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputUsername.length === 0 || inputPassword.length === 0) {
-      alert("Rellene todos los campos");
-      return;
-    }
+
     const data = {
-      username: inputUsername,
-      password: inputPassword
+      url: libro.url,
+      idUser: userGlobal.id,
+      libroId: libro.id,
     }
     //console.log(data);
     fetchPost(loginUrl, data);
