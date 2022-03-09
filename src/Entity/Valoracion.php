@@ -8,6 +8,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ValoracionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\UniqueConstraint(name: "una_val_por_libro", columns: ["autor_id", "libro_id"])]
 #[ORM\Entity(repositoryClass: ValoracionRepository::class)]
 #[ApiResource(
     collectionOperations: [        
@@ -39,7 +40,7 @@ class Valoracion
     #[ORM\Column(type: 'datetime')]
     private $fechaPublicacion;
 
-    #[Groups(['anadirValoracion'])]
+    #[Groups(['anadirValoracion', 'infoLibroIndividual'])]
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'valoraciones')]
     private $autor;
 

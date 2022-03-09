@@ -22,12 +22,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
     itemOperations: [
         'get' => [
             'method' => 'get',
+            'normalization_context' => ['groups' => ['']],
         ],
     ],
 )]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    #[Groups(['infoUser', 'anadirValoracion'])]
+    #[Groups(['infoUser', 'anadirValoracion', 'infoLibroIndividual'])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
