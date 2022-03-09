@@ -714,7 +714,7 @@ form .btn {
   }
 }
 
-#listaLibros, #userList {
+#listaLibros, #userList, #commentList {
   display: flex;
   flex: 1 0 auto;
   padding: 2.5rem 3.75rem 4rem;
@@ -722,16 +722,16 @@ form .btn {
   overflow: scroll;
 }
 @media (max-width: 992px) {
-  #listaLibros, #userList {
+  #listaLibros, #userList, #commentList {
     padding: 2rem 2.25rem 2.5rem;
   }
 }
 @media (max-width: 768px) {
-  #listaLibros, #userList {
+  #listaLibros, #userList, #commentList {
     padding: 1.5rem 2rem 2.5rem;
   }
 }
-#listaLibros button, #userList button {
+#listaLibros button, #userList button, #commentList button {
   width: 5rem;
   margin-top: 10px;
   background-color: white !important;
@@ -742,21 +742,21 @@ form .btn {
   display: inline-block;
   color: #8a746a;
 }
-#listaLibros button a, #userList button a {
+#listaLibros button a, #userList button a, #commentList button a {
   color: black;
   padding: 5px;
 }
-#listaLibros button a:hover, #userList button a:hover {
+#listaLibros button a:hover, #userList button a:hover, #commentList button a:hover {
   color: #FFF;
   text-decoration: none;
   transition: 0.2s ease-out;
 }
-#listaLibros button:focus, #userList button:focus {
+#listaLibros button:focus, #userList button:focus, #commentList button:focus {
   color: #8a746a;
   outline: 0;
   box-shadow: 0 0 0 0.2rem #b8a49a !important;
 }
-#listaLibros button::before, #listaLibros button::after, #userList button::before, #userList button::after {
+#listaLibros button::before, #listaLibros button::after, #userList button::before, #userList button::after, #commentList button::before, #commentList button::after {
   content: "";
   z-index: -1;
   position: absolute;
@@ -768,27 +768,27 @@ form .btn {
   /* color de fondo hover */
   transition: all 0.2s ease-out;
 }
-#listaLibros button:hover, #userList button:hover {
+#listaLibros button:hover, #userList button:hover, #commentList button:hover {
   color: white;
 }
-#listaLibros button:hover::after, #userList button:hover::after {
+#listaLibros button:hover::after, #userList button:hover::after, #commentList button:hover::after {
   left: 50%;
 }
-#listaLibros button:hover::before, #userList button:hover::before {
+#listaLibros button:hover::before, #userList button:hover::before, #commentList button:hover::before {
   left: 0;
 }
-#listaLibros table tr td a, #userList table tr td a {
+#listaLibros table tr td a, #userList table tr td a, #commentList table tr td a {
   color: black;
 }
-#listaLibros table tr td a:hover, #userList table tr td a:hover {
+#listaLibros table tr td a:hover, #userList table tr td a:hover, #commentList table tr td a:hover {
   text-decoration: none;
   color: #8a746a;
   transition: 0.2s ease-out;
 }
-#listaLibros table tr:nth-child(even), #userList table tr:nth-child(even) {
+#listaLibros table tr:nth-child(even), #userList table tr:nth-child(even), #commentList table tr:nth-child(even) {
   background: #b8a49a;
 }
-#listaLibros table tr:nth-child(even) a:hover, #userList table tr:nth-child(even) a:hover {
+#listaLibros table tr:nth-child(even) a:hover, #userList table tr:nth-child(even) a:hover, #commentList table tr:nth-child(even) a:hover {
   color: #FFF;
 }
 

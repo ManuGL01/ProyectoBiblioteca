@@ -1,4 +1,4 @@
-#listaLibros , #userList {
+#listaLibros , #userList, #commentList {
     @include mainSection;
     flex-direction: column;
     overflow: scroll;
