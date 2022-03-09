@@ -744,6 +744,10 @@ form .btn {
 #listaLibros #form form, #userList #form form, .show #form form, #edit #form form {
   margin: 1rem;
 }
+#listaLibros #form form #user, #userList #form form #user, .show #form form #user, #edit #form form #user {
+  display: flex;
+  flex-direction: column;
+}
 #listaLibros div, #userList div, .show div, #edit div {
   display: flex;
   flex-direction: row;
