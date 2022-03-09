@@ -1,12 +1,22 @@
 import React from 'react'
 
 const myStorage2 = window.localStorage;
+const logoutUrl =  `http://127.0.0.1:8000/logout`;
 
 const Header = ({ userGlobal, setUserGlobal }) => {
+
+  const logout = async (url) => {
+    try {
+      await fetch(url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleLogout = (e) => {
     e.preventDefault();
     console.log("logout");
+    logout(logoutUrl);
     myStorage2.removeItem('bibliotecaLoggedUser');
     setUserGlobal(false);
   }
