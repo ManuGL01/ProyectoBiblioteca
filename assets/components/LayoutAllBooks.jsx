@@ -4,11 +4,11 @@ import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 
 
-const LayoutAllBooks = ({userGlobal}) => {
+const LayoutAllBooks = ({userGlobal, setUserGlobal}) => {
 
   return (
     <>
-      <Header userGlobal={userGlobal} />
+      <Header userGlobal={userGlobal} setUserGlobal={setUserGlobal} />
       <Outlet />
       <Footer />
     </>
