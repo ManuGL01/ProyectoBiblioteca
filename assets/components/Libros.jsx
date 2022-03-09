@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Buscador from './Buscador';
 
-const Libros = () => {
+const Libros = ({userGlobal}) => {
     const [libros, setLibros] = useState([]);
 
     const getInfo = async () => {
@@ -22,25 +23,39 @@ const Libros = () => {
 
     useEffect(() => {
         getInfo();
-    }, [])
+    }, []);
+
     return (
         <>
-
             <section className="librosYbuscador">
 
             <Buscador /> 
 
-                <section className="libros">
+            {userGlobal?.username ? 
+                <section className='librosSinLogin'>
                     {libros.map((libro) => (
-                        <div className="libro" key={libro.id}>
+                    <Link to={'libro/'+libro.id.toString()} key={libro.id}>
+                        <div className="libroSinLoguin" key={libro.id}>
                             <h4>{libro.titulo}</h4>
                             <p>{libro.autor}</p>
                         </div>
+                    </Link>
                     ))}
                 </section>
+            : 
+                <section className='librosConLoguin'>
+                    {libros.map((libro) => (
+                    <Link to={'libro/'+libro.id.toString()} key={libro.id}>
+                        <div className="libroConLoguin" >
+                            <h4>{libro.titulo}</h4>
+                            <p>{libro.autor}</p>
+                        </div>
+                    </Link>
+                    ))}
+                </section>
+            }
 
             </section>
-
         </>
     )
 }

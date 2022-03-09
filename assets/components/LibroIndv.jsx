@@ -1,10 +1,20 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const LibroIndv = () => {
+
+  const navigate = useNavigate();
+
+  const handleVolver = () => {
+    navigate('/');
+  }
+
   return (
-    <div>
+    <section id="libroIndv">
       HELLO THERE
-    </div>
+
+      <button onClick={handleVolver} className="btn btn-primary">Volver ↩</button>
+    </section>
   )
 }
 

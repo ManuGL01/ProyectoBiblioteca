@@ -7,7 +7,7 @@ const UserMain = ({userGlobal,setUserGlobal}) => {
   return (
     <section className="mainIndex">
       {userGlobal ? null : <Login setUserGlobal={setUserGlobal}/>}
-      <Libros/>
+      <Libros userGlobal={userGlobal}/>
     </section>
   )
 }

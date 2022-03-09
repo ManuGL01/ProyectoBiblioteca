@@ -15,13 +15,13 @@ const Header = ({ userGlobal }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li>
-              <a className="nav-link">{userGlobal?.username ? `Bienvenido ${userGlobal?.username}` : `Bienvenido invitado` }</a>
+              <a className="nav-link no-link">{userGlobal?.username ? `Bienvenido ${userGlobal?.username}` : `Bienvenido invitado` }</a>
             </li>
             <li className="nav-item">
-              {userGlobal?.roles?.find(rol => rol === "ROLE_ADMIN") ? <a className="nav-link">Panel de administración</a> : null}
+              {userGlobal?.roles?.find(rol => rol === "ROLE_ADMIN") ? <a className="nav-link" href="/admin">Panel de administración</a> : null}
             </li>
             <li className="nav-item">
-              {userGlobal?.username ? <a className="nav-link">Cerrar sesión</a> : null }              
+              {userGlobal?.username ? <a className="nav-link" href="/logout">Cerrar sesión</a> : null }              
             </li>
           </ul>
         </div>

@@ -60,11 +60,18 @@
                 }
                 & a:hover {
                     text-decoration:none;
-                    color : $color-primary;
+                    color : $color-secondaryv2;
+                    transition:.2s ease-out;
                 }
             }
         }
-        & tr:nth-child(even) {background: $color-secondary}
+        & tr:nth-child(even) {
+            background: $color-secondary;
+
+            & a:hover{
+                color:$color-white;
+            }
+        }
     }
 
 

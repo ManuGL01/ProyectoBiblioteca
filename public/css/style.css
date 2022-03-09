@@ -41,6 +41,49 @@ h1 {
   }
 }
 
+.no-link {
+  cursor: default !important;
+}
+
+.btn {
+  background-color: white !important;
+  border: 1px solid #b8a49a !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: #8a746a;
+}
+.btn:focus {
+  color: #8a746a;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+}
+.btn::before, .btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background-color: #b8a49a !important;
+  /* color de fondo hover */
+  transition: all 0.2s ease-out;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn:hover::after {
+  left: 50%;
+}
+
+.btn:hover::before {
+  left: 0;
+}
+
 header {
   display: flex;
 }
@@ -48,7 +91,7 @@ header .navbar {
   background-image: url(../img/header.jpg);
   background-size: cover;
   background-position: center;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
 }
 @media (max-width: 768px) {
   header .navbar {
@@ -70,16 +113,13 @@ header .navbar .navbar-nav {
   padding: 0 1rem;
   display: flex;
   justify-content: flex-end;
-  width: 10rem;
   margin: 0 0 0 auto;
 }
 header .navbar .navbar-nav .nav-link {
   color: #FFF;
   text-align: end;
   font-weight: bold;
-}
-header .navbar .navbar-nav .nav-link:hover, header .navbar .navbar-nav .nav-link:focus {
-  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
 }
 header h1 {
   font-family: "title", cursive;
@@ -342,11 +382,13 @@ footer .contacto {
   }
 }
 .mainIndex form {
-  width: 18%;
+  width: 20%;
+  margin: 0 3rem 0 0;
 }
 @media (max-width: 992px) {
   .mainIndex form {
     width: 22%;
+    margin: 0 2rem 0 0;
   }
 }
 @media (max-width: 768px) {
@@ -361,24 +403,22 @@ footer .contacto {
   }
 }
 .mainIndex .librosYbuscador {
-  width: 77%;
-}
-@media (max-width: 992px) {
-  .mainIndex .librosYbuscador {
-    width: 74%;
-  }
+  width: -webkit-fill-available;
 }
 @media (max-width: 768px) {
   .mainIndex .librosYbuscador {
-    width: 90%;
     margin: 0 auto;
   }
+}
+.mainIndex .librosYbuscador a {
+  color: #000;
+  text-decoration: none;
 }
 .mainIndex .librosYbuscador .formBuscador {
   display: flex;
   justify-content: center;
-  width: 85%;
-  margin: 0 0 2.5rem;
+  width: 100%;
+  margin: 0 0 2rem;
 }
 @media (max-width: 992px) {
   .mainIndex .librosYbuscador .formBuscador {
@@ -401,29 +441,29 @@ footer .contacto {
 .mainIndex .librosYbuscador .formBuscador #btnBuscar {
   padding: 0.3rem;
 }
-.mainIndex .librosYbuscador .libros {
+.mainIndex .librosYbuscador .librosConLoguin {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.25rem 1rem;
 }
 @media (min-width: 1500px) {
-  .mainIndex .librosYbuscador .libros {
+  .mainIndex .librosYbuscador .librosConLoguin {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (max-width: 768px) {
-  .mainIndex .librosYbuscador .libros {
+  .mainIndex .librosYbuscador .librosConLoguin {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem 0.75rem;
   }
 }
 @media (max-width: 576px) {
-  .mainIndex .librosYbuscador .libros {
+  .mainIndex .librosYbuscador .librosConLoguin {
     grid-template-columns: 1fr;
     grid-gap: 0.75rem;
   }
 }
-.mainIndex .librosYbuscador .libros .libro {
+.mainIndex .librosYbuscador .librosConLoguin .libroConLoguin {
   padding: 1rem;
   border-radius: 5px;
   border: 2px solid #b8a49a;
@@ -433,13 +473,58 @@ footer .contacto {
   justify-content: center;
 }
 @media (max-width: 992px) {
-  .mainIndex .librosYbuscador .libros .libro {
+  .mainIndex .librosYbuscador .librosConLoguin .libroConLoguin {
     padding: 0.5rem 0.75rem;
   }
 }
-.mainIndex .librosYbuscador .libros .libro:hover {
+.mainIndex .librosYbuscador .librosConLoguin .libroConLoguin:hover {
   transform: scale(1.1);
   transition: 0.1s ease-out;
+}
+.mainIndex .librosYbuscador .librosSinLogin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mainIndex .librosYbuscador .librosSinLogin .libroSinLoguin {
+  width: 15rem;
+  margin: 0 1rem 1rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid #b8a49a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .mainIndex .librosYbuscador .librosSinLogin .libroSinLoguin {
+    padding: 0.5rem 0.75rem;
+  }
+}
+.mainIndex .librosYbuscador .librosSinLogin .libroSinLoguin:hover {
+  transform: scale(1.1);
+  transition: 0.1s ease-out;
+}
+
+#libroIndv {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 2.5rem 3.75rem 4rem;
+  flex-direction: column;
+}
+@media (max-width: 992px) {
+  #libroIndv {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #libroIndv {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+}
+#libroIndv button {
+  width: 6rem;
 }
 
 form {
@@ -469,39 +554,6 @@ form label {
 }
 form .btn {
   margin-top: 10px;
-  background-color: white !important;
-  border: 1px solid #b8a49a !important;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  display: inline-block;
-  color: #8a746a;
-}
-form .btn:focus {
-  color: #8a746a;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem #b8a49a !important;
-}
-form .btn::before, form .btn::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  top: 0;
-  left: -50%;
-  background-color: #b8a49a !important;
-  /* color de fondo hover */
-  transition: all 0.2s ease-out;
-}
-form .btn:hover {
-  color: white;
-}
-form .btn:hover::after {
-  left: 50%;
-}
-form .btn:hover::before {
-  left: 0;
 }
 
 #headerAdmin {
@@ -730,10 +782,14 @@ form .btn:hover::before {
 }
 #listaLibros table tr td a:hover, #userList table tr td a:hover {
   text-decoration: none;
-  color: #a10a0a;
+  color: #8a746a;
+  transition: 0.2s ease-out;
 }
 #listaLibros table tr:nth-child(even), #userList table tr:nth-child(even) {
   background: #b8a49a;
+}
+#listaLibros table tr:nth-child(even) a:hover, #userList table tr:nth-child(even) a:hover {
+  color: #FFF;
 }
 
 #nuevoLibro {
