@@ -34,7 +34,11 @@
 						<a href="{{ path('libro_edit', {'id': book.id}) }}">edit</a>
 					</td>
 					<td>
-						<a href="{{ path('libro_delete', {'id': book.id}) }}">Eliminar</a>
+						<form method="post" action="{{ path('libro_delete', {'id': book.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ book.id) }}">
+							<button class="btn">Delete</button>
+						</form>
+
 					</td>
 
 				</tr>
