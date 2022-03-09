@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Buscador from './Buscador';
 
 const Libros = ({userGlobal}) => {
@@ -20,21 +21,10 @@ const Libros = ({userGlobal}) => {
         }
     };
 
-    const librosSinLoguin = "<section className='librosSinLogin'>";
-    const librosConLoguin = "<section className='libros'>";
-
-    const pintarLibros = () => {
-        libros.map((libro) => (
-            <div className="libro" key={libro.id}>
-                <h4>{libro.titulo}</h4>
-                <p>{libro.autor}</p>
-            </div>
-        ))
-    }
-
     useEffect(() => {
         getInfo();
-    }, [])
+    }, []);
+
     return (
         <>
             <section className="librosYbuscador">
@@ -44,19 +34,23 @@ const Libros = ({userGlobal}) => {
             {userGlobal?.username ? 
                 <section className='librosSinLogin'>
                     {libros.map((libro) => (
-                    <div className="libroSinLoguin" key={libro.id}>
-                        <h4>{libro.titulo}</h4>
-                        <p>{libro.autor}</p>
-                    </div>
+                    <Link to={'libro/'+libro.id.toString()} key={libro.id}>
+                        <div className="libroSinLoguin" key={libro.id}>
+                            <h4>{libro.titulo}</h4>
+                            <p>{libro.autor}</p>
+                        </div>
+                    </Link>
                     ))}
                 </section>
             : 
                 <section className='librosConLoguin'>
                     {libros.map((libro) => (
-                    <div className="libroConLoguin" key={libro.id}>
-                        <h4>{libro.titulo}</h4>
-                        <p>{libro.autor}</p>
-                    </div>
+                    <Link to={'libro/'+libro.id.toString()} key={libro.id}>
+                        <div className="libroConLoguin" >
+                            <h4>{libro.titulo}</h4>
+                            <p>{libro.autor}</p>
+                        </div>
+                    </Link>
                     ))}
                 </section>
             }

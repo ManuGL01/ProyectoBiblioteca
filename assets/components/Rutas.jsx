@@ -7,14 +7,6 @@ import LibroIndv from './LibroIndv';
 const Rutas = () => {
 
     const [userGlobal, setUserGlobal] = useState(false);
-    /* const userFake={
-        username:"",
-    }
-
-    useEffect(() => {
-        setUserGlobal(userFake);
-    }, []); */
-
 
     return (
         <BrowserRouter>

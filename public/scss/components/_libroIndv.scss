@@ -1,0 +1,9 @@
+#libroIndv{
+    @include mainSection;
+    flex-direction:column;
+
+    & button{
+        width:6rem;
+    }
+
+}

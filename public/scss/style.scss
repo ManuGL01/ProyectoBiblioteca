@@ -32,12 +32,53 @@ h4{
     }
 }
 
+.no-link{
+    cursor:default!important;
+}
+.btn{
+    background-color: white !important;
+    border: 1px solid $color-secondary !important; 
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;   
+    color: $color-secondaryv2;
+
+    &:focus{
+        color: $color-secondaryv2;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem $color-secondary !important;
+    }
+
+    &::before , &::after{
+        content: "";
+        z-index: -1;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: -50%;
+        background-color: $color-secondary!important; /* color de fondo hover */
+        transition: all 0.2s ease-out;
+    }
+}
+
+.btn:hover{
+    color: white;
+    }
+.btn:hover::after{
+    left: 50%;
+    }
+.btn:hover::before{
+    left: 0;
+}
 
 @import './components/header';
 @import './components/footer';
 @import './components/adminIndex';
 @import './components/mainIndex';
-@import './components/loginform';
+@import './components/libroIndv';
+@import './components/loginForm';
 @import './components/headerAdmin';
 @import './components/userRegister';
 @import './components/list';

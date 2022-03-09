@@ -41,6 +41,49 @@ h1 {
   }
 }
 
+.no-link {
+  cursor: default !important;
+}
+
+.btn {
+  background-color: white !important;
+  border: 1px solid #b8a49a !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: #8a746a;
+}
+.btn:focus {
+  color: #8a746a;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+}
+.btn::before, .btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background-color: #b8a49a !important;
+  /* color de fondo hover */
+  transition: all 0.2s ease-out;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn:hover::after {
+  left: 50%;
+}
+
+.btn:hover::before {
+  left: 0;
+}
+
 header {
   display: flex;
 }
@@ -48,7 +91,7 @@ header .navbar {
   background-image: url(../img/header.jpg);
   background-size: cover;
   background-position: center;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
 }
 @media (max-width: 768px) {
   header .navbar {
@@ -76,9 +119,7 @@ header .navbar .navbar-nav .nav-link {
   color: #FFF;
   text-align: end;
   font-weight: bold;
-}
-header .navbar .navbar-nav .nav-link:hover, header .navbar .navbar-nav .nav-link:focus {
-  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
 }
 header h1 {
   font-family: "title", cursive;
@@ -363,14 +404,15 @@ footer .contacto {
 }
 .mainIndex .librosYbuscador {
   width: -webkit-fill-available;
-  /* @include response(lg){
-      width:74%;
-  } */
 }
 @media (max-width: 768px) {
   .mainIndex .librosYbuscador {
     margin: 0 auto;
   }
+}
+.mainIndex .librosYbuscador a {
+  color: #000;
+  text-decoration: none;
 }
 .mainIndex .librosYbuscador .formBuscador {
   display: flex;
@@ -465,6 +507,26 @@ footer .contacto {
   transition: 0.1s ease-out;
 }
 
+#libroIndv {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 2.5rem 3.75rem 4rem;
+  flex-direction: column;
+}
+@media (max-width: 992px) {
+  #libroIndv {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #libroIndv {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+}
+#libroIndv button {
+  width: 6rem;
+}
+
 form {
   text-align: center;
 }
@@ -492,39 +554,6 @@ form label {
 }
 form .btn {
   margin-top: 10px;
-  background-color: white !important;
-  border: 1px solid #b8a49a !important;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  display: inline-block;
-  color: #8a746a;
-}
-form .btn:focus {
-  color: #8a746a;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem #b8a49a !important;
-}
-form .btn::before, form .btn::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  top: 0;
-  left: -50%;
-  background-color: #b8a49a !important;
-  /* color de fondo hover */
-  transition: all 0.2s ease-out;
-}
-form .btn:hover {
-  color: white;
-}
-form .btn:hover::after {
-  left: 50%;
-}
-form .btn:hover::before {
-  left: 0;
 }
 
 #headerAdmin {
@@ -753,10 +782,14 @@ form .btn:hover::before {
 }
 #listaLibros table tr td a:hover, #userList table tr td a:hover {
   text-decoration: none;
-  color: #a10a0a;
+  color: #8a746a;
+  transition: 0.2s ease-out;
 }
 #listaLibros table tr:nth-child(even), #userList table tr:nth-child(even) {
   background: #b8a49a;
+}
+#listaLibros table tr:nth-child(even) a:hover, #userList table tr:nth-child(even) a:hover {
+  color: #FFF;
 }
 
 #nuevoLibro {

@@ -31,13 +31,13 @@
     & .librosYbuscador{
         width: -webkit-fill-available;
 
-        /* @include response(lg){
-            width:74%;
-        } */
-
         @include response(md){
-            //width:90%;
             margin:0 auto;
+        }
+
+        & a{
+            color: $color-black;
+            text-decoration: none;
         }
 
         & .formBuscador{
