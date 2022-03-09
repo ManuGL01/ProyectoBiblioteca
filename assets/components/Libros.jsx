@@ -29,7 +29,7 @@ const Libros = ({userGlobal}) => {
         <>
             <section className="librosYbuscador">
 
-            <Buscador /> 
+            <Buscador setLibros={setLibros}/> 
 
             {userGlobal?.username ? 
                 <section className='librosSinLogin'>
