@@ -29,8 +29,16 @@
   box-shadow: 0 0 5px black;
 }
 
-a{
-  padding-top: 2rem;
+button {
+  margin: 20px;
+}
+
+#libro div{
+  margin: 0rem 1.5rem 1rem 1.5rem;
+}
+
+#libro div label{
+  padding-bottom: 1rem;
 }
 
 .newLibro h2 {
