@@ -3,6 +3,8 @@
 {% block title %}Libro{% endblock %}
 
 {% block body %}
+{{ include('./admin/header.html.twig')}}
+<section class="show">
     <h1>Libro</h1>
 
     <table class="table">
@@ -26,9 +28,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('libro_index') }}">back to list</a>
-
-    <a href="{{ path('libro_edit', {'id': libro.id}) }}">edit</a>
-
-    {{ include('libro/_delete_form.html.twig') }}
+    <a href="{{ path('libro_lists') }}">back to list</a>
+    </section>
+    {{ include('./admin/footer.html.twig')}}
 {% endblock %}
