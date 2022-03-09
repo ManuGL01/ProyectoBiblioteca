@@ -3,11 +3,13 @@
 {% block title %}Edit Libro{% endblock %}
 
 {% block body %}
+{{ include('./admin/header.html.twig')}}
+<section id = "edit">
     <h1>Edit Libro</h1>
-
-    {{ include('libro/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('libro_index') }}">back to list</a>
-
-    {{ include('libro/_delete_form.html.twig') }}
+    <div id = "form">
+    {{ include('libro/_form.html.twig', {'button_label':'Update'}) }}
+    </div>
+    <a href="{{ path('libro_lists') }}">back to list</a>
+</section>
+{{ include('./admin/footer.html.twig')}}
 {% endblock %}

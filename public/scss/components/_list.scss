@@ -1,7 +1,25 @@
-#listaLibros , #userList, #commentList {
+#listaLibros , #userList, .show, #edit, #commentList {
     @include mainSection;
     flex-direction: column;
     overflow: scroll;
+    text-align: center;
+    & h1 {
+        margin:1rem 1rem 2.5rem;
+    }
+    & #form {
+        margin: 0 auto;
+        border: 1px solid $color-black;
+        width: fit-content;
+        box-shadow: 0 0 5px $color-black;
+        & form {
+            margin: 1rem;
+        }
+    }
+    & div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     & button {
         width: 5rem;
         margin-top: 10px;
@@ -14,7 +32,7 @@
         color: $color-secondaryv2;
         & a {
             color : black;
-            padding : 5px;
+            
             
         }
         & a:hover {
