@@ -46,7 +46,7 @@ const LibroIndv = ({ userGlobal }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleDescarga = (e) => {
     e.preventDefault();
 
     const data = {
@@ -55,7 +55,7 @@ const LibroIndv = ({ userGlobal }) => {
       libroId: libro.id,
     }
     //console.log(data);
-    fetchPost(loginUrl, data);
+    fetchPost(descargaUrl, data);
   }
 
   const handleVolver = () => {
@@ -79,10 +79,10 @@ const LibroIndv = ({ userGlobal }) => {
           <p>{libro.autor}</p>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           <label htmlFor="aceptarTerminos">Acepto los términos de descarga</label>
           <input type="checkbox" name="aceptar" id="aceptarTerminos"/>
-          <input type="button" value="Descargar" name="descargar"/>
+          <input type="button" value="Descargar" name="descargar" onClick={handleDescarga}/>
         </form>
       </section>
 

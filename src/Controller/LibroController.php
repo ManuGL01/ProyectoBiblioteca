@@ -18,11 +18,11 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 #[Route('/admin/libro')]
 class LibroController extends AbstractController
 {
-    #[Route('/', name: 'libro_index', methods: ['GET'])]
+    #[Route('/', name: 'libro_list', methods: ['GET'])]
     public function index(LibroRepository $libroRepository): Response
     {
-        return $this->render('libro/index.html.twig', [
-            'libros' => $libroRepository->findAll(),
+        return $this->render('admin/booksList.html.twig', [
+            'listBooks' => $libroRepository->findAll(),
         ]);
     }
 
@@ -171,17 +171,6 @@ class LibroController extends AbstractController
 
         return $this->redirectToRoute('libro_index', [], Response::HTTP_SEE_OTHER);
     }
-
-    /**
-     * @Route("/bookList/books", name="libro_lists", methods={"GET"})
-     */
-    public function bookLists(LibroRepository $libroRepository): Response
-    {
-        return $this->render('admin/booksList.html.twig', [
-            'listBooks' => $libroRepository->findAll(),
-        ]);
-    }
-
 
 
 }

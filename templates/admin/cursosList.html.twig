@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Curso index{% endblock %}
+
+{% block body %}
+{{ include('./admin/header.html.twig')}}
+
+    <h1>lista de cursos</h1>
+
+    <section id ="cursoList">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Abreviatura</th>
+                <th>Edicion</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for curso in cursoList %}
+            <tr>
+                <td>{{ curso.nombre }}</td>
+                <td>{{ curso.abreviatura }}</td>
+                <td>{{ curso.edicion }}</td>
+                <td>
+                    <a href="{{ path('curso_edit', {'id': curso.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No hay cursos</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button>
+	<a href="{{ path('admin') }}">Volver ↩</a>
+	</button>
+    
+    </section>
+        
+{{ include('./admin/footer.html.twig')}}
+{% endblock %}

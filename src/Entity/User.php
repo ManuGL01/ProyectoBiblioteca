@@ -53,7 +53,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     #[ORM\ManyToOne(targetEntity: Curso::class, inversedBy: 'alumnos', )]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $curso;
 
     #[ORM\ManyToMany(targetEntity: Libro::class, inversedBy: 'leidopor')]

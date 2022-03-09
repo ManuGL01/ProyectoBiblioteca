@@ -9,7 +9,9 @@
     <div id = "form">
     {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
     </div>
-    <a href="{{ path('user_lists') }}">back to list</a>
+    <button>
+	<a href="{{ path('user_list') }}">Volver ↩</a>
+	</button>
     </section>
     {{ include('./admin/footer.html.twig')}}
 {% endblock %}

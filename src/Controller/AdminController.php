@@ -21,7 +21,7 @@ class AdminController extends AbstractController
     #[Route('/admin/comments', name: 'admin_comments')]
     public function commentList(ComentarioRepository $commentRepository): Response
     {
-        return $this->render('admin/comments.html.twig', [
+        return $this->render('admin/commentsList.html.twig', [
             'commentList' => $commentRepository->findCommentsDisapproved(),
         ]);
     }

@@ -19,11 +19,11 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 #[Route('/admin/user')]
 class UserController extends AbstractController
 {
-    #[Route('/', name: 'user_index', methods: ['GET'])]
+    #[Route('/', name: 'user_list', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
-        return $this->render('admin/userList.html.twig', [
-            'users' => $userRepository->findAll(),
+        return $this->render('admin/usersList.html.twig', [
+            'listUsers' => $userRepository->findAll(),
         ]);
     }
 
@@ -202,14 +202,5 @@ class UserController extends AbstractController
         return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    /**
-     * @Route("/usersList/users", name="user_lists", methods={"GET"})
-     */
-    public function bookLists(UserRepository $userRepository): Response
-    {
-        return $this->render('admin/usersList.html.twig', [
-            'listUsers' => $userRepository->findAll(),
-        ]);
-    }
 
 }

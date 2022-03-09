@@ -102,7 +102,7 @@ class APIController extends AbstractController
     }
 
     #[Route('api/descargar', name: 'libro_download')]
-    public function download(LibroRepository $libroRepository, UserRepository $userRepository, EntityManagerInterface $entityManager): Response
+    public function download(LibroRepository $libroRepository, UserRepository $userRepository, EntityManagerInterface $entityManager, Request $request): Response
     {
         try {
             $data = json_decode($request->getContent(), true);
@@ -114,6 +114,8 @@ class APIController extends AbstractController
             $libro = $libroRepository->findOneById($idLibro); //objeto libro
 
             $user->addLibrosLeido($libro);
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             $file = $url;
             $response = new BinaryFileResponse($file);
