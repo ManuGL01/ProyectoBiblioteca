@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}USERS LIST
+{% block title %}
+Lista de usuarios
 {% endblock %}
 
 {% block body %}
@@ -8,14 +9,11 @@
 
 <section id="userList">
 	<h1>Lista de usuarios</h1>
-	<button>
-    <a href="{{ path('user_new') }}">Registrar usuario</a>
-	</button>
 	<table class="table">
 		<thead>
 			<tr>
 				<th>Id</th>
-				<th>nombre</th>
+				<th>Nombre</th>
 				<th>DNI</th>
 				<th>Email</th>
 				<th>Acciones</th>
@@ -30,8 +28,8 @@
 					<td>{{ user.DNI }}</td>
 					<td>{{ user.email }}</td>
 					<td>
-						<a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-						<a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+						<a href="{{ path('user_show', {'id': user.id}) }}">Mostrar</a>
+						<a href="{{ path('user_edit', {'id': user.id}) }}">Editar</a>
 						<a href="{{ path('user_delete', {'id': user.id}) }}">Eliminar</a>
 					</td>
 				</tr>
@@ -42,9 +40,14 @@
 			{% endfor %}
 		</tbody>
 	</table>
+	<div>
+	<button>
+    <a href="{{ path('user_new') }}">Registrar usuario</a>
+	</button>
 	<button>
 	<a href="{{ path('admin') }}">Volver ↩</a>
 	</button>
+	</div>
 </section>
 {{ include('./admin/footer.html.twig')}}
 {% endblock %}

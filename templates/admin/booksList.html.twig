@@ -12,8 +12,8 @@
 			<tr>
 				<th>Id</th>
 				<th>titulo</th>
-				<th>autor</th>
-				<th>url</th>
+				<th>Autor</th>
+				<th>Url</th>
 				<th>Mostrar</th>
 				<th>Editar</th>
 				<th>Eliminar</th>
@@ -28,10 +28,10 @@
 					<td>{{ book.autor }}</td>
 					<td>{{ book.url }}</td>
 					<td>
-						<a href="{{ path('libro_show', {'id': book.id}) }}">show</a>
+						<a href="{{ path('libro_show', {'id': book.id}) }}">Mostrar</a>
 					</td>
 					<td>
-						<a href="{{ path('libro_edit', {'id': book.id}) }}">edit</a>
+						<a href="{{ path('libro_edit', {'id': book.id}) }}">Editar</a>
 					</td>
 					<td>
 						<a href="{{ path('libro_delete', {'id': book.id}) }}">Eliminar</a>
@@ -47,7 +47,7 @@
 	</table>
 	<div>
 		<button>
-		<a href="{{ path('libro_new') }}">Create new</a>
+		<a href="{{ path('libro_new') }}">Crear Libro</a>
 		</button>
 		<button>
 		<a href="{{ path('admin') }}">Volver ↩</a>
