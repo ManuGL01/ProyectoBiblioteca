@@ -13,7 +13,7 @@ const Rutas = () => {
             <Routes>
                 <Route path="/" element={<LayoutAllBooks userGlobal={userGlobal}/>}>
                     <Route index element={<UserMain  userGlobal={userGlobal} setUserGlobal={setUserGlobal}/>} />
-                    <Route path="libro/:id" element={<LibroIndv />} />
+                    <Route path="libro/:id" element={<LibroIndv userGlobal={userGlobal} />} />
                 </Route>
             </Routes>
         </BrowserRouter>

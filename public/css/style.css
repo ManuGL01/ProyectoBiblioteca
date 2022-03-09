@@ -283,12 +283,13 @@ footer .contacto {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 1rem;
 }
 @media (max-width: 992px) {
   #adminIndex nav .enlacesAdmin {
     width: 100%;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 768px) {
@@ -403,7 +404,7 @@ footer .contacto {
   }
 }
 .mainIndex .librosYbuscador {
-  width: -webkit-fill-available;
+  width: inherit;
 }
 @media (max-width: 768px) {
   .mainIndex .librosYbuscador {
@@ -512,6 +513,7 @@ footer .contacto {
   flex: 1 0 auto;
   padding: 2.5rem 3.75rem 4rem;
   flex-direction: column;
+  margin: 2rem 0 0;
 }
 @media (max-width: 992px) {
   #libroIndv {
@@ -521,6 +523,57 @@ footer .contacto {
 @media (max-width: 768px) {
   #libroIndv {
     padding: 1.5rem 2rem 2.5rem;
+  }
+}
+@media (max-width: 576px) {
+  #libroIndv {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}
+#libroIndv .datosLibro {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  #libroIndv .datosLibro {
+    width: 90%;
+  }
+}
+#libroIndv .datosLibro .img {
+  padding: 2rem;
+  box-shadow: 0 0 5px #000;
+}
+@media (max-width: 576px) {
+  #libroIndv .datosLibro .img {
+    padding: 1rem;
+  }
+}
+#libroIndv .datosLibro .img img {
+  width: 15rem;
+}
+@media (max-width: 992px) {
+  #libroIndv .datosLibro .img img {
+    width: 10rem;
+  }
+}
+@media (max-width: 768px) {
+  #libroIndv .datosLibro .img img {
+    width: 6rem;
+  }
+}
+@media (max-width: 576px) {
+  #libroIndv .datosLibro .img img {
+    width: 4rem;
+  }
+}
+#libroIndv .datosLibro .tituloLibro {
+  width: 58%;
+}
+@media (max-width: 576px) {
+  #libroIndv .datosLibro .tituloLibro {
+    width: 60%;
   }
 }
 #libroIndv button {
@@ -637,7 +690,7 @@ form .btn {
 }
 @media (max-width: 768px) {
   #userRegister .moreUsers input {
-    margin-left: 0;
+    margin-left: -0.5rem;
   }
 }
 #userRegister .moreUsers input:focus {

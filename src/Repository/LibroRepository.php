@@ -46,5 +46,15 @@ class LibroRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+    
     */
+    public function findOneById($value): ?Libro
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }
