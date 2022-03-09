@@ -11,25 +11,23 @@ const LibroIndv = ({ userGlobal }) => {
   let suma = 0;
   const [media, setMedia] = useState(0);
   const [totalVal, setTotalVal] = useState(0);
+  const [comments, setComments] = useState([]);
 
   const getComments = async () => {
-    try{
-        const url = `http://localhost:8000/api/libros/${params.id}`;
-        let respuesta = await fetch(url, {
-            headers: {
-                'Accept': 'application/json',
-            },
-        });
-        let data = await respuesta.json();
-        //console.log(data);
-        setLibro(data);
+    try {
+      const url = `http://localhost:8000/api/libros/${params.id}`;
+      let respuesta = await fetch(url, {
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+      let data = await respuesta.json();
+      console.log(data);
+      setLibro(data);
 
-        }catch(e){
-            console.log(e);
-        }
-        
-        
-
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   const fetchPost = async (url, objectToUpload) => {
@@ -67,7 +65,7 @@ const LibroIndv = ({ userGlobal }) => {
   }
 
   const handleSubirComment = () => {
-    
+
   }
 
   const handleVolver = () => {
@@ -75,7 +73,7 @@ const LibroIndv = ({ userGlobal }) => {
   }
 
   const calculoMedia = () => {
-    
+
     libro.valoraciones.forEach(val => {
       suma += val.puntuacion;
     });
@@ -85,21 +83,23 @@ const LibroIndv = ({ userGlobal }) => {
 
   useEffect(() => {
     getComments();
-    
+
   }, []);
 
   useEffect(() => {
-    if("id" in libro)
+    if ("id" in libro) {
       setTotalVal(libro.valoraciones?.length);
+      setComments(libro.comentarios);
+    }
   }, [libro]);
-  
-  useEffect(()=>{
-    if(totalVal > 0){
+
+  useEffect(() => {
+    if (totalVal > 0) {
       calculoMedia();
     }
-    
-  },[totalVal]);
-  
+
+  }, [totalVal]);
+
 
   return (
     <section id="libroIndv">
@@ -107,7 +107,7 @@ const LibroIndv = ({ userGlobal }) => {
       <section className="datosLibro">
 
         <div className="img">
-          <img src="/img/libro.png" alt={libro.titulo}/>
+          <img src="/img/libro.png" alt={libro.titulo} />
         </div>
 
         <div className="tituloLibro">
@@ -118,7 +118,7 @@ const LibroIndv = ({ userGlobal }) => {
 
           <form id="formDescargar" onSubmit={handleDescarga}>
             <div className="form-group">
-              <input type="checkbox" name="aceptar" id="aceptarTerminos"/>
+              <input type="checkbox" name="aceptar" id="aceptarTerminos" />
               <label htmlFor="aceptarTerminos">Acepto los términos de descarga</label>
             </div>
 
@@ -130,9 +130,8 @@ const LibroIndv = ({ userGlobal }) => {
       </section>
 
       <section className="commentsAndStarts">
-
-        <span>Valoración: </span>
         <form onSubmit={handleSubirVal} id="formSubirVal">
+          <span>Valoración: </span>
           <select name="val">
             <option value="val1">1</option>
             <option value="val2">2</option>
@@ -146,6 +145,20 @@ const LibroIndv = ({ userGlobal }) => {
           <p>Subir comentario:</p>
           <textarea></textarea>
         </form>
+
+        <section className="comments">
+          <table>
+            <tbody>
+              {comments.map(comentario =>
+                <tr key={comentario.id}>
+                  <td className="bold mr-3">{comentario.autor.username}:</td>
+                  <td>{comentario.comentario}</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </section>
+
       </section>
 
       <button onClick={handleVolver} className="btn btn-primary" id="btnVolver">Volver ↩</button>

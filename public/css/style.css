@@ -84,6 +84,10 @@ h1 {
   left: 0;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 header {
   display: flex;
 }
@@ -279,7 +283,6 @@ footer .contacto {
   justify-content: center;
 }
 #adminIndex nav .enlacesAdmin {
-  width: 70%;
   padding: 0;
   margin: 0;
   display: grid;
@@ -288,19 +291,17 @@ footer .contacto {
 }
 @media (max-width: 992px) {
   #adminIndex nav .enlacesAdmin {
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (max-width: 768px) {
   #adminIndex nav .enlacesAdmin {
-    grid-template-columns: repeat(2, 1fr);
-    width: 50%;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 576px) {
   #adminIndex nav .enlacesAdmin {
-    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 #adminIndex nav .enlacesAdmin a {
@@ -328,6 +329,12 @@ footer .contacto {
   #adminIndex nav .enlacesAdmin a {
     width: 8rem;
     height: 10rem;
+  }
+}
+@media (max-width: 576px) {
+  #adminIndex nav .enlacesAdmin a {
+    width: 7rem;
+    height: 9rem;
   }
 }
 #adminIndex nav .enlacesAdmin a::after {
@@ -576,6 +583,12 @@ footer .contacto {
     width: 60%;
   }
 }
+#libroIndv .datosLibro .tituloLibro h4 {
+  margin: 0 0 1rem;
+}
+#libroIndv .datosLibro .tituloLibro p {
+  margin: 0 0 1rem;
+}
 #libroIndv .datosLibro .tituloLibro #formDescargar {
   text-align: start;
 }
@@ -586,7 +599,7 @@ footer .contacto {
 #libroIndv .datosLibro .tituloLibro #formDescargar .form-group {
   display: flex;
   align-items: center;
-  margin: 0;
+  margin: 0 0 1rem;
 }
 #libroIndv #btnVolver {
   width: 6rem;
@@ -594,13 +607,30 @@ footer .contacto {
 #libroIndv form {
   text-align: start;
 }
+#libroIndv form .btn {
+  margin: 0;
+}
+#libroIndv .commentsAndStarts {
+  margin: 2rem 0 0;
+}
 #libroIndv .commentsAndStarts #formSubirVal {
-  display: inline;
-  margin: 0 0 0 0.25rem;
+  margin: 0 0 1.5rem 0;
+}
+#libroIndv .commentsAndStarts #formSubirComment {
+  margin: 0 0 1.5rem 0;
 }
 #libroIndv .commentsAndStarts #formSubirComment textarea {
   resize: none;
   width: 100%;
+}
+#libroIndv .commentsAndStarts .comments {
+  margin: 0 0 1.5rem 0;
+}
+#libroIndv .commentsAndStarts .comments table {
+  width: 100%;
+}
+#libroIndv .commentsAndStarts .comments table td {
+  border-bottom: 1px solid #b8a49a;
 }
 
 form {
