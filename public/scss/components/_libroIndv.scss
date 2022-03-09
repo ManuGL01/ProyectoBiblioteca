@@ -48,11 +48,45 @@
             @include response(sm){
                 width:60%;
             }
+
+            & #formDescargar{
+                text-align: start;
+
+                & label{
+                    font-size:$font-normal;
+                    margin:0 0 0 0.25rem;
+                }
+
+                & .form-group{
+                    display: flex;
+                    align-items: center;
+                    margin:0;
+                }
+                
+            }
         }
     }
 
-    & button{
+    & #btnVolver{
         width:6rem;
     }
+    & form{
+        text-align:start;
+    }
 
+    & .commentsAndStarts{
+
+        & #formSubirVal{
+            display:inline;
+            margin:0 0 0 0.25rem;
+        }
+
+        & #formSubirComment{
+
+            & textarea{
+                resize:none;
+                width:100%;
+            }
+        }
+    }
 }

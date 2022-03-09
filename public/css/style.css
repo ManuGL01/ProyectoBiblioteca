@@ -576,8 +576,31 @@ footer .contacto {
     width: 60%;
   }
 }
-#libroIndv button {
+#libroIndv .datosLibro .tituloLibro #formDescargar {
+  text-align: start;
+}
+#libroIndv .datosLibro .tituloLibro #formDescargar label {
+  font-size: 0.9rem;
+  margin: 0 0 0 0.25rem;
+}
+#libroIndv .datosLibro .tituloLibro #formDescargar .form-group {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+#libroIndv #btnVolver {
   width: 6rem;
+}
+#libroIndv form {
+  text-align: start;
+}
+#libroIndv .commentsAndStarts #formSubirVal {
+  display: inline;
+  margin: 0 0 0 0.25rem;
+}
+#libroIndv .commentsAndStarts #formSubirComment textarea {
+  resize: none;
+  width: 100%;
 }
 
 form {
