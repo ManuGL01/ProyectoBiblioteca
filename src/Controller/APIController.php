@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /* #[Route('api')] */
 class APIController extends AbstractController
 {
-    #[Route('/libros', name: 'api_libros')]
+    //#[Route('/libros', name: 'api_libros')]
     public function libros(LibroRepository $libroRepository):Response
     {
         $libros = $libroRepository
@@ -25,13 +25,13 @@ class APIController extends AbstractController
         return $this->json($libros, Response::HTTP_OK, [], ['groups' => 'infoLibros']);
     }
 
-    #[Route('/libros/{id}', name: 'api_libro_individual', methods: ['GET'])]
+    //#[Route('/libros/{id}', name: 'api_libro_individual', methods: ['GET'])]
     public function libro(Libro $libro):Response
     {
         return $this->json($libro, Response::HTTP_OK, [], ['groups' => 'infoLibroIndividual']);
     }
 
-    #[Route('/anadirComentario', name: 'api_comentario')]
+    //#[Route('/anadirComentario', name: 'api_comentario')]
     public function addComentario(LibroRepository $libroRepository, EntityManagerInterface $entityManager, Request $request):Response
     {
         try {
@@ -62,7 +62,7 @@ class APIController extends AbstractController
         ]);
     }
 
-    #[Route('/anadirValoracion', name: 'api_valoracion')]
+    //#[Route('/anadirValoracion', name: 'api_valoracion')]
     public function addValoracion(LibroRepository $libroRepository, EntityManagerInterface $entityManager, Request $request):Response
     {
         try {
