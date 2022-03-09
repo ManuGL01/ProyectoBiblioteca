@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-#[Route('/admin/libro')]
+#[Route('/libro')]
 class LibroController extends AbstractController
 {
     #[Route('/', name: 'libro_index', methods: ['GET'])]
