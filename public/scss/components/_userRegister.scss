@@ -42,7 +42,7 @@
             }
 
             @include response(md){
-                margin-left: 0;
+                margin-left: -0.5rem;
             }
 
             &:focus{
