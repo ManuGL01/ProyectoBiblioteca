@@ -29,7 +29,7 @@
     }
 
     & .librosYbuscador{
-        width: -webkit-fill-available;
+        width: inherit;
 
         @include response(md){
             margin:0 auto;

@@ -1,6 +1,55 @@
 #libroIndv{
     @include mainSection;
     flex-direction:column;
+    margin:2rem 0 0;
+
+    @include response(sm){
+        padding: 1.5rem 1rem 2.5rem;
+    }
+    
+    & .datosLibro{
+        display:flex;
+        justify-content:space-between;
+        width:80%;
+        margin:0 auto;
+
+        @include response(md){
+            width:90%;
+        }
+
+        & .img{
+            padding: 2rem;
+            box-shadow: 0 0 5px $color-black;
+
+            @include response(sm){
+                padding: 1rem;
+            }
+
+            & img{
+                width:15rem;
+
+                @include response(lg){
+                    width:10rem;
+                }
+
+                @include response(md){
+                    width:6rem;
+                }
+                @include response(sm){
+                    width:4rem;
+                    
+                }
+            }
+        }
+
+        & .tituloLibro{
+            width:58%;
+
+            @include response(sm){
+                width:60%;
+            }
+        }
+    }
 
     & button{
         width:6rem;
