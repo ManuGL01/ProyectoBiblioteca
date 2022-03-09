@@ -1,6 +1,15 @@
 import React from 'react'
 
-const Header = ({ userGlobal }) => {
+const myStorage2 = window.localStorage;
+
+const Header = ({ userGlobal, setUserGlobal }) => {
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    console.log("logout");
+    myStorage2.removeItem('bibliotecaLoggedUser');
+    setUserGlobal(false);
+  }
 
 
   return (
@@ -21,7 +30,7 @@ const Header = ({ userGlobal }) => {
               {userGlobal?.roles?.find(rol => rol === "ROLE_ADMIN") ? <a className="nav-link" href="/admin">Panel de administración</a> : null}
             </li>
             <li className="nav-item">
-              {userGlobal?.username ? <a className="nav-link" href="/logout">Cerrar sesión</a> : null }              
+              {userGlobal?.username ? <a className="nav-link" /* href="/logout" */ onClick={handleLogout}>Cerrar sesión</a> : null }              
             </li>
           </ul>
         </div>
