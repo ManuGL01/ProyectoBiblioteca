@@ -2,34 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Buscador from './Buscador';
 
+const url = `http://127.0.0.1:8000/api/libros`;
+
 const Libros = ({userGlobal}) => {
     const [libros, setLibros] = useState([]);
+    const [paginationInfo, setPaginationInfo] = useState({})
 
-    const getInfo = async () => {
-        try {
-            const url = `http://127.0.0.1:8000/api/libros`;
-            let respuesta = await fetch(url, {
-                headers: {
-                    'Accept': 'application/json',
-                },
-            });
+    const getInfo = async (url) => {
+        try {            
+            let respuesta = await fetch(url);
             let data = await respuesta.json();
-            //console.log(data);
-            setLibros(data);
+            console.log(data);
+            setLibros(data["hydra:member"]);
+            setPaginationInfo(data["hydra:view"]);
         } catch (error) {
             console.log(error);
         }
     };
 
+    const handleNext = () => {
+        getInfo(`http://127.0.0.1:8000${paginationInfo["hydra:next"]}`);
+    }
+
+    const handlePrevious = () => {
+        getInfo(`http://127.0.0.1:8000${paginationInfo["hydra:previous"]}`);
+    }
+
     useEffect(() => {
-        getInfo();
+        getInfo(url);
     }, []);
 
     return (
         <>
             <section className="librosYbuscador">
 
-            <Buscador /> 
+            <Buscador setLibros={setLibros}/> 
 
             {userGlobal?.username ? 
                 <section className='librosSinLogin'>
@@ -54,6 +61,17 @@ const Libros = ({userGlobal}) => {
                     ))}
                 </section>
             }
+            {
+                paginationInfo["hydra:first"] === paginationInfo["@id"] ?
+                null :
+                <button onClick={handlePrevious} className="btn">Anterior</button>
+            }
+            {
+                paginationInfo["@id"] === paginationInfo["hydra:last"] ?
+                null :
+                <button onClick={handleNext} className="btn">Siguiente</button>
+            }
+
 
             </section>
         </>
