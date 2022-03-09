@@ -11,7 +11,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'main')]
+    #[Route('/{reactRouting?}', name: 'main', requirements: ['reactRouting'=>'.+'])]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
          // if ($this->getUser()) {
