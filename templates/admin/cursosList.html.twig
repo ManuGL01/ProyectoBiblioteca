@@ -24,6 +24,8 @@
                 <td>{{ curso.edicion }}</td>
                 <td>
                     <a href="{{ path('curso_edit', {'id': curso.id}) }}">Editar</a>
+                    <a href="{{ path('curso_delete', {'id': curso.id}) }}">Eliminar</a>
+
                 </td>
             </tr>
         {% else %}
