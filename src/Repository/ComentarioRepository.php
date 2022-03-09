@@ -47,4 +47,13 @@ class ComentarioRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findCommentsDisapproved()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.aprobado = false')
+            ->orderBy('c.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

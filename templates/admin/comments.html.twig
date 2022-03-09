@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comentarios pendientes{% endblock %}
+
+{% block body %}
+{{ include('./admin/header.html.twig')}}
+
+<section id ="listaComment">
+	<h1>Lista de comentarios pendientes por aprobar</h1>
+	<button>
+	</button>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Comentario</th>
+				<th>Libro</th>
+				<th>Aprobado</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for comment in commentList %}
+				<tr>
+					<td>{{ comment.id }}</td>
+					<td>{{ comment.comentario }}</td>
+					<td>{{ comment.libro.titulo }}</td>
+					<td>{{ comment.aprobado }}</td>
+					<td>
+						<a href="{{ path('comment_ok', {'id': comment.id}) }}">Aprobar</a>
+					</td>
+
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Lista vacía</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<button>
+	<a href="{{ path('admin') }}">Volver ↩</a>
+	</button>
+</section>
+
+{{ include('./admin/footer.html.twig')}}
+{% endblock %}
