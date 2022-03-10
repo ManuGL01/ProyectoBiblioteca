@@ -5,6 +5,7 @@ import Buscador from './Buscador';
 const url = `http://127.0.0.1:8000/api/libros`;
 
 const Libros = ({ userGlobal }) => {
+  const [jsonData, setJsonData] = useState({});
   const [libros, setLibros] = useState([]);
   const [paginationInfo, setPaginationInfo] = useState({});
   const [multiplePages, setMultiplePages] = useState(false);
@@ -14,12 +15,13 @@ const Libros = ({ userGlobal }) => {
     try {
       let respuesta = await fetch(url);
       let data = await respuesta.json();
-      console.log(data);
-      setLibros(data["hydra:member"]);
+      //console.log(data);
+      setJsonData(data);
+      /* setLibros(data["hydra:member"]);
       if ("hydra:view" in data) {
         setPaginationInfo(data["hydra:view"]);
         setMultiplePages(true);
-      }
+      } */
     } catch (error) {
       console.log(error);
     }
@@ -37,11 +39,29 @@ const Libros = ({ userGlobal }) => {
     getInfo(url);
   }, []);
 
+  useEffect(() => {
+    console.log("effect jsondata");
+    //console.log(jsonData["hydra:member"]);
+    if ("hydra:member" in jsonData) {
+      setLibros(jsonData["hydra:member"]);
+    }
+    if ("hydra:view" in jsonData) {
+      if ("hydra:first" in jsonData["hydra:view"]) {
+        setPaginationInfo(jsonData["hydra:view"]);
+        setMultiplePages(true);
+      } else {
+        setPaginationInfo({});
+        setMultiplePages(false);
+      }
+    }
+  }, [jsonData])
+
+
   return (
     <>
       <section className="librosYbuscador">
 
-        <Buscador setLibros={setLibros} />
+        <Buscador setJsonData={setJsonData} />
 
         {userGlobal?.username ?
           <section className='librosSinLogin'>
@@ -85,8 +105,8 @@ const Libros = ({ userGlobal }) => {
 
         {multiplePages ?
           paginationInfo["@id"] === paginationInfo["hydra:last"] ?
-          null :
-          <button onClick={handleNext} className="btn">Siguiente</button> :
+            null :
+            <button onClick={handleNext} className="btn">Siguiente</button> :
           null}
 
       </section>
