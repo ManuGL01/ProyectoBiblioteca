@@ -76,7 +76,9 @@ h4{
 .bold{
     font-weight:bold;
 }
-
+.underline{
+    text-decoration: underline;
+}
 @import './components/header';
 @import './components/footer';
 @import './components/adminIndex';
@@ -88,3 +90,4 @@ h4{
 @import './components/list';
 @import './components/nuevoLibro';
 @import './components/newGrade.scss';
+@import './components/cookies.scss';

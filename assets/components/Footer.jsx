@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const Footer = () => {
   return (
@@ -7,6 +9,8 @@ const Footer = () => {
             <div className = "contacto">
                 <div className="copyright">
                     Copyright © 2022 ieshlanz. Todos los derechos reservados.
+                    <br></br>
+                    <Link className = "underline" to = "/cookies" >Politica de cookies</Link>
                 </div>
                 <ul id = "footer1">
                     <li className = "footer1">

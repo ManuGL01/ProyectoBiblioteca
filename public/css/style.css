@@ -88,6 +88,10 @@ h1 {
   font-weight: bold;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 header {
   display: flex;
 }
@@ -1045,6 +1049,26 @@ form .btn {
   color: #8a746a;
   text-decoration: none;
   align-self: flex-end;
+}
+
+#cookies {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 2.5rem 3.75rem 4rem;
+  flex-direction: column;
+}
+@media (max-width: 992px) {
+  #cookies {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #cookies {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+}
+#cookies h2, #cookies h3 {
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
