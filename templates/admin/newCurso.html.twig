@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Curso{% endblock %}
+{% block title %}Nuevo Curso{% endblock %}
 
 {% block body %}
-    <h1>Crear nuevo curso</h1>
-
-    {{ include('curso/_form.html.twig') }}
-
-    <a href="{{ path('admin') }}">Volver ↩</a>
+{{ include('./admin/header.html.twig')}}
+    <section id="newGrade">
+    <h2>Crear nuevo curso</h2>
+        <section class="formGrade">
+        {{ include('curso/_form.html.twig') }}
+        <a href="{{ path('admin') }}">Volver ↩</a>
+        </section>
+    </section>    
+{{ include('./admin/footer.html.twig')}}
 {% endblock %}

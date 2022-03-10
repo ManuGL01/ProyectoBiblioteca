@@ -150,7 +150,7 @@ const LibroIndv = ({ userGlobal }) => {
             <option value="val3">3</option>
             <option value="val4">4</option>
             <option value="val5">5</option>
-          </select>
+          </select>      
         </form>
 
         <form onSubmit={handleSubirComment} id="formSubirComment">

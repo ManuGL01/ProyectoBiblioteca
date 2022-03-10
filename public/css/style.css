@@ -971,4 +971,57 @@ form .btn {
   align-self: flex-end;
 }
 
+#newGrade {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 2.5rem 3.75rem 4rem;
+  align-items: center;
+  flex-direction: column;
+}
+@media (max-width: 992px) {
+  #newGrade {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  #newGrade {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+}
+#newGrade h2 {
+  margin: 1rem 1rem 2.5rem;
+}
+@media (max-width: 768px) {
+  #newGrade h2 {
+    margin: 1rem 0 2.5rem;
+  }
+}
+#newGrade .formGrade {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 2rem;
+  box-shadow: 0 0 5px #000;
+}
+@media (max-width: 576px) {
+  #newGrade .formGrade {
+    padding: 2rem 0;
+  }
+}
+#newGrade .formGrade label {
+  width: 100%;
+  margin: 1rem 0 1rem;
+  font-weight: bold;
+}
+#newGrade .formGrade button {
+  margin: 2.5rem 0 0;
+}
+#newGrade .formGrade a {
+  color: #8a746a;
+  text-decoration: none;
+  align-self: flex-end;
+}
+
 /*# sourceMappingURL=style.css.map */
