@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
+const defaultUrl = `http://127.0.0.1:8000/api/libros`;
+
 const Buscador = ({ setJsonData }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
+  const searchUrl = `http://127.0.0.1:8000/api/libros?titulo=${searchKeyword}`;
 
-  const getInfo = async () => {
+  const getInfo = async (url) => {
     try {
-      const url = `http://127.0.0.1:8000/api/libros?titulo=${searchKeyword}`;
       let respuesta = await fetch(url);
       let data = await respuesta.json();
       console.log(data);
@@ -18,9 +20,9 @@ const Buscador = ({ setJsonData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchKeyword.length === 0) {
-      return;
+      getInfo(defaultUrl);
     }
-    getInfo();
+    getInfo(searchUrl);
   }
 
   const handleChange = (e) => {
