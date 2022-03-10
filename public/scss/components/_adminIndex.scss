@@ -49,10 +49,6 @@
                     width:8rem;
                     height:10rem;
                 }
-                @include response(sm){
-                    width:7rem;
-                    height:9rem;
-                }
 
                 &::after{
                     content:"";

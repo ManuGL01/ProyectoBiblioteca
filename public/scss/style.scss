@@ -43,7 +43,7 @@ h4{
     overflow: hidden;
     display: inline-block;   
     color: $color-secondaryv2;
-    border-radius:0px;
+    border-radius:3px;
 
     &:focus{
         color: $color-secondaryv2;
@@ -91,7 +91,7 @@ h4{
     font-size:inherit;
     color:$color-black;
     width:4rem;
-    border-radius:0px;
+    border-radius:3px;
 
     &:focus{
         border: 1px solid $color-secondary;

@@ -53,7 +53,7 @@ h1 {
   overflow: hidden;
   display: inline-block;
   color: #8a746a;
-  border-radius: 0px;
+  border-radius: 3px;
 }
 .btn:focus {
   color: #8a746a;
@@ -102,7 +102,7 @@ h1 {
   font-size: inherit;
   color: #000;
   width: 4rem;
-  border-radius: 0px;
+  border-radius: 3px;
 }
 .custom-select:focus {
   border: 1px solid #b8a49a;
@@ -352,12 +352,6 @@ footer .contacto {
     height: 10rem;
   }
 }
-@media (max-width: 576px) {
-  #adminIndex nav .enlacesAdmin a {
-    width: 7rem;
-    height: 9rem;
-  }
-}
 #adminIndex nav .enlacesAdmin a::after {
   content: "";
   background-color: #b8a49a;
@@ -409,6 +403,9 @@ footer .contacto {
   .mainIndex {
     display: block;
   }
+}
+.mainIndex h4 {
+  font-size: 1.3rem;
 }
 .mainIndex form {
   width: 20%;
@@ -473,9 +470,10 @@ footer .contacto {
 .mainIndex .librosYbuscador .librosConLoguin {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1.25rem 1rem;
+  grid-auto-rows: 8rem;
+  grid-gap: 1rem;
 }
-@media (min-width: 1500px) {
+@media (min-width: 1400px) {
   .mainIndex .librosYbuscador .librosConLoguin {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -483,7 +481,6 @@ footer .contacto {
 @media (max-width: 768px) {
   .mainIndex .librosYbuscador .librosConLoguin {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem 0.75rem;
   }
 }
 @media (max-width: 576px) {
@@ -500,6 +497,7 @@ footer .contacto {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 @media (max-width: 992px) {
   .mainIndex .librosYbuscador .librosConLoguin .libroConLoguin {
@@ -516,7 +514,8 @@ footer .contacto {
   justify-content: center;
 }
 .mainIndex .librosYbuscador .librosSinLogin .libroSinLoguin {
-  width: 15rem;
+  width: 16rem;
+  height: 8rem;
   margin: 0 1rem 1rem 0;
   padding: 1rem;
   border-radius: 5px;
@@ -569,6 +568,11 @@ footer .contacto {
     width: 90%;
   }
 }
+@media (min-width: 1400px) {
+  #libroIndv .datosLibro {
+    width: 70%;
+  }
+}
 #libroIndv .datosLibro .img {
   padding: 2rem;
   box-shadow: 0 0 5px #000;
@@ -576,10 +580,11 @@ footer .contacto {
 @media (max-width: 576px) {
   #libroIndv .datosLibro .img {
     padding: 1rem;
+    height: 6rem;
   }
 }
 #libroIndv .datosLibro .img img {
-  width: 15rem;
+  width: 14rem;
 }
 @media (max-width: 992px) {
   #libroIndv .datosLibro .img img {
@@ -604,14 +609,34 @@ footer .contacto {
     width: 60%;
   }
 }
+@media (min-width: 1400px) {
+  #libroIndv .datosLibro .tituloLibro {
+    width: 60%;
+  }
+}
 #libroIndv .datosLibro .tituloLibro h4 {
   margin: 0 0 1rem;
+}
+@media (max-width: 768px) {
+  #libroIndv .datosLibro .tituloLibro h4 {
+    margin: 0 0 0.5rem;
+  }
 }
 #libroIndv .datosLibro .tituloLibro p {
   margin: 0 0 1rem;
 }
+@media (max-width: 768px) {
+  #libroIndv .datosLibro .tituloLibro p {
+    margin: 0 0 0.5rem;
+  }
+}
 #libroIndv .datosLibro .tituloLibro #formSubirVal {
   margin: 0 0 1.5rem;
+}
+@media (max-width: 768px) {
+  #libroIndv .datosLibro .tituloLibro #formSubirVal {
+    margin: 0 0 1rem;
+  }
 }
 #libroIndv .datosLibro .tituloLibro #formSubirVal select {
   padding: 0.5rem;
@@ -632,6 +657,11 @@ footer .contacto {
   align-items: center;
   margin: 0 0 1rem;
 }
+@media (max-width: 768px) {
+  #libroIndv .datosLibro .tituloLibro #formDescargar .form-group {
+    margin: 0 0 0.5rem;
+  }
+}
 #libroIndv #btnVolver {
   width: 6rem;
 }
@@ -642,20 +672,40 @@ footer .contacto {
   margin: 0;
 }
 #libroIndv .commentsAndStarts {
-  margin: 4rem 0 0;
+  margin: 4.5rem 0 0;
+}
+@media (max-width: 768px) {
+  #libroIndv .commentsAndStarts {
+    margin: 3.5rem 0 0;
+  }
+}
+@media (max-width: 576px) {
+  #libroIndv .commentsAndStarts {
+    margin: 1.75rem 0 0;
+  }
 }
 #libroIndv .commentsAndStarts h4 {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
 }
 #libroIndv .commentsAndStarts #formSubirComment {
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2.25rem 0;
+}
+@media (max-width: 768px) {
+  #libroIndv .commentsAndStarts #formSubirComment {
+    margin: 0 0 1.75rem 0;
+  }
 }
 #libroIndv .commentsAndStarts #formSubirComment textarea {
   resize: none;
   width: 100%;
 }
 #libroIndv .commentsAndStarts .comments {
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2.25rem 0;
+}
+@media (max-width: 768px) {
+  #libroIndv .commentsAndStarts .comments {
+    margin: 0 0 1.75rem 0;
+  }
 }
 #libroIndv .commentsAndStarts .comments table {
   width: 100%;
@@ -663,7 +713,7 @@ footer .contacto {
 #libroIndv .commentsAndStarts .comments table td {
   border-bottom: 1px solid #b8a49a;
   vertical-align: middle;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 form {
@@ -748,8 +798,14 @@ form .btn {
 #userRegister .oneUser {
   display: flex;
   flex-direction: column;
-  width: -webkit-fill-available;
+  width: 60%;
   border-right: 2px solid #000;
+  margin: 0 0 1.5rem;
+}
+@media (max-width: 768px) {
+  #userRegister .oneUser {
+    width: 100%;
+  }
 }
 #userRegister .moreUsers {
   display: flex;
@@ -805,6 +861,9 @@ form .btn {
 #userRegister .moreUsers .btn:hover::before {
   left: 0;
 }
+#userRegister .moreUsers label {
+  width: 100%;
+}
 #userRegister form {
   display: flex;
   justify-content: center;
@@ -825,13 +884,14 @@ form .btn {
 }
 #userRegister form #user div label {
   font-weight: bold;
+  margin: 0.5rem 0;
 }
 #userRegister form button {
   margin: 2.5rem 0;
 }
 @media (max-width: 768px) {
   #userRegister form button {
-    margin: 2.5rem 0 2.25rem;
+    margin: 2.5rem 0 1.5rem;
   }
 }
 #userRegister a {
@@ -901,6 +961,8 @@ form .btn {
   overflow: hidden;
   display: inline-block;
   color: #8a746a;
+  border-radius: 3px;
+  height: 3rem;
 }
 #listaLibros button a, #userList button a, .show1 button a, #edit button a, #commentList button a, #cursoList button a {
   color: black;
@@ -1097,7 +1159,16 @@ form .btn {
   }
 }
 #cookies h2, #cookies h3 {
-  margin-top: 1rem;
+  margin: 2rem 0 1rem;
+}
+#cookies button {
+  width: 6rem;
+  margin: 1.75rem 0 0;
+}
+@media (max-width: 992px) {
+  #cookies button {
+    margin: 1.25rem 0 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

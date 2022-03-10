@@ -33,6 +33,7 @@ $font-h3-sm: 1.5rem;
 
 $font-h4-sm:1rem;
 $font-h4-md:1.25rem;
+$font-h4-lg:1.3rem;
 
 //MIXINS
 @mixin response($var){
@@ -46,6 +47,10 @@ $font-h4-md:1.25rem;
         }
     }@else if $var == lg{
         @media (max-width : 992px){
+            @content;
+        }
+    }@else if $var == xl{
+        @media (min-width : 1400px){
             @content;
         }
     }
