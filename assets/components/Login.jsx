@@ -16,9 +16,13 @@ const Login = ({setUserGlobal}) => {
         },
         body: JSON.stringify(objectToUpload)
       });
-      console.log(response);
+      //console.log(response);
       const data = await response.json();
       console.log(data);
+      if ("error" in data) {
+        alert("Credenciales inválidas");
+        return;
+      }
       setUserGlobal(data);
 
     } catch (error) {

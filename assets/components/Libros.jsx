@@ -17,11 +17,7 @@ const Libros = ({ userGlobal }) => {
       let data = await respuesta.json();
       //console.log(data);
       setJsonData(data);
-      /* setLibros(data["hydra:member"]);
-      if ("hydra:view" in data) {
-        setPaginationInfo(data["hydra:view"]);
-        setMultiplePages(true);
-      } */
+      
     } catch (error) {
       console.log(error);
     }
@@ -86,17 +82,6 @@ const Libros = ({ userGlobal }) => {
             ))}
           </section>
         }
-        {/* {
-          paginationInfo["hydra:first"] === paginationInfo["@id"] ?
-            null :
-            <button onClick={handlePrevious} className="btn">Anterior</button>
-        }
-        {
-          paginationInfo["@id"] === paginationInfo["hydra:last"] ?
-            null :
-            <button onClick={handleNext} className="btn">Siguiente</button>
-        } */}
-
         {multiplePages ?
           paginationInfo["hydra:first"] === paginationInfo["@id"] ?
             null :

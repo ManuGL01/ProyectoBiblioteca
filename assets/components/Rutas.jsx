@@ -13,18 +13,18 @@ const Rutas = () => {
 
     useEffect(() => {
         if (typeof myStorage.getItem('bibliotecaLoggedUser') === "string") {
-            console.log("storage es string?? - siempre es string");
-            console.log(myStorage.getItem('bibliotecaLoggedUser'));
+            //console.log("storage es string?? - siempre es string");
+            //console.log(myStorage.getItem('bibliotecaLoggedUser'));
             setUserGlobal(JSON.parse(myStorage.getItem('bibliotecaLoggedUser')));
         } 
     }, [])
 
     useEffect(() => {
-        console.log("effect userglobal");
+        //console.log("effect userglobal");
         if (myStorage.getItem('bibliotecaLoggedUser') === null) {
-            console.log("storage es null");
+            //console.log("storage es null");
             if (userGlobal) {
-                console.log("entra");
+                //console.log("entra");
                 myStorage.setItem('bibliotecaLoggedUser', JSON.stringify(userGlobal));
             }
         } 
