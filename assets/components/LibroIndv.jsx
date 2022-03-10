@@ -124,6 +124,18 @@ const LibroIndv = ({ userGlobal }) => {
 
           <p>Puntuación: {media} de 5 <span className="little">({totalVal} valoraciones)</span></p>
 
+          <form onSubmit={handleSubirVal} id="formSubirVal">
+            <span className="mr-3">Valorarión: </span>
+            <select name="val" className="mr-3 custom-select">
+              <option value="val1">1</option>
+              <option value="val2">2</option>
+              <option value="val3">3</option>
+              <option value="val4">4</option>
+              <option value="val5">5</option>
+            </select> 
+            <button className="btn">Subir</button>    
+          </form>
+
           {
             userGlobal ?
               <form id="formDescargar" onSubmit={handleDescarga}>
@@ -142,28 +154,20 @@ const LibroIndv = ({ userGlobal }) => {
       </section>
 
       <section className="commentsAndStarts">
-        <form onSubmit={handleSubirVal} id="formSubirVal">
-          <span>Valoración: </span>
-          <select name="val">
-            <option value="val1">1</option>
-            <option value="val2">2</option>
-            <option value="val3">3</option>
-            <option value="val4">4</option>
-            <option value="val5">5</option>
-          </select>      
-        </form>
 
         <form onSubmit={handleSubirComment} id="formSubirComment">
-          <p>Subir comentario:</p>
+          <h4>Comentar:</h4>
           <textarea></textarea>
+          <button className="btn">Subir</button>
         </form>
 
         <section className="comments">
+          <h4>Comentarios</h4>
           <table>
             <tbody>
               {comments.map(comentario =>
                 <tr key={comentario.id}>
-                  <td className="bold mr-3">{comentario.autor.username}:</td>
+                  <td className="bold">{comentario.autor.username}:</td>
                   <td>{comentario.comentario}</td>
                 </tr>
               )}

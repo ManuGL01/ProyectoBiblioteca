@@ -57,6 +57,20 @@
                 margin:0 0 1rem;
             }
 
+            & #formSubirVal{
+            
+                margin:0 0 1.5rem;
+    
+                & select{
+                    padding:0.5rem;
+                    border:1px solid $color-secondary;
+                }
+    
+                & .btn{
+                    padding: 0.25rem 0.75rem;
+                }
+            }
+
             & #formDescargar{
                 text-align: start;
 
@@ -78,6 +92,7 @@
     & #btnVolver{
         width:6rem;
     }
+
     & form{
         text-align:start;
 
@@ -87,33 +102,33 @@
     }
 
     & .commentsAndStarts{
-        margin:2rem 0 0;
+        margin: 4rem 0 0;
 
-        & #formSubirVal{
-            
-            margin:0 0 1.5rem 0;
+        & h4{
+            margin:0 0 1.25rem;
         }
 
         & #formSubirComment{
+            margin: 0 0 2.5rem 0;
 
             & textarea{
                 resize:none;
                 width:100%;
             }
-            margin: 0 0 1.5rem 0;
         }
 
         & .comments{
-            
+            margin: 0 0 2.5rem 0;
+
             & table{
                 width:100%;
 
                 & td{
                     border-bottom:1px solid $color-secondary;
+                    vertical-align: middle;
+                    padding:1rem;
                 }
             }
-
-            margin: 0 0 1.5rem 0;
         }
     }
 }
