@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { saveAs } from 'file-saver';
 
 const descargaUrl = `http://127.0.0.1:8000/api/descargar`;
+const subirValoracionUrl = `http://127.0.0.1:8000/api/valoraciones`;
 
 const LibroIndv = ({ userGlobal }) => {
 
@@ -13,8 +14,9 @@ const LibroIndv = ({ userGlobal }) => {
   const [media, setMedia] = useState(0);
   const [totalVal, setTotalVal] = useState(0);
   const [comments, setComments] = useState([]);
+  const [selectValue, setSelectValue] = useState("1");
 
-  const getComments = async () => {
+  const getInfoLibro = async () => {
     try {
       const url = `http://localhost:8000/api/libros/${params.id}`;
       let respuesta = await fetch(url, {
@@ -31,7 +33,7 @@ const LibroIndv = ({ userGlobal }) => {
     }
   }
 
-  const fetchPost = async (url, objectToUpload) => {
+  const descargarArchivo = async (url, objectToUpload) => {
     //console.log(JSON.stringify(objectToUpload));
     try {
       const response = await fetch(url, {
@@ -51,6 +53,26 @@ const LibroIndv = ({ userGlobal }) => {
     }
   };
 
+  const subirElemento = async (url, objectToUpload) => {
+    console.log(JSON.stringify(objectToUpload));
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(objectToUpload)
+      });
+      //console.log(response);
+      const data = await response.json();
+      //console.log(data);
+      getInfoLibro();
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleDescarga = (e) => {
     e.preventDefault();
     if (!document.getElementById("aceptarTerminos").checked) {
@@ -65,11 +87,22 @@ const LibroIndv = ({ userGlobal }) => {
       idLibro: libro.id,
     }
     //console.log(data);
-    fetchPost(descargaUrl, data);
+    descargarArchivo(descargaUrl, data);
   }
 
-  const handleSubirVal = () => {
+  const handleSubirVal = (e) => {
+    e.preventDefault();
+    const objetoValoracion = {
+      puntuacion: parseInt(selectValue),
+      autor: `/api/users/${userGlobal.id}`,
+      libro: `/api/libros/${libro.id}`,
+    }
+    subirElemento(subirValoracionUrl, objetoValoracion);
+  }
 
+  const handleSelectChange = (e) => {
+    //console.log(event.target.value);
+    setSelectValue(e.target.value);
   }
 
   const handleSubirComment = () => {
@@ -90,8 +123,7 @@ const LibroIndv = ({ userGlobal }) => {
   }
 
   useEffect(() => {
-    getComments();
-
+    getInfoLibro();
   }, []);
 
   useEffect(() => {
@@ -126,12 +158,12 @@ const LibroIndv = ({ userGlobal }) => {
 
           <form onSubmit={handleSubirVal} id="formSubirVal">
             <span className="mr-3">Valorarión: </span>
-            <select name="val" className="mr-3 custom-select">
-              <option value="val1">1</option>
-              <option value="val2">2</option>
-              <option value="val3">3</option>
-              <option value="val4">4</option>
-              <option value="val5">5</option>
+            <select value={selectValue} onChange={handleSelectChange} name="val" className="mr-3 custom-select">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select> 
             <button className="btn">Subir</button>    
           </form>
