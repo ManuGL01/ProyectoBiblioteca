@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const myStorage2 = window.localStorage;
 const logoutUrl =  `http://127.0.0.1:8000/logout`;
@@ -25,7 +26,7 @@ const Header = ({ userGlobal, setUserGlobal }) => {
   return (
     <header>
       <nav className="navbar w-100">
-        <a href=""><img id="logo" src="/img/logo.png" alt="logoHLANZ" /></a>
+        <Link to="/"><img id="logo" src="/img/logo.png" alt="logoHLANZ" /></Link>
         <h1>BIBLIOTECA I.E.S. HLANZ</h1>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

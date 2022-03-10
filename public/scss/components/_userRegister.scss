@@ -15,9 +15,13 @@
     & .oneUser{    
         display : flex;
         flex-direction: column;
-        // Para que rellene todo lo que pueda
-        width: -webkit-fill-available;
+        width: 60%;
         border-right: 2px solid $color-black;
+        margin:0 0 1.5rem;
+
+        @include response(md){
+            width:100%;
+        }
     }
 
     & .moreUsers{    
@@ -72,7 +76,11 @@
         }
         & .btn:hover::before{
             left: 0;
-        }     
+        }
+        
+        & label{
+            width:100%;
+        }
     }
 
     & form{
@@ -95,6 +103,7 @@
                 
                 & label{
                     font-weight:bold;
+                    margin:0.5rem 0;
                 }
                 
             }
@@ -104,7 +113,7 @@
             margin: 2.5rem 0;
 
             @include response(md){
-                margin:2.5rem 0 2.25rem;
+                margin: 2.5rem 0 1.5rem;
             }
         }
        
@@ -121,8 +130,8 @@
         flex-direction: column;
 
         & .oneUser{
-                border-right: none;
-                border-bottom: 1px solid $color-black;
+            border-right: none;
+            border-bottom: 1px solid $color-black;
         }
         & form{
             margin: 2rem 0 1rem;

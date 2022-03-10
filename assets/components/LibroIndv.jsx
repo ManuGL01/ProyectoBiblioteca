@@ -158,7 +158,7 @@ const LibroIndv = ({ userGlobal }) => {
         <form onSubmit={handleSubirComment} id="formSubirComment">
           <h4>Comentar:</h4>
           <textarea></textarea>
-          <button className="btn">Subir</button>
+          <button className="btn mt-2">Subir</button>
         </form>
 
         <section className="comments">
