@@ -861,7 +861,6 @@ form .btn {
 }
 #listaLibros button, #userList button, .show1 button, #edit button, #commentList button, #cursoList button {
   width: 5rem;
-  margin-top: 10px;
   background-color: white !important;
   border: 1px solid #b8a49a !important;
   position: relative;
@@ -915,8 +914,32 @@ form .btn {
 #listaLibros table tr:nth-child(even), #userList table tr:nth-child(even), .show1 table tr:nth-child(even), #edit table tr:nth-child(even), #commentList table tr:nth-child(even), #cursoList table tr:nth-child(even) {
   background: #b8a49a;
 }
+#listaLibros table tr:nth-child(even) .eliminarbutton, #userList table tr:nth-child(even) .eliminarbutton, .show1 table tr:nth-child(even) .eliminarbutton, #edit table tr:nth-child(even) .eliminarbutton, #commentList table tr:nth-child(even) .eliminarbutton, #cursoList table tr:nth-child(even) .eliminarbutton {
+  border: none !important;
+  background-color: #b8a49a !important;
+  color: #000 !important;
+}
+#listaLibros table tr:nth-child(even) .eliminarbutton:hover, #userList table tr:nth-child(even) .eliminarbutton:hover, .show1 table tr:nth-child(even) .eliminarbutton:hover, #edit table tr:nth-child(even) .eliminarbutton:hover, #commentList table tr:nth-child(even) .eliminarbutton:hover, #cursoList table tr:nth-child(even) .eliminarbutton:hover {
+  color: white !important;
+  transition: all 0.2s ease-out !important;
+}
 #listaLibros table tr:nth-child(even) a:hover, #userList table tr:nth-child(even) a:hover, .show1 table tr:nth-child(even) a:hover, #edit table tr:nth-child(even) a:hover, #commentList table tr:nth-child(even) a:hover, #cursoList table tr:nth-child(even) a:hover {
   color: #FFF;
+}
+#listaLibros table tr:nth-child(odd) .eliminarbutton, #userList table tr:nth-child(odd) .eliminarbutton, .show1 table tr:nth-child(odd) .eliminarbutton, #edit table tr:nth-child(odd) .eliminarbutton, #commentList table tr:nth-child(odd) .eliminarbutton, #cursoList table tr:nth-child(odd) .eliminarbutton {
+  border: none !important;
+  color: #000 !important;
+}
+#listaLibros table tr:nth-child(odd) .eliminarbutton::before, #listaLibros table tr:nth-child(odd) .eliminarbutton::after, #userList table tr:nth-child(odd) .eliminarbutton::before, #userList table tr:nth-child(odd) .eliminarbutton::after, .show1 table tr:nth-child(odd) .eliminarbutton::before, .show1 table tr:nth-child(odd) .eliminarbutton::after, #edit table tr:nth-child(odd) .eliminarbutton::before, #edit table tr:nth-child(odd) .eliminarbutton::after, #commentList table tr:nth-child(odd) .eliminarbutton::before, #commentList table tr:nth-child(odd) .eliminarbutton::after, #cursoList table tr:nth-child(odd) .eliminarbutton::before, #cursoList table tr:nth-child(odd) .eliminarbutton::after {
+  width: 0%;
+}
+#listaLibros table tr:nth-child(odd) .eliminarbutton:hover, #userList table tr:nth-child(odd) .eliminarbutton:hover, .show1 table tr:nth-child(odd) .eliminarbutton:hover, #edit table tr:nth-child(odd) .eliminarbutton:hover, #commentList table tr:nth-child(odd) .eliminarbutton:hover, #cursoList table tr:nth-child(odd) .eliminarbutton:hover {
+  color: #b8a49a !important;
+  transition: all 0.2s ease-out !important;
+  background-color: white !important;
+}
+#listaLibros table tr:nth-child(odd) .eliminarbutton:hover::after, #userList table tr:nth-child(odd) .eliminarbutton:hover::after, .show1 table tr:nth-child(odd) .eliminarbutton:hover::after, #edit table tr:nth-child(odd) .eliminarbutton:hover::after, #commentList table tr:nth-child(odd) .eliminarbutton:hover::after, #cursoList table tr:nth-child(odd) .eliminarbutton:hover::after {
+  left: 0%;
 }
 
 #nuevoLibro {
