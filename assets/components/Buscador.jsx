@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Buscador = ({ setLibros }) => {
+const Buscador = ({ setJsonData }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const getInfo = async () => {
@@ -9,7 +9,7 @@ const Buscador = ({ setLibros }) => {
       let respuesta = await fetch(url);
       let data = await respuesta.json();
       console.log(data);
-      setLibros(data);
+      setJsonData(data);
     } catch (error) {
       console.log(error);
     }
