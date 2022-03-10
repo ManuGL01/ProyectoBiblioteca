@@ -169,7 +169,7 @@ class LibroController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('libro_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('libro_list', [], Response::HTTP_SEE_OTHER);
     }
 
 

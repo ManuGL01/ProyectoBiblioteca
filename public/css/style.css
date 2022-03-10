@@ -1011,6 +1011,7 @@ form .btn {
 }
 #listaLibros table tr:nth-child(even) .eliminarbutton, #userList table tr:nth-child(even) .eliminarbutton, .show1 table tr:nth-child(even) .eliminarbutton, #edit table tr:nth-child(even) .eliminarbutton, #commentList table tr:nth-child(even) .eliminarbutton, #cursoList table tr:nth-child(even) .eliminarbutton {
   border: none !important;
+  height: auto !important;
   background-color: #b8a49a !important;
   color: #000 !important;
 }
@@ -1024,6 +1025,7 @@ form .btn {
 #listaLibros table tr:nth-child(odd) .eliminarbutton, #userList table tr:nth-child(odd) .eliminarbutton, .show1 table tr:nth-child(odd) .eliminarbutton, #edit table tr:nth-child(odd) .eliminarbutton, #commentList table tr:nth-child(odd) .eliminarbutton, #cursoList table tr:nth-child(odd) .eliminarbutton {
   border: none !important;
   color: #000 !important;
+  height: auto !important;
 }
 #listaLibros table tr:nth-child(odd) .eliminarbutton::before, #listaLibros table tr:nth-child(odd) .eliminarbutton::after, #userList table tr:nth-child(odd) .eliminarbutton::before, #userList table tr:nth-child(odd) .eliminarbutton::after, .show1 table tr:nth-child(odd) .eliminarbutton::before, .show1 table tr:nth-child(odd) .eliminarbutton::after, #edit table tr:nth-child(odd) .eliminarbutton::before, #edit table tr:nth-child(odd) .eliminarbutton::after, #commentList table tr:nth-child(odd) .eliminarbutton::before, #commentList table tr:nth-child(odd) .eliminarbutton::after, #cursoList table tr:nth-child(odd) .eliminarbutton::before, #cursoList table tr:nth-child(odd) .eliminarbutton::after {
   width: 0%;

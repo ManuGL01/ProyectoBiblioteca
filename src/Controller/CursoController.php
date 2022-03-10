@@ -76,6 +76,6 @@ class CursoController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('curso_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('curso_list', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -97,6 +97,7 @@
             background: $color-secondary;
             & .eliminarbutton{
                 border: none !important;
+                height: auto !important;
                 background-color: $color-secondary!important;
                 color: $color-black !important;
                 
@@ -114,6 +115,7 @@
             & .eliminarbutton{
                 border: none !important;
                 color: $color-black !important;
+                height: auto !important;
                 &::before , &::after{
                     width: 0%;
                 }
