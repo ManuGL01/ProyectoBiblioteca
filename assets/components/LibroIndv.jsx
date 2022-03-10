@@ -41,10 +41,10 @@ const LibroIndv = ({ userGlobal }) => {
         },
         body: JSON.stringify(objectToUpload)
       });
-      console.log(response);
+      //console.log(response);
       const file = await response.blob();      
-      console.log(file);
-      //saveAs(file, "libro.epub");
+      //console.log(file);
+      //saveAs(file, "libro.epub"); //este le cambia el nombre a lo que pone en el segundo parámetro. A lo mejor se podría tomar del estado?
       saveAs(file);
     } catch (error) {
       console.log(error);
@@ -58,9 +58,9 @@ const LibroIndv = ({ userGlobal }) => {
       return;
     }
     const data = {
-      //url: libro.url,
+      url: libro.url,
       tituloLibro: libro.titulo,
-      url: "../public/test.epub",
+      //url: "../public/books/A/A-ciegas-Claudio-Magris-6216578286703.epub",
       idUser: userGlobal.id,
       idLibro: libro.id,
     }
