@@ -141,7 +141,14 @@ const LibroIndv = ({ userGlobal }) => {
   }
 
   const comprobarYaValorado = () => {
-    console.log("hay valoraciones");
+    //console.log("hay valoraciones");
+    for (const valoracion of libro.valoraciones) {
+      //console.log(valoracion); 
+      if (valoracion.autor.id === userGlobal.id) {
+        //console.log("ya valorado");
+        setYaValorado(true);
+      }
+    }
   }
 
   useEffect(() => {
@@ -183,17 +190,19 @@ const LibroIndv = ({ userGlobal }) => {
 
           {
             userGlobal ?
-              <form onSubmit={handleSubirVal} id="formSubirVal">
-                <span className="mr-3">Valorarión: </span>
-                <select value={selectValue} onChange={handleSelectChange} name="val" className="mr-3 custom-select">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-                <button className="btn">Subir</button>
-              </form> :
+              yaValorado ?
+                <p style={{ opacity: 0.5 }}>Ya ha valorado este libro</p>
+                : <form onSubmit={handleSubirVal} id="formSubirVal">
+                  <span className="mr-3">Valorarión: </span>
+                  <select value={selectValue} onChange={handleSelectChange} name="val" className="mr-3 custom-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <button className="btn">Subir</button>
+                </form> :
               null
           }
 
