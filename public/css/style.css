@@ -850,7 +850,7 @@ form .btn {
 #listaLibros #form form, #userList #form form, .show1 #form form, #edit #form form, #commentList #form form, #cursoList #form form {
   margin: 1rem;
 }
-#listaLibros #form form #user, #userList #form form #user, .show1 #form form #user, #edit #form form #user, #commentList #form form #user, #cursoList #form form #user {
+#listaLibros #form form #user, #listaLibros #form form #curso, #userList #form form #user, #userList #form form #curso, .show1 #form form #user, .show1 #form form #curso, #edit #form form #user, #edit #form form #curso, #commentList #form form #user, #commentList #form form #curso, #cursoList #form form #user, #cursoList #form form #curso {
   display: flex;
   flex-direction: column;
 }

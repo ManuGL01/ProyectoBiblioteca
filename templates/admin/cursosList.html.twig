@@ -4,16 +4,18 @@
 
 {% block body %}
 {{ include('./admin/header.html.twig')}}
-
+    <section id ="cursoList">
     <h1>lista de cursos</h1>
 
-    <section id ="cursoList">
+    
     <table class="table">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Abreviatura</th>
                 <th>Edicion</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -24,8 +26,12 @@
                 <td>{{ curso.edicion }}</td>
                 <td>
                     <a href="{{ path('curso_edit', {'id': curso.id}) }}">Editar</a>
-                    <a href="{{ path('curso_delete', {'id': curso.id}) }}">Eliminar</a>
-
+                </td>
+                <td> 
+                    <form method="post" action="{{ path('curso_delete', {'id': curso.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ curso.id) }}">
+                        <button class="btn">Delete</button>
+                    </form>
                 </td>
             </tr>
         {% else %}
