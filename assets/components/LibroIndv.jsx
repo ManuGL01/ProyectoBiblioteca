@@ -4,6 +4,7 @@ import { saveAs } from 'file-saver';
 
 const descargaUrl = `http://127.0.0.1:8000/api/descargar`;
 const subirValoracionUrl = `http://127.0.0.1:8000/api/valoraciones`;
+const subirComentarioUrl = `http://127.0.0.1:8000/api/comentarios`;
 
 const LibroIndv = ({ userGlobal }) => {
 
@@ -15,6 +16,8 @@ const LibroIndv = ({ userGlobal }) => {
   const [totalVal, setTotalVal] = useState(0);
   const [comments, setComments] = useState([]);
   const [selectValue, setSelectValue] = useState("1");
+  const [textareaValue, setTextareaValue] = useState("");
+  const [yaValorado, setYaValorado] = useState(false);
 
   const getInfoLibro = async () => {
     try {
@@ -44,7 +47,7 @@ const LibroIndv = ({ userGlobal }) => {
         body: JSON.stringify(objectToUpload)
       });
       //console.log(response);
-      const file = await response.blob();      
+      const file = await response.blob();
       //console.log(file);
       //saveAs(file, "libro.epub"); //este le cambia el nombre a lo que pone en el segundo parámetro. A lo mejor se podría tomar del estado?
       saveAs(file);
@@ -105,8 +108,23 @@ const LibroIndv = ({ userGlobal }) => {
     setSelectValue(e.target.value);
   }
 
-  const handleSubirComment = () => {
+  const handleSubirComment = (e) => {
+    e.preventDefault();
+    if (textareaValue === "") {
+      alert("comentario vacío");
+      return;
+    }
+    const objetoComentario = {
+      comentario: textareaValue,
+      autor: `/api/users/${userGlobal.id}`,
+      libro: `/api/libros/${libro.id}`,
+    }
+    subirElemento(subirComentarioUrl, objetoComentario);
+    setTextareaValue("");
+  }
 
+  const handleTextareaChange = (e) => {
+    setTextareaValue(e.target.value);
   }
 
   const handleVolver = () => {
@@ -122,6 +140,10 @@ const LibroIndv = ({ userGlobal }) => {
     setMedia(valor.toFixed(1));
   }
 
+  const comprobarYaValorado = () => {
+    console.log("hay valoraciones");
+  }
+
   useEffect(() => {
     getInfoLibro();
   }, []);
@@ -130,6 +152,9 @@ const LibroIndv = ({ userGlobal }) => {
     if ("id" in libro) {
       setTotalVal(libro.valoraciones?.length);
       setComments(libro.comentarios);
+      if ("valoraciones" in libro) {
+        comprobarYaValorado();
+      }
     }
   }, [libro]);
 
@@ -156,17 +181,21 @@ const LibroIndv = ({ userGlobal }) => {
 
           <p>Puntuación: {media} de 5 <span className="little">({totalVal} valoraciones)</span></p>
 
-          <form onSubmit={handleSubirVal} id="formSubirVal">
-            <span className="mr-3">Valorarión: </span>
-            <select value={selectValue} onChange={handleSelectChange} name="val" className="mr-3 custom-select">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select> 
-            <button className="btn">Subir</button>    
-          </form>
+          {
+            userGlobal ?
+              <form onSubmit={handleSubirVal} id="formSubirVal">
+                <span className="mr-3">Valorarión: </span>
+                <select value={selectValue} onChange={handleSelectChange} name="val" className="mr-3 custom-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <button className="btn">Subir</button>
+              </form> :
+              null
+          }
 
           {
             userGlobal ?
@@ -186,12 +215,15 @@ const LibroIndv = ({ userGlobal }) => {
       </section>
 
       <section className="commentsAndStarts">
-
-        <form onSubmit={handleSubirComment} id="formSubirComment">
-          <h4>Comentar:</h4>
-          <textarea></textarea>
-          <button className="btn">Subir</button>
-        </form>
+        {
+          userGlobal ?
+            <form onSubmit={handleSubirComment} id="formSubirComment">
+              <h4>Comentar:</h4>
+              <textarea value={textareaValue} onChange={handleTextareaChange}></textarea>
+              <button className="btn">Subir</button>
+            </form> :
+            null
+        }
 
         <section className="comments">
           <h4>Comentarios</h4>
