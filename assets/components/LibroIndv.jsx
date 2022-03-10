@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { saveAs } from 'file-saver';
 
 const descargaUrl = `http://127.0.0.1:8000/api/descargar`;
 
@@ -22,7 +23,7 @@ const LibroIndv = ({ userGlobal }) => {
         },
       });
       let data = await respuesta.json();
-      console.log(data);
+      //console.log(data);
       setLibro(data);
 
     } catch (e) {
@@ -40,9 +41,11 @@ const LibroIndv = ({ userGlobal }) => {
         },
         body: JSON.stringify(objectToUpload)
       });
-      const data = await response.json();
-      console.log(data);
-
+      console.log(response);
+      const file = await response.blob();      
+      console.log(file);
+      //saveAs(file, "libro.epub");
+      saveAs(file);
     } catch (error) {
       console.log(error);
     }
@@ -50,11 +53,16 @@ const LibroIndv = ({ userGlobal }) => {
 
   const handleDescarga = (e) => {
     e.preventDefault();
-
+    if (!document.getElementById("aceptarTerminos").checked) {
+      alert("Debe aceptar los términos");
+      return;
+    }
     const data = {
-      url: libro.url,
+      //url: libro.url,
+      tituloLibro: libro.titulo,
+      url: "../public/test.epub",
       idUser: userGlobal.id,
-      libroId: libro.id,
+      idLibro: libro.id,
     }
     //console.log(data);
     fetchPost(descargaUrl, data);
@@ -116,14 +124,18 @@ const LibroIndv = ({ userGlobal }) => {
 
           <p>Puntuación: {media} de 5 <span className="little">({totalVal} valoraciones)</span></p>
 
-          <form id="formDescargar" onSubmit={handleDescarga}>
-            <div className="form-group">
-              <input type="checkbox" name="aceptar" id="aceptarTerminos" />
-              <label htmlFor="aceptarTerminos">Acepto los términos de descarga</label>
-            </div>
+          {
+            userGlobal ?
+              <form id="formDescargar" onSubmit={handleDescarga}>
+                <div className="form-group">
+                  <input type="checkbox" name="aceptar" id="aceptarTerminos" />
+                  <label htmlFor="aceptarTerminos">Acepto los términos de descarga</label>
+                </div>
 
-            <button className="btn" name="descargar">Descargar</button>
-          </form>
+                <button className="btn" name="descargar">Descargar</button>
+              </form> :
+              null
+          }
 
         </div>
 

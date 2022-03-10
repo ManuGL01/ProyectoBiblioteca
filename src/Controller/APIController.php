@@ -6,9 +6,12 @@ use App\Entity\Libro;
 use App\Entity\Comentario;
 use App\Entity\Valoracion;
 use App\Repository\LibroRepository;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -109,6 +112,7 @@ class APIController extends AbstractController
             $url = $data['url']; //viene del json
             $idUser = $data['idUser']; //viene del json
             $idLibro = $data['idLibro']; //viene del json
+            $tituloLibro = $data['tituloLibro']; //viene del json
 
             $user = $userRepository->findOneById($idUser); //objeto user
             $libro = $libroRepository->findOneById($idLibro); //objeto libro
@@ -119,11 +123,20 @@ class APIController extends AbstractController
 
             $file = $url;
             $response = new BinaryFileResponse($file);
+            // Intentar asignar nombre al archivo, pero no funciona
+            $disposition = HeaderUtils::makeDisposition(
+                HeaderUtils::DISPOSITION_ATTACHMENT,
+                $tituloLibro.'.epub'
+            );
+            $response->headers->set('Content-Disposition', $disposition);
 
             return $response;
 
         } catch (\Exception $e) {
             $message = $e->getMessage();
+            return $this->json([
+                'message' => $message,
+            ]);
         }
     }
     
