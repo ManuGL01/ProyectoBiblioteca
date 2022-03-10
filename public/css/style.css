@@ -53,6 +53,7 @@ h1 {
   overflow: hidden;
   display: inline-block;
   color: #8a746a;
+  border-radius: 0px;
 }
 .btn:focus {
   color: #8a746a;
@@ -86,6 +87,22 @@ h1 {
 
 .bold {
   font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.custom-select {
+  display: inline;
+  font-size: inherit;
+  color: #000;
+  width: 4rem;
+  border-radius: 0px;
+}
+.custom-select:focus {
+  border: 1px solid #b8a49a;
+  box-shadow: none;
 }
 
 header {
@@ -589,6 +606,16 @@ footer .contacto {
 #libroIndv .datosLibro .tituloLibro p {
   margin: 0 0 1rem;
 }
+#libroIndv .datosLibro .tituloLibro #formSubirVal {
+  margin: 0 0 1.5rem;
+}
+#libroIndv .datosLibro .tituloLibro #formSubirVal select {
+  padding: 0.5rem;
+  border: 1px solid #b8a49a;
+}
+#libroIndv .datosLibro .tituloLibro #formSubirVal .btn {
+  padding: 0.25rem 0.75rem;
+}
 #libroIndv .datosLibro .tituloLibro #formDescargar {
   text-align: start;
 }
@@ -611,26 +638,28 @@ footer .contacto {
   margin: 0;
 }
 #libroIndv .commentsAndStarts {
-  margin: 2rem 0 0;
+  margin: 4rem 0 0;
 }
-#libroIndv .commentsAndStarts #formSubirVal {
-  margin: 0 0 1.5rem 0;
+#libroIndv .commentsAndStarts h4 {
+  margin: 0 0 1.25rem;
 }
 #libroIndv .commentsAndStarts #formSubirComment {
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 2.5rem 0;
 }
 #libroIndv .commentsAndStarts #formSubirComment textarea {
   resize: none;
   width: 100%;
 }
 #libroIndv .commentsAndStarts .comments {
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 2.5rem 0;
 }
 #libroIndv .commentsAndStarts .comments table {
   width: 100%;
 }
 #libroIndv .commentsAndStarts .comments table td {
   border-bottom: 1px solid #b8a49a;
+  vertical-align: middle;
+  padding: 1rem;
 }
 
 form {
