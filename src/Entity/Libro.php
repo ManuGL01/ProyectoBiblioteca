@@ -7,6 +7,7 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 
 use App\Repository\LibroRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -30,6 +31,7 @@ use Doctrine\ORM\Mapping as ORM;
     ],
 )]
 #[ApiFilter(SearchFilter::class, properties: ['titulo' => 'partial', 'autor' => 'partial'])]
+#[ApiFilter(OrderFilter::class, properties: ['id', 'titulo'], arguments: ['orderParameterName' => 'order'])]
 class Libro
 {
     #[Groups(['infoLibros', 'infoLibroIndividual', 'anadirValoracion'])]

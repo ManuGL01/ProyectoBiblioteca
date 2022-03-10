@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const defaultUrl = `http://127.0.0.1:8000/api/libros`;
+const defaultUrl = `http://127.0.0.1:8000/api/libros?order%5Btitulo%5D=asc`;
 
 const Buscador = ({ setJsonData }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
-  const searchUrl = `http://127.0.0.1:8000/api/libros?titulo=${searchKeyword}`;
+  const searchUrl = `http://127.0.0.1:8000/api/libros?order%5Btitulo%5D=asc&titulo=${searchKeyword}`;
 
   const getInfo = async (url) => {
     try {
