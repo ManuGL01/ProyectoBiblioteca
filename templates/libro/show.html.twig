@@ -4,8 +4,9 @@
 
 {% block body %}
 {{ include('./admin/header.html.twig')}}
-<section class="show1">
-    <h1>Libro</h1>
+
+<section class="mostrar">
+    <h2>Libro</h2>
 
     <table class="table">
         <tbody>
@@ -28,7 +29,12 @@
         </tbody>
     </table>
 
-    <a href="{{ path('libro_lists') }}">back to list</a>
-    </section>
-    {{ include('./admin/footer.html.twig')}}
+    <div>
+		<button>
+		<a href="{{ path('libro_list') }}">Volver ↩</a>
+		</button>
+	</div>
+</section>
+
+{{ include('./admin/footer.html.twig')}}
 {% endblock %}

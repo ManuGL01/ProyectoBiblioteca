@@ -211,7 +211,7 @@ const LibroIndv = ({ userGlobal }) => {
               <form id="formDescargar" onSubmit={handleDescarga}>
                 <div className="form-group">
                   <input type="checkbox" name="aceptar" id="aceptarTerminos" />
-                  <label htmlFor="aceptarTerminos">Acepto no hacer pública ni usar esta descarga con fines lucrativos</label>
+                  <label htmlFor="aceptarTerminos">Acepto no hacer pública ni usar esta descarga con fines lucrativos.</label>
                 </div>
 
                 <button className="btn" name="descargar">Descargar</button>
