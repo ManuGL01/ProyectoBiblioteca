@@ -1,32 +1,19 @@
-#listaLibros , #userList, .show1, #edit, #commentList, #cursoList {
+#listaLibros, #userList, #commentList, #cursoList, .mostrar{
     @include mainSection;
     flex-direction: column;
     overflow: scroll;
     text-align: center;
 
-    & h1 {
-        margin:1rem 1rem 2.5rem;
+    & h2{
+        margin: 1rem 1rem 2.5rem;
     }
-    & #form {
-        
-        margin: 0 auto;
-        border: 1px solid $color-black;
-        width: fit-content;
-        box-shadow: 0 0 5px $color-black;
-        & form {
-            margin: 1rem;
-            
-            & #user, #curso {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-    }
+
     & div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
+
     & button {
         width: 5rem;
         background-color: white !important;
@@ -52,7 +39,7 @@
         &:focus{
             color: $color-secondaryv2;
             outline: 0;
-            box-shadow: 0 0 0 0.2rem $color-secondary !important;
+            //box-shadow: 0 0 0 0.2rem $color-secondary;
         }
 
         &::before , &::after{
@@ -67,25 +54,29 @@
             transition: all 0.2s ease-out;
         }
     }
+
     & button:hover{
         color: white;
     }
+
     & button:hover::after{
         left: 50%;
     }
+
     & button:hover::before{
         left: 0;
     }
+
     & table{
 
-        
         & tr {
             & td {
-                
+
                 & a {
                     color : black;
                     
                 }
+
                 & a:hover {
                     text-decoration:none;
                     color : $color-secondaryv2;
@@ -93,46 +84,50 @@
                 }
             }
         }
+
         & tr:nth-child(even) {
             background: $color-secondary;
+
             & .eliminarbutton{
-                border: none !important;
-                height: auto !important;
                 background-color: $color-secondary!important;
-                color: $color-black !important;
-                
             }
+
             & .eliminarbutton:hover{
-                color: white !important;
-                transition: all 0.2s ease-out !important;
+                color: $color-white !important;
+                transition: 0.2s ease-out !important;
             }
 
             & a:hover{
                 color:$color-white;
             }
         }
+
         & tr:nth-child(odd) {
+
             & .eliminarbutton{
-                border: none !important;
-                color: $color-black !important;
-                height: auto !important;
+                background-color: $bg-color!important;
+
                 &::before , &::after{
                     width: 0%;
                 }
-                
             }
+
             & .eliminarbutton:hover{
                 color: $color-secondary !important;
-                transition: all 0.2s ease-out !important;
-                background-color: white !important;
+                transition: 0.2s ease-out !important;
             }
+            
             & .eliminarbutton:hover::after{
                 left: 0%;
             }
-
         };
     }
 
-
+    & .eliminarbutton{
+        border: none !important;
+        height: auto !important;
+        color: $color-black !important;
     }
+
+}
     

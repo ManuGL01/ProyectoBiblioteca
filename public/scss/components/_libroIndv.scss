@@ -23,7 +23,16 @@
 
         & .img{
             padding: 2rem;
+            height: 18rem;
             box-shadow: 0 0 5px $color-black;
+
+            @include response(lg){
+                height: 14rem;
+            }
+
+            @include response(md){
+                height: 10rem;
+            }
 
             @include response(sm){
                 padding: 1rem;
@@ -97,6 +106,7 @@
                 & label{
                     font-size:$font-normal;
                     margin:0 0 0 0.25rem;
+                    line-height: 0px;
                 }
 
                 & .form-group{
@@ -150,6 +160,7 @@
             & textarea{
                 resize:none;
                 width:100%;
+                margin:0 0 0.5rem;
             }
         }
 

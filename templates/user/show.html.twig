@@ -4,8 +4,9 @@
 
 {% block body %}
 {{ include('./admin/header.html.twig')}}
-<section class="show1">
-    <h1>User</h1>
+
+<section class="mostrar">
+    <h2>Usuario</h2>
 
     <table class="table">
         <tbody>
@@ -22,10 +23,6 @@
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
             <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-            <tr>
                 <th>DNI</th>
                 <td>{{ user.DNI }}</td>
             </tr>
@@ -36,7 +33,12 @@
         </tbody>
     </table>
 
-    <a href="{{ path('user_lists') }}">back to list</a>
-    </section>
-    {{ include('./admin/footer.html.twig')}}
+    <div>
+		<button>
+		<a href="{{ path('user_list') }}">Volver ↩</a>
+		</button>
+	</div>
+</section>
+
+{{ include('./admin/footer.html.twig')}}
 {% endblock %}

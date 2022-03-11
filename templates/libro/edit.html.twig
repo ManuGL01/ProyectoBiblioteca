@@ -4,14 +4,16 @@
 
 {% block body %}
 {{ include('./admin/header.html.twig')}}
-<section id = "edit">
-    <h1>Edit Libro</h1>
-    <div id = "form">
-    {{ include('libro/_form.html.twig', {'button_label':'Update'}) }}
-    </div>
-    <button>
-	<a href="{{ path('libro_list') }}">Volver ↩</a>
-	</button>
+
+<section class = "edit">
+    <h2>Editar libro</h2>
+
+    <section class="form">
+        {{ include('libro/_form.html.twig', {'button_label':'Actualizar'}) }}
+        <a href="{{ path('libro_list') }}">Volver ↩</a>
+    </section>
+
 </section>
+
 {{ include('./admin/footer.html.twig')}}
 {% endblock %}
