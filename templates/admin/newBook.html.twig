@@ -6,17 +6,17 @@
 {% block body %}
 {{ include('./admin/header.html.twig')}}
 
-	<section id="nuevoLibro">
-		<h2>Crear nuevo libro</h2>
+<section class="nuevo">
+	<h2>Crear nuevo libro</h2>
 
-		<section class="form">
-			{{ include('libro/_form.html.twig') }}
-			<a href="{{ path('admin') }}">Volver ↩</a>
-		</section>
-			
-		{# <h1>Subir varios libros</h1>																											
-		{{ include('libro/multiple_form.html.twig') }} #}
+	<section class="form">
+		{{ include('libro/_form.html.twig') }}
+		<a href="{{ path('admin') }}">Volver ↩</a>
 	</section>
+			
+	{# <h1>Subir varios libros</h1>																											
+	{{ include('libro/multiple_form.html.twig') }} #}
+</section>
 
 {{ include('./admin/footer.html.twig')}}
 {% endblock %}

@@ -4,12 +4,16 @@
 
 {% block body %}
 {{ include('./admin/header.html.twig')}}
-    <section id="newGrade">
+
+<section class="nuevo">
     <h2>Crear nuevo curso</h2>
-        <section class="formGrade">
-        {{ include('curso/_form.html.twig') }}
-        <a href="{{ path('admin') }}">Volver ↩</a>
+
+        <section class="form">
+            {{ include('curso/_form.html.twig') }}
+            <a href="{{ path('admin') }}">Volver ↩</a>
         </section>
-    </section>    
+
+</section>
+
 {{ include('./admin/footer.html.twig')}}
 {% endblock %}

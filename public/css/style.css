@@ -58,7 +58,7 @@ h1 {
 .btn:focus {
   color: #8a746a;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem #b8a49a !important;
+  box-shadow: unset !important;
 }
 .btn::before, .btn::after {
   content: "";
@@ -94,6 +94,9 @@ h1 {
 }
 
 .underline {
+  text-decoration: underline;
+}
+.underline:hover {
   text-decoration: underline;
 }
 
@@ -728,6 +731,9 @@ footer .contacto {
   vertical-align: middle;
   padding: 0.5rem;
 }
+#libroIndv .commentsAndStarts .comments table td:first-child {
+  width: 25%;
+}
 
 form {
   text-align: center;
@@ -926,7 +932,7 @@ form .btn {
   }
 }
 
-#listaLibros, #userList, #commentList, #cursoList, .mostrar {
+.lista, .mostrar {
   display: flex;
   flex: 1 0 auto;
   padding: 2.5rem 3.75rem 4rem;
@@ -935,24 +941,24 @@ form .btn {
   text-align: center;
 }
 @media (max-width: 992px) {
-  #listaLibros, #userList, #commentList, #cursoList, .mostrar {
+  .lista, .mostrar {
     padding: 2rem 2.25rem 2.5rem;
   }
 }
 @media (max-width: 768px) {
-  #listaLibros, #userList, #commentList, #cursoList, .mostrar {
+  .lista, .mostrar {
     padding: 1.5rem 2rem 2.5rem;
   }
 }
-#listaLibros h2, #userList h2, #commentList h2, #cursoList h2, .mostrar h2 {
+.lista h2, .mostrar h2 {
   margin: 1rem 1rem 2.5rem;
 }
-#listaLibros div, #userList div, #commentList div, #cursoList div, .mostrar div {
+.lista div, .mostrar div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-#listaLibros button, #userList button, #commentList button, #cursoList button, .mostrar button {
+.lista button, .mostrar button {
   width: 5rem;
   background-color: white !important;
   border: 1px solid #b8a49a !important;
@@ -964,19 +970,15 @@ form .btn {
   border-radius: 3px;
   height: 3rem;
 }
-#listaLibros button a, #userList button a, #commentList button a, #cursoList button a, .mostrar button a {
+.lista button a, .mostrar button a {
   color: black;
 }
-#listaLibros button a:hover, #userList button a:hover, #commentList button a:hover, #cursoList button a:hover, .mostrar button a:hover {
+.lista button a:hover, .mostrar button a:hover {
   color: #FFF;
   text-decoration: none;
   transition: 0.2s ease-out;
 }
-#listaLibros button:focus, #userList button:focus, #commentList button:focus, #cursoList button:focus, .mostrar button:focus {
-  color: #8a746a;
-  outline: 0;
-}
-#listaLibros button::before, #listaLibros button::after, #userList button::before, #userList button::after, #commentList button::before, #commentList button::after, #cursoList button::before, #cursoList button::after, .mostrar button::before, .mostrar button::after {
+.lista button::before, .lista button::after, .mostrar button::before, .mostrar button::after {
   content: "";
   z-index: -1;
   position: absolute;
@@ -988,56 +990,56 @@ form .btn {
   /* color de fondo hover */
   transition: all 0.2s ease-out;
 }
-#listaLibros button:hover, #userList button:hover, #commentList button:hover, #cursoList button:hover, .mostrar button:hover {
+.lista button:hover, .mostrar button:hover {
   color: white;
 }
-#listaLibros button:hover::after, #userList button:hover::after, #commentList button:hover::after, #cursoList button:hover::after, .mostrar button:hover::after {
+.lista button:hover::after, .mostrar button:hover::after {
   left: 50%;
 }
-#listaLibros button:hover::before, #userList button:hover::before, #commentList button:hover::before, #cursoList button:hover::before, .mostrar button:hover::before {
+.lista button:hover::before, .mostrar button:hover::before {
   left: 0;
 }
-#listaLibros table tr td a, #userList table tr td a, #commentList table tr td a, #cursoList table tr td a, .mostrar table tr td a {
+.lista table tr td a, .mostrar table tr td a {
   color: black;
 }
-#listaLibros table tr td a:hover, #userList table tr td a:hover, #commentList table tr td a:hover, #cursoList table tr td a:hover, .mostrar table tr td a:hover {
+.lista table tr td a:hover, .mostrar table tr td a:hover {
   text-decoration: none;
   color: #8a746a;
   transition: 0.2s ease-out;
 }
-#listaLibros table tr:nth-child(even), #userList table tr:nth-child(even), #commentList table tr:nth-child(even), #cursoList table tr:nth-child(even), .mostrar table tr:nth-child(even) {
+.lista table tr:nth-child(even), .mostrar table tr:nth-child(even) {
   background: #b8a49a;
 }
-#listaLibros table tr:nth-child(even) .eliminarbutton, #userList table tr:nth-child(even) .eliminarbutton, #commentList table tr:nth-child(even) .eliminarbutton, #cursoList table tr:nth-child(even) .eliminarbutton, .mostrar table tr:nth-child(even) .eliminarbutton {
+.lista table tr:nth-child(even) .eliminarbutton, .mostrar table tr:nth-child(even) .eliminarbutton {
   background-color: #b8a49a !important;
 }
-#listaLibros table tr:nth-child(even) .eliminarbutton:hover, #userList table tr:nth-child(even) .eliminarbutton:hover, #commentList table tr:nth-child(even) .eliminarbutton:hover, #cursoList table tr:nth-child(even) .eliminarbutton:hover, .mostrar table tr:nth-child(even) .eliminarbutton:hover {
+.lista table tr:nth-child(even) .eliminarbutton:hover, .mostrar table tr:nth-child(even) .eliminarbutton:hover {
   color: #FFF !important;
   transition: 0.2s ease-out !important;
 }
-#listaLibros table tr:nth-child(even) a:hover, #userList table tr:nth-child(even) a:hover, #commentList table tr:nth-child(even) a:hover, #cursoList table tr:nth-child(even) a:hover, .mostrar table tr:nth-child(even) a:hover {
+.lista table tr:nth-child(even) a:hover, .mostrar table tr:nth-child(even) a:hover {
   color: #FFF;
 }
-#listaLibros table tr:nth-child(odd) .eliminarbutton, #userList table tr:nth-child(odd) .eliminarbutton, #commentList table tr:nth-child(odd) .eliminarbutton, #cursoList table tr:nth-child(odd) .eliminarbutton, .mostrar table tr:nth-child(odd) .eliminarbutton {
+.lista table tr:nth-child(odd) .eliminarbutton, .mostrar table tr:nth-child(odd) .eliminarbutton {
   background-color: #fafafa !important;
 }
-#listaLibros table tr:nth-child(odd) .eliminarbutton::before, #listaLibros table tr:nth-child(odd) .eliminarbutton::after, #userList table tr:nth-child(odd) .eliminarbutton::before, #userList table tr:nth-child(odd) .eliminarbutton::after, #commentList table tr:nth-child(odd) .eliminarbutton::before, #commentList table tr:nth-child(odd) .eliminarbutton::after, #cursoList table tr:nth-child(odd) .eliminarbutton::before, #cursoList table tr:nth-child(odd) .eliminarbutton::after, .mostrar table tr:nth-child(odd) .eliminarbutton::before, .mostrar table tr:nth-child(odd) .eliminarbutton::after {
+.lista table tr:nth-child(odd) .eliminarbutton::before, .lista table tr:nth-child(odd) .eliminarbutton::after, .mostrar table tr:nth-child(odd) .eliminarbutton::before, .mostrar table tr:nth-child(odd) .eliminarbutton::after {
   width: 0%;
 }
-#listaLibros table tr:nth-child(odd) .eliminarbutton:hover, #userList table tr:nth-child(odd) .eliminarbutton:hover, #commentList table tr:nth-child(odd) .eliminarbutton:hover, #cursoList table tr:nth-child(odd) .eliminarbutton:hover, .mostrar table tr:nth-child(odd) .eliminarbutton:hover {
+.lista table tr:nth-child(odd) .eliminarbutton:hover, .mostrar table tr:nth-child(odd) .eliminarbutton:hover {
   color: #b8a49a !important;
   transition: 0.2s ease-out !important;
 }
-#listaLibros table tr:nth-child(odd) .eliminarbutton:hover::after, #userList table tr:nth-child(odd) .eliminarbutton:hover::after, #commentList table tr:nth-child(odd) .eliminarbutton:hover::after, #cursoList table tr:nth-child(odd) .eliminarbutton:hover::after, .mostrar table tr:nth-child(odd) .eliminarbutton:hover::after {
+.lista table tr:nth-child(odd) .eliminarbutton:hover::after, .mostrar table tr:nth-child(odd) .eliminarbutton:hover::after {
   left: 0%;
 }
-#listaLibros .eliminarbutton, #userList .eliminarbutton, #commentList .eliminarbutton, #cursoList .eliminarbutton, .mostrar .eliminarbutton {
+.lista .eliminarbutton, .mostrar .eliminarbutton {
   border: none !important;
   height: auto !important;
   color: #000 !important;
 }
 
-#nuevoLibro, .edit {
+.nuevo, .edit {
   display: flex;
   flex: 1 0 auto;
   padding: 2.5rem 3.75rem 4rem;
@@ -1045,24 +1047,24 @@ form .btn {
   flex-direction: column;
 }
 @media (max-width: 992px) {
-  #nuevoLibro, .edit {
+  .nuevo, .edit {
     padding: 2rem 2.25rem 2.5rem;
   }
 }
 @media (max-width: 768px) {
-  #nuevoLibro, .edit {
+  .nuevo, .edit {
     padding: 1.5rem 2rem 2.5rem;
   }
 }
-#nuevoLibro h2, .edit h2 {
+.nuevo h2, .edit h2 {
   margin: 1rem 1rem 2.5rem;
 }
 @media (max-width: 768px) {
-  #nuevoLibro h2, .edit h2 {
+  .nuevo h2, .edit h2 {
     margin: 1rem 0 2.5rem;
   }
 }
-#nuevoLibro .form, .edit .form {
+.nuevo .form, .edit .form {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1072,71 +1074,19 @@ form .btn {
   box-shadow: 0 0 5px #000;
 }
 @media (max-width: 576px) {
-  #nuevoLibro .form, .edit .form {
+  .nuevo .form, .edit .form {
     padding: 2rem 0;
   }
 }
-#nuevoLibro .form label, .edit .form label {
+.nuevo .form label, .edit .form label {
   width: 100%;
-  margin: 0 0 1rem;
-}
-#nuevoLibro .form button, .edit .form button {
-  margin: 2.5rem 0 0;
-}
-#nuevoLibro .form a, .edit .form a {
-  color: #8a746a;
-  text-decoration: none;
-  align-self: flex-end;
-}
-
-#newGrade {
-  display: flex;
-  flex: 1 0 auto;
-  padding: 2.5rem 3.75rem 4rem;
-  align-items: center;
-  flex-direction: column;
-}
-@media (max-width: 992px) {
-  #newGrade {
-    padding: 2rem 2.25rem 2.5rem;
-  }
-}
-@media (max-width: 768px) {
-  #newGrade {
-    padding: 1.5rem 2rem 2.5rem;
-  }
-}
-#newGrade h2 {
-  margin: 1rem 1rem 2.5rem;
-}
-@media (max-width: 768px) {
-  #newGrade h2 {
-    margin: 1rem 0 2.5rem;
-  }
-}
-#newGrade .formGrade {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #000;
-  padding: 2rem;
-  box-shadow: 0 0 5px #000;
-}
-@media (max-width: 576px) {
-  #newGrade .formGrade {
-    padding: 2rem 0;
-  }
-}
-#newGrade .formGrade label {
-  width: 100%;
-  margin: 1rem 0 1rem;
+  margin: 1rem 0;
   font-weight: bold;
 }
-#newGrade .formGrade button {
+.nuevo .form button, .edit .form button {
   margin: 2.5rem 0 0;
 }
-#newGrade .formGrade a {
+.nuevo .form a, .edit .form a {
   color: #8a746a;
   text-decoration: none;
   align-self: flex-end;

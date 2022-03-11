@@ -1,4 +1,4 @@
-#listaLibros, #userList, #commentList, #cursoList, .mostrar{
+.lista, .mostrar{
     @include mainSection;
     flex-direction: column;
     overflow: scroll;
@@ -28,18 +28,12 @@
 
         & a {
             color : black;
-            
-            
         }
+
         & a:hover {
             color: $color-white;
             text-decoration:none;
             transition: .2s ease-out;
-        }
-        &:focus{
-            color: $color-secondaryv2;
-            outline: 0;
-            //box-shadow: 0 0 0 0.2rem $color-secondary;
         }
 
         &::before , &::after{
@@ -70,6 +64,7 @@
     & table{
 
         & tr {
+
             & td {
 
                 & a {
