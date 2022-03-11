@@ -10,6 +10,10 @@
 
 Symfony 5 (parte administrativa de la aplicación), React 17 (parte del usuario final), SASS, CSS3 y HTML5. Bundles de symfony: API Platform, Paginator.
 
+
+React en: /assets
+Sass en: /public/scss
+
 **Instalación:**
 
 * composer install (instala las dependencias de symfony).

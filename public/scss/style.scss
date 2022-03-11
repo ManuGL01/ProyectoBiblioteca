@@ -52,7 +52,7 @@ h4{
     &:focus{
         color: $color-secondaryv2;
         outline: 0;
-        box-shadow: unset!important;
+        box-shadow: 0 0 0 0.1rem $color-secondary !important;
     }
 
     &::before , &::after{

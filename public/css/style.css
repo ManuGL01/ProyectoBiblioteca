@@ -58,7 +58,7 @@ h1 {
 .btn:focus {
   color: #8a746a;
   outline: 0;
-  box-shadow: unset !important;
+  box-shadow: 0 0 0 0.1rem #b8a49a !important;
 }
 .btn::before, .btn::after {
   content: "";
@@ -958,18 +958,6 @@ form .btn {
   flex-direction: row;
   justify-content: space-between;
 }
-.lista button, .mostrar button {
-  width: 5rem;
-  background-color: white !important;
-  border: 1px solid #b8a49a !important;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  display: inline-block;
-  color: #8a746a;
-  border-radius: 3px;
-  height: 3rem;
-}
 .lista button a, .mostrar button a {
   color: black;
 }
@@ -978,26 +966,8 @@ form .btn {
   text-decoration: none;
   transition: 0.2s ease-out;
 }
-.lista button::before, .lista button::after, .mostrar button::before, .mostrar button::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  top: 0;
-  left: -50%;
-  background-color: #b8a49a !important;
-  /* color de fondo hover */
-  transition: all 0.2s ease-out;
-}
-.lista button:hover, .mostrar button:hover {
-  color: white;
-}
-.lista button:hover::after, .mostrar button:hover::after {
-  left: 50%;
-}
-.lista button:hover::before, .mostrar button:hover::before {
-  left: 0;
+.lista .btnComment, .mostrar .btnComment {
+  width: 6rem;
 }
 .lista table tr td a, .mostrar table tr td a {
   color: black;
@@ -1080,11 +1050,11 @@ form .btn {
 }
 .nuevo .form label, .edit .form label {
   width: 100%;
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem;
   font-weight: bold;
 }
 .nuevo .form button, .edit .form button {
-  margin: 2.5rem 0 0;
+  margin: 1.75rem 0 0.75rem;
 }
 .nuevo .form a, .edit .form a {
   color: #8a746a;
