@@ -28,6 +28,7 @@ Symfony 5 (parte administrativa de la aplicación), React 17 (parte del usuario 
 
 crear en local: proyectobiblioteca
 
+
 ejecutar: php bin/console doctrine:schema:update
 
 **Integrantes:**
