@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Buscador from './Buscador';
 
-const url = `http://127.0.0.1:8000/api/libros?order%5Btitulo%5D=asc`;
+const url = `/api/libros?order%5Btitulo%5D=asc`;
 
 const Libros = ({ userGlobal }) => {
   const [jsonData, setJsonData] = useState({});
@@ -24,11 +24,11 @@ const Libros = ({ userGlobal }) => {
   };
 
   const handleNext = () => {
-    getInfo(`http://127.0.0.1:8000${paginationInfo["hydra:next"]}`);
+    getInfo(`${paginationInfo["hydra:next"]}`);
   }
 
   const handlePrevious = () => {
-    getInfo(`http://127.0.0.1:8000${paginationInfo["hydra:previous"]}`);
+    getInfo(`${paginationInfo["hydra:previous"]}`);
   }
 
   useEffect(() => {

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { saveAs } from 'file-saver';
 
-const descargaUrl = `http://127.0.0.1:8000/api/descargar`;
-const subirValoracionUrl = `http://127.0.0.1:8000/api/valoraciones`;
-const subirComentarioUrl = `http://127.0.0.1:8000/api/comentarios`;
+const descargaUrl = `/api/descargar`;
+const subirValoracionUrl = `/api/valoraciones`;
+const subirComentarioUrl = `/api/comentarios`;
 
 const LibroIndv = ({ userGlobal }) => {
 
@@ -21,7 +21,7 @@ const LibroIndv = ({ userGlobal }) => {
 
   const getInfoLibro = async () => {
     try {
-      const url = `http://localhost:8000/api/libros/${params.id}`;
+      const url = `/api/libros/${params.id}`;
       let respuesta = await fetch(url, {
         headers: {
           'Accept': 'application/json',

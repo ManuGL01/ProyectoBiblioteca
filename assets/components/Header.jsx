@@ -1,7 +1,7 @@
 import React from 'react'
 
 const myStorage2 = window.localStorage;
-const logoutUrl =  `http://127.0.0.1:8000/logout`;
+const logoutUrl =  `/logout`;
 
 const Header = ({ userGlobal, setUserGlobal }) => {
 
