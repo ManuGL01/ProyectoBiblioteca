@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
+ * @UniqueEntity(fields={"username"}, message="Ya existe una cuenta con este nombre de usuario")
  */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource(
@@ -52,7 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255)]
     private $email;
 
-    #[ORM\ManyToOne(targetEntity: Curso::class, inversedBy: 'alumnos', )]
+    #[ORM\ManyToOne(targetEntity: Curso::class, inversedBy: 'alumnos' )]
     #[ORM\JoinColumn(nullable: true)]
     private $curso;
 
@@ -62,7 +62,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'autor', targetEntity: Comentario::class)]
     private $comentarios;
 
-    #[ORM\OneToMany(mappedBy: 'autor', targetEntity: Valoracion::class)]
+    #[ORM\OneToMany(mappedBy: 'autor', targetEntity: Valoracion::class, orphanRemoval:true)]
     private $valoraciones;
 
     public function __construct()
