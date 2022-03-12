@@ -32,7 +32,7 @@ Sass en: /public/scss
 
 * crear en local: proyectobiblioteca
 
-* ejecutar: php bin/console doctrine:schema:update
+* ejecutar: php bin/console doctrine:schema:update ó importar archivo sql
 
 **Integrantes:**
 
